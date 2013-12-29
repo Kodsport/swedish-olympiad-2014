@@ -32,7 +32,7 @@ int main() {
     }
 
     int cc = 0;
-    for (int t = 0; t < 3600; ++t) {
+    for (int t = 0; t < 24*60; ++t) {
         vector<pair<int,int> > &ads_list = ads[cc];
         bool switched = false;
         for (int i = 0; i < ads_list.size(); ++i) {
