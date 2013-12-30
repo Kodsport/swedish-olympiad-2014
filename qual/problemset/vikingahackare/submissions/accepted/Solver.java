@@ -1,6 +1,8 @@
 import java.util.*;
 import java.io.*;
 
+// @EXPECTED_SCORE@: 100
+
 public class Solver {
 	
 	public static void main(String[] args) throws IOException {
