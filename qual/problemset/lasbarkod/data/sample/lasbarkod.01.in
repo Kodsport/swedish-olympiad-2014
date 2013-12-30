@@ -1,0 +1,1 @@
+Max=Min;inf=-1;Min=Min<inf?Min:inf;
