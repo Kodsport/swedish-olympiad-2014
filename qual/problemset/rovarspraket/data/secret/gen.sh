@@ -11,11 +11,11 @@ SOLVER=osk_dp
 subfolders=(g0 g1 g2 g3 g4 g5 g6 g7 g8 g9)
 for i in ${subfolders[@]}
 do
-    if [ -f $i ]
+    if [ ! -d $i ]
     then
         mkdir $i
     fi
-    if [ -f $i/testdata.yaml ]
+    if [ ! -f $i/testdata.yaml ]
     then
         touch $i/testdata.yaml
         echo "grader_flags: min" > $i/testdata.yaml

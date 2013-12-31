@@ -4,13 +4,17 @@ I rövarspråket översätter man text man skrivit genom att ersätta alla konso
 
 Oskar har precis lärt sig rövarspråket, men glömmer ibland bort att ändra vissa konsonanter. Oskar översätter alltså bara en \emph{delmängd} av konsonanterna på ovanstående vis. Du kommer att få en ursprungstext och en potentiell översättning som Oskar har gjort. Du ska avgöra om det är möjligt att Oskar översatte den första strängen till den andra enligt beskrivningen ovan.
 
-Om Oskar hade skrivit \texttt{hejoj} kan den ursprungliga texten till exempel varit \texttt{hej} eller \texttt{hejoj}. För tydlighets skull så definierar vi följande bokstäver som vokaler: \texttt{a,e,i,o,u,y} och alla andra bokstäver är då konsonanter. (\texttt{å,ä,ö} kan inte finnas med i orden och är därför inte intressanta)
+Om Oskar hade skrivit \texttt{hejoj} kan den ursprungliga texten till exempel varit \texttt{hej} eller \texttt{hejoj}. För tydlighets skull så definierar vi följande bokstäver som vokaler: \texttt{a,e,i,o,u,y} och alla andra bokstäver är då konsonanter.
 
 \section*{Indata}
-Den första raden innehåller ordet som vi undrar om det kan ha varit usprungstexten. Den andra raden innehåller ett ord som Oskar har skrivit. Båda orden innehåller minst ett tecken och bara tecken \texttt{a-z}.
+Den första raden innehåller ordet som vi undrar om det kan ha varit usprungstexten. Den andra raden innehåller ett ord som Oskar har skrivit. Båda orden innehåller minst ett tecken och bara tecken \texttt{a-z} och endast små bokstäver. Ingen sträng är längre än 1000 tecken.
 
 \section*{Utdata}
 Utdata ska bestå av ett enda ord: \texttt{ja} om det är möjligt att det andra ordet är en översättning av det första, annars \texttt{nej}. Svaret ska alltså vara \texttt{ja} om och endast om det går att välja någon delmängd av konsonanterna i det första ordet och applicera rövarspråktransform så att man får det senare ordet.
 
 \section*{Delpoäng}
-?
+\begin{itemize}
+    \item För 20\% av poängen gäller att stränglängderna är max 20.
+    \item För 50\% av poängen gäller att stränglängderna är max 100.
+    \item För 100\% av poängen gäller att stränglängderna är max 1000.
+\end{itemize}

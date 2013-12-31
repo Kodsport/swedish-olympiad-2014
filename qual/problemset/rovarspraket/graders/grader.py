@@ -9,9 +9,8 @@ else:
   for line in sys.stdin.readlines():
     verdict, score = line.split()
     total_score += float(score)
-  if total_score >= 3:
-    print "AC 2"
-  elif total_score >= 2:
-    print "AC 1"
+
+  if total_score > 0:
+    print "AC", int(total_score)*10
   else:
-    print "AC 0"
+    print "WA 0"
