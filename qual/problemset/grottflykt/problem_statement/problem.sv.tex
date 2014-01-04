@@ -1,0 +1,8 @@
+\problemname{Fly grottan}
+Du håller på att utforska en grotta och råkar väcka en arg björn. Björnen är större och snabbare än dig, så din enda chans är att överlista den för att ta dig ut. Grottan kan representeras som ett rektangulärt bräde bestående av väggar och en utgång. Du och björnen kan förflytta er i riktningarna upp, ner, höger eller vänster men kan inte gå igenom väggar. Varje gång efter att du förflyttat dig ett steg så kan björnen förflytta sig 2, men som tur är så använder den en korkad AI. Först kollar den om det är möjligt att komma närmare dig (fågelvägen) genom att gå till höger eller vänster, och förflyttar sig i så fall. Om den har något steg kvar så kollar den sedan om den kan komma närmare genom att gå upp eller ner. Det är alltså möjligt att björnen förflyttar sig 0, 1, eller 2 steg beroende på om den är blockerad av väggar eller inte. Givet beskrivningen av grottan är det din uppgift att ta fram en sekvens av förflyttningar som tar dig till utgången utan att bli fångad av björnen (du blir fångad om ni någon gång befinner er på samma position).
+
+\section*{Indata}
+På första raden två heltal $w$ och $h$. Sedan följer $h$ rader med $w$ tecken var, en beskrivning av grottan. En vägg beskrivs med '#', spelarens startposition med 'S', utgången med 'U' och björnen med 'B'.
+
+\section*{Utdata}
+En rad med en sträng bestående av tecken 'U' för upp, 'N' för ner, 'H' för höger och 'V' för vänster. Det är garanterat att det alltid finns en lösning.
