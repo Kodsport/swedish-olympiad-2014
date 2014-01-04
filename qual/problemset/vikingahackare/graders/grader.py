@@ -24,7 +24,10 @@ else:
       rte += 1
     total_score += float(score)
   if total_score:
-    print "AC", int(total_score)*10
+    score = int(total_score)
+    if "multiply_10" in sys.argv:
+      score *= 10
+    print "AC", score
   else:
     if rte:
       print "RTE 0"

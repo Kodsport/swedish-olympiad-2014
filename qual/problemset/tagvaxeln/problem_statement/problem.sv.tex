@@ -1,0 +1,31 @@
+\problemname{Tågväxeln}
+
+Växelholm är en väldigt liten stad som ligger långt ute på landet. Den består faktiskt endast av
+en enda byggnad - Växelholms tågstation. Staden har också bara en invånare, nämligen tågstationens
+föreståndare, Lokas. 
+
+Lokas jobb går i huvudsak ut på att operera stationens manuella tågväxel, så att de två pendeltågen
+som passerar genom staden åker åt rätt håll. Tågen går periodiskt med $n$ respektive $m$ minuters
+mellanrum, med första avgång $n$ och $m$ minuter efter midnatt. Tågen åker alltså ut från stationen
+åt samma håll men åker sedan ut på två olika spår, som delas upp av en växel.
+
+Nu har Lokas arbetsgivare JS, Järnvägarnas Stat, bestämt att Lokas ska få lön baserat på hur många
+gånger han måste ändra växeln på en dag. Eftersom JS vill betala Lokas så lite lön som möjligt undrar de
+vad det minsta antalet gånger som Lokas måste ändra på växeln är.
+
+Lokas ska ändra växeln enligt reglerna:
+\begin{enumerate}
+\item Om ett tåg ska avgå, och växeln är fel inställd, måste Lokas ändra växeln till rätt spår.
+\item Om båda tåg ska avgå samma minut, så avgår först det tåg som växeln är inställd för, och sedan ska Lokas ändra växeln till det andra tågets spår.
+\end{enumerate}
+
+I början är växeln inställd på spåret för det tåg som avgår först. 
+
+Skriv ett program som beräknar det minsta antalet gånger Lokas måste ändra växeln under ett helt dygn.
+Tågen avgår bara under minuterna 00:00 till 23:59. 
+
+\section*{Indata}
+Ditt program ska ta emot de två heltalen $n$ och $m$, där $n \not= m$, som är perioden för tågens avgång, angiven i minuter.
+
+\section*{Utdata}
+Du ska skriva ut det minsta antalet gånger som Lokas måste ändra växeln.
