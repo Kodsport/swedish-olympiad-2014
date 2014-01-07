@@ -45,7 +45,4 @@ int main() {
     }
 
     cout << result.size() << endl;
-    for (set<string>::iterator it = result.begin(); it != result.end(); ++it) {
-        cout << *it << endl;
-    }
 }
