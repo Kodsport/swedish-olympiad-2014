@@ -1,0 +1,24 @@
+\problemname{Dansmatta}
+En dansmatta består av fyra pilar riktade upp, höger, ner och vänster. När man spelar dansmatta får man en sekvens av pilar som man ska stampa på i takt med musiken. Ibland kan två pilar komma upp samtidigt, så man måste göra ett hopp. Man kan alltid stå kvar på en pil även om man inte måste trycka ner den. 
+
+<bild av en dansmatta>
+
+Johan hoppar runt på sin dansmatta nästan varje dag, men tycker det är svårt att hinna flytta sina fötter ibland. Därför vill han ha hjälp med att spela en låt så optimalt som möjligt - här innebär det alltså att flytta sina fötter så få gånger som möjligt.
+
+I början har Johan sin ena fot på den vänstra pilen, och sin andra fot på den högra.
+
+Givet en låt och vilka 1 eller 2 pilar som måste vara nedtryckta i varje takt, beräkna det minsta antalet förflyttningar som Johan måste göra för att träffa alla pilar. Att byta plats på båda fötter i ett hopp räknas som två förflyttningar. 
+
+
+\section*{Indata}
+Den första raden består av det positiva heltalet $n \le 100\,000$, antal takter i låten.
+
+Sedan följer en rad för varje takt. Varje rad består av en sträng med antingen en och två bokstäver som är några av \texttt{U}, \texttt{H}, \texttt{N} eller \texttt{V} för "upp", "höger", "ner", "vänster" respektive. Dessa är pilarna som måste vara nedtryckta under takten.
+
+\section*{Utdata}
+Den första och enda raden ska bestå av ett heltal $F$, det minsta antalet förflyttningar Johan måste göra.
+
+\section*{Delpoäng}
+I testfall värda 10 poäng kommer Johan bara trycka på en pil varje takt.
+
+I testfall värda \emph{ytterligare} 30 poäng är $n \le 2\,000$.
