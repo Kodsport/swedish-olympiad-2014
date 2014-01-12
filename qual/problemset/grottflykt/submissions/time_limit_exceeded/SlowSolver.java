@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solver {
+public class SlowSolver {
 	
 	static final char WALL = '#', EMPTY = '.', BEAR = 'B', PLAYER = 'S', EXIT = 'U';
 	static final char[] DIR_CHARS = {'V', 'H', 'U', 'N'};
@@ -9,8 +9,8 @@ public class Solver {
 	static int[] d;
 	static char[] grid;
 	static int W, H;
-	static StringBuilder res;
-	static boolean[][] visited;
+	static int player, bear;
+	static char[] res;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -26,7 +26,6 @@ public class Solver {
 		for (int i = 0; i < W; i++) {
 			grid[i] = grid[W*(H-1) + i] = WALL;
 		}
-		int bear = -1, player = -1;
 		for (int i = 1; i <= h; i++) {
 			grid[W*i] = grid[W*i + W - 1] = WALL;
 			String s = in.readLine();
@@ -42,9 +41,12 @@ public class Solver {
 				grid[W*i + j] = c;
 			}
 		}
-		visited = new boolean[W*H][W*H];
-		solve(player, bear);
-		out.println(res.reverse());
+		for (int maxDepth = 0; ; maxDepth++) {
+			if (solve(0, maxDepth)) {
+				out.println(String.valueOf(res));
+				break;
+			}
+		}
 		
 		in.close();
 		out.close();
@@ -54,32 +56,33 @@ public class Solver {
 		return Math.abs(p1/W - p2/W) + Math.abs(p1%W - p2%W);
 	}
 	
-	static boolean solve(int player, int bear) {
+	static boolean solve(int depth, int maxDepth) {
 		if (grid[player] == EXIT) {
-			res = new StringBuilder();
+			res = new char[depth];
 			return true;
 		}
-		if (visited[player][bear]) return false;
-		visited[player][bear] = true;
-		if (player == bear) return false;
-		
+		if (player == bear || depth == maxDepth) return false;
+		int oldPlayer = player, oldBear = bear;
 		for (int playerDir = 0; playerDir < 4; playerDir++) {
 			int newPlayer = player + d[playerDir];
 			if (newPlayer != bear && grid[newPlayer] != WALL) {
-				int newBear = bear;
+				player = newPlayer;
+				
 				// Move bear
 				int movesLeft = 2;
 				for (int bearDir = 0; bearDir < 4; bearDir++) {
-					int newBear2 = newBear + d[bearDir];
-					if (movesLeft > 0 && grid[newBear2] != WALL && dist(newBear2, newPlayer) < dist(newBear, newPlayer)) {
-						newBear = newBear2;
+					int newBear = bear + d[bearDir];
+					if (movesLeft > 0 && grid[newBear] != WALL && dist(newBear, player) < dist(bear, player)) {
+						bear = newBear;
 						movesLeft--;
 						bearDir--;
 					}
 				}
-				boolean success = solve(newPlayer, newBear);
+				boolean success = solve(depth + 1, maxDepth);
+				player = oldPlayer;
+				bear = oldBear;
 				if (success) {
-					res.append(DIR_CHARS[playerDir]);
+					res[depth] = DIR_CHARS[playerDir];
 					return true;
 				}
 			}
