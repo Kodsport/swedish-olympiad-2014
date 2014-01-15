@@ -37,7 +37,7 @@ void rec(int i, int sum1, int sum2, int n1, int n2, int last1, int last2, int la
 		rec(i + 1, sum1, sum2, n1, n2, last1, last2, -1);
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
 	scanf("%d%d", &height, &n);
 	for (int i = 0; i < n; ++i)
