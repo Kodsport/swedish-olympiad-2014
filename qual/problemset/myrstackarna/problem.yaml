@@ -1,0 +1,8 @@
+author: PO commitee 2014 
+type: scoring
+source: Programmeringsolympiadens kvaltävling 2014
+license: cc by-sa
+rights_owner: Programmeringsolympiaden
+grading:
+  on_reject: grade
+  range: 0 100

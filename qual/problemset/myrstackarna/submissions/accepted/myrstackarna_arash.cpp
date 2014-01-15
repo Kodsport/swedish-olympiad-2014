@@ -187,7 +187,7 @@ VII removeDuplicates(VII elems) {
 
 
 int main(){
-  int h, w; cin >> h >> w;
+  cin >> h >> w;
   VS karta(h);
   tr(karta, rad) {
     cin >> *rad;
