@@ -1,6 +1,6 @@
 //Arash Rouhani
 #define _GLIBCXX_DEBUG
-#define NDEBUG // Must be on so assertions get on
+// #define NDEBUG // Must be on so assertions get on
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -139,7 +139,7 @@ II findStartSquare(VS karta) {
 }
 
 int numStartSquare(VS karta) {
-  int res;
+  int res = 0;
   foru(y, h) {
     foru(x, w) {
       if( karta[y][x] == 'U' ) {
@@ -216,10 +216,8 @@ int main(){
   II start = findStartSquare(karta);
   VII ants = findAnts(karta);
 
-  VVI reachies(h, VI(w, 9999999));
   queue<II> q;
   q.push(start);
-  reachies[start.first][start.second] = 0;
   VVI gravmap = calcGravMap(karta, start);
   VVI antPath(h, VI(w)); // True <=> An ant will ever pass here
   tr(ants, pant) {
@@ -230,6 +228,8 @@ int main(){
     while(ant != start);
   }
 
+  VVI reachies(h, VI(w, 9999999));
+  reachies[start.first][start.second] = 0;
 #define HAVE_VISITID(y, x) (reachies[y][x] < 99999)
   while(!q.empty()) {
     II ii = q.front(); q.pop();
@@ -241,7 +241,7 @@ int main(){
       if(karta[y][x] == '#') continue;
       int cost = 1 + reachies[y0][x0];
       int prev_cost = reachies[y][x];
-      assert(!antPath[y][x] || cost > prev_cost);
+      assert(!antPath[y][x] || cost > prev_cost || !HAVE_VISITID(y,x));
       if(HAVE_VISITID(y,x)) continue;
       reachies[y][x] = cost;
       q.push(II(y,x));
