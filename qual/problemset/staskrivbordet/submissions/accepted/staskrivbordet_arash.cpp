@@ -126,12 +126,12 @@ int main(){
   best_yet[0][0] = 0;
   tr(items, item){
     int h = *item;
-    foru(i0, x+1) {
-      foru(j0, x+1) {
+    ford(i0, x) {
+      ford(j0, x) {
         foru(lor, 2) {
           int i = i0 + h*lor;
           int j = j0 + h*!lor;
-          if(i < x && j < x) {
+          if(i <= x && j <= x) {
             int &ij0 = best_yet[i0][j0];
             int &ij  = best_yet[i][j];
             if(ij0 + 1 < ij) {
