@@ -180,7 +180,9 @@ VII removeDuplicates(VII elems) {
       if(i == j) continue;
       is_unique &= elems[i] != elems[j];
     }
-    res.push_back(elems[i]);
+    if(is_unique) {
+      res.push_back(elems[i]);
+    }
   }
   return res;
 }
