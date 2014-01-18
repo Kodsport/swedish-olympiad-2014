@@ -1,3 +1,6 @@
+//Problem: ståskrivbordet
+//Komplexitet: O(x^2*n^3)
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
