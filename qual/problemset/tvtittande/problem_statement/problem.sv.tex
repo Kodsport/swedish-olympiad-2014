@@ -6,10 +6,10 @@ Johan älskar att titta på TV hela dagarna, men klarar inte av reklampauser. N�
 Johan undrar i efterhand hur mycket han faktiskt tittade på varje kanal under en dag. Givet mellan vilka tider det var reklampauser på varje kanal, räkna ut detta åt honom. Han tittade mellan tiderna 00:00 och ett dygn framåt, och började titta på den första kanalen. Du kan anta att ett kanalbyte tar 1 minut, och att under kanalbytet sker inget tv-tittande (för varje kanalbyte så försvinner alltså en minut av tv-tittande).
 
 \section*{Indata}
-Indata börjar med ett heltal $N$, antalet kanaler. Sedan följer en rad per kanal: varje rad börjar med ett heltal $r_i$, antalet reklampauser på kanalen. Sedan följer i kronologisk ordning $r_i$ reklampauser på samma rad, separerade av mellanslag. Varje reklampaus anges på formen \texttt{HH:MM-HH:MM}, t.ex. betyder 05:24-22:23 att kanalen hade reklampaus från 05:24 fram till och med 22:23, och den var exakt 17 timmar lång. Observera att under minut 22:23 så fortsätter reklamen, och den är slut först 22:24. En reklampaus börjar tidigast vid midnatt och slutar senast vid midnatt (00:00 och 23:59, respektive).Inga reklampauser överlappar varandra på samma kanal.
+Indata börjar med ett heltal $N$ ($1 \leq N \leq 1000$), antalet kanaler. Sedan följer en rad per kanal: varje rad börjar med ett heltal $r_i$, antalet reklampauser på kanalen. Sedan följer i kronologisk ordning $r_i$ reklampauser på samma rad, separerade av mellanslag. Varje reklampaus anges på formen \texttt{HH:MM-HH:MM}, t.ex. betyder \texttt{05:24-22:23} att kanalen hade reklampaus från 05:24 fram till och med 22:23, och den var exakt 17 timmar lång. Observera att under minut 22:23 så fortsätter reklamen, och den är slut först 22:24. En reklampaus börjar tidigast vid midnatt och slutar senast vid midnatt (00:00 och 23:59, respektive). Inga reklampauser överlappar varandra på samma kanal.
 
 \section*{Utdata}
 Skriv ut $N$ rader. För varje rad $1 \leq k_i \leq N$ så ska du skriva ut ett enda heltal: antalet minuter Johan tittade på kanal $k_i$.
 
 \section*{Delpoäng}
-TBD
+För 70 poäng gäller att $N \leq 100$.
