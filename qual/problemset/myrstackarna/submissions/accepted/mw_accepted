@@ -1,0 +1,174 @@
+//Problem: Myrstackarna
+//Komplexitet: O(H*W)
+//Observera att det kan förekomma buggar, jag har inte testat lösningen så jättenoga (typ bara kört skolkvalstestfallen)
+
+#define MAXN 5005
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <stack>
+using namespace std;
+
+int H, W;
+char field[MAXN][MAXN];
+bool fieldUsed[MAXN][MAXN];
+int d[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
+
+struct Node{
+	int h, w;
+	vector<Node*> children;
+	Node* parent;
+	int childrenLeft;
+	int ant;
+	bool oldNode;
+	bool hasAddedChildren;
+	Node(int _h, int _w){
+		h = _h;
+		w = _w;
+		parent = NULL;
+		oldNode = false;
+	}
+
+	Node(){
+		parent = NULL;
+		oldNode = false;
+	}
+
+	void deleteChild(Node* node){
+		for (int i = 0; i < children.size(); ++i){
+			if (children[i] == node){
+				children[i] = children[children.size() - 1];
+				children.pop_back();
+				return;
+			}
+		}
+	}
+
+	void replaceChild(Node* replace, Node* replaceWith){
+		for (int i = 0; i < children.size(); ++i){
+			if (children[i] == replace){
+				children[i] = replaceWith;
+				return;
+			}
+		}
+	}
+};
+
+Node* nodeUsed[MAXN][MAXN];
+Node* mainNode;
+
+int main()
+{
+	int ans = 0;
+	scanf("%d%d", &H, &W);
+	for (int i = 0; i < H; ++i){
+		scanf("%s", field[i]);
+		for (int j = 0; j < W; ++j){
+			if (field[i][j] == 'U'){
+				mainNode = new Node(i, j);
+				nodeUsed[i][j] = mainNode;
+				fieldUsed[i][j] = true;
+			}
+			else{
+				fieldUsed[i][j] = false;
+			}
+		}
+	}
+	bool stop = false;
+	while (!stop){
+		stack<Node*> allNodes;
+		stack<Node*> leaves;
+		allNodes.push(mainNode);
+		while (!allNodes.empty()){
+			Node* currentNode = allNodes.top();
+			allNodes.pop();
+			currentNode->childrenLeft = currentNode->children.size();
+			currentNode->ant = 0;
+			currentNode->oldNode = true;
+			currentNode->hasAddedChildren = false;
+			if (!currentNode->childrenLeft){
+				leaves.push(currentNode);
+				if (field[currentNode->h][currentNode->w] == 'M')
+					currentNode->ant = 1;
+			}
+			for (int i = 0; i < currentNode->children.size(); ++i){
+				allNodes.push(currentNode->children[i]);
+			}
+		}
+		while (!leaves.empty()){
+			Node* currentNode = leaves.top();
+			Node* parent = currentNode->parent;
+			leaves.pop();
+			if (currentNode->ant >= 2)
+				currentNode->ant = 0;
+			if (parent != NULL){
+				parent->ant += currentNode->ant;
+				--parent->childrenLeft;
+				if (!parent->childrenLeft)
+					leaves.push(parent);
+			}
+		}
+		ans += mainNode->ant;
+		allNodes.push(mainNode);
+		while (!allNodes.empty()){
+			Node* currentNode = allNodes.top();
+			allNodes.pop();
+			if (currentNode->children.empty() && currentNode->oldNode){
+				for (int i = 0; i < 4; ++i){
+					int h = currentNode->h + d[i][0], w = currentNode->w + d[i][1];
+					if (field[h][w] == '#')
+						continue;
+					if (fieldUsed[h][w]){
+						if (nodeUsed[h][w]->oldNode)
+							continue;
+						else{
+							nodeUsed[h][w]->parent->deleteChild(nodeUsed[h][w]);
+							continue;
+						}
+					}
+					fieldUsed[h][w] = true;
+					Node* newNode = new Node(h, w);
+					nodeUsed[h][w] = newNode;
+					currentNode->children.push_back(newNode);
+					newNode->parent = currentNode;
+				}
+			}
+			for (int i = 0; i < currentNode->children.size(); ++i){
+				allNodes.push(currentNode->children[i]);
+			}
+		}
+		allNodes.push(mainNode);
+		while (!allNodes.empty()){
+			Node* currentNode = allNodes.top();
+			allNodes.pop();
+			if(!currentNode->hasAddedChildren){
+				for (int i = 0; i < currentNode->children.size(); ++i){
+					allNodes.push(currentNode->children[i]);
+				}
+			}
+			currentNode->hasAddedChildren = true;
+			if (currentNode->oldNode && currentNode->children.empty()){
+				if (currentNode->parent == NULL){
+					stop = true;
+					break;
+				}
+				else{
+					currentNode->parent->deleteChild(currentNode);
+					allNodes.push(currentNode->parent);
+				}
+			}
+			else if (currentNode->children.size() == 1){
+				if (currentNode->parent == NULL){
+					mainNode = currentNode->children[0];
+				}
+				else{
+					currentNode->parent->replaceChild(currentNode, currentNode->children[0]);
+				}
+				currentNode->children[0]->parent = currentNode->parent;
+			}
+		}
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+
