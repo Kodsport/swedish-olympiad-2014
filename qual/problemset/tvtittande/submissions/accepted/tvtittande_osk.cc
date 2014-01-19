@@ -36,7 +36,7 @@ int main() {
         vector<pair<int,int> > &ads_list = ads[cc];
         bool switched = false;
         for (int i = 0; i < ads_list.size(); ++i) {
-            if (t < ads_list[i].second && t >= ads_list[i].first) {
+            if (t <= ads_list[i].second && t >= ads_list[i].first) {
                 cc = (cc+1) % N; // assuming switching channel takes 1 minute
                 switched = true;
                 break;
