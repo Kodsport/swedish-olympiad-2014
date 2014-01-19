@@ -27,6 +27,7 @@ typedef vector < II > VII;
 typedef vector < VI > VVI;
 typedef vector < VII > VVII;
 typedef vector < VVI > VVVI;
+typedef vector < VVII > VVVII;
 typedef vector < string > VS;
 typedef vector < VS > VVS;
 typedef vector < char > VC;
@@ -121,22 +122,23 @@ int main(){
   cin >> items;
 
   VVI best_yet(x+1, VI(x+1, 1000));
-  VVII from(x+1, VII(x+1));
+  VVVII from(x+1, VVII(x+1, VII(n)));
 
   best_yet[0][0] = 0;
-  tr(items, item){
-    int h = *item;
-    foru(i0, x+1) {
-      foru(j0, x+1) {
-        foru(lor, 2) {
-          int i = i0 + h*lor;
-          int j = j0 + h*!lor;
-          if(i < x && j < x) {
+  foru(item_ix, n) {
+    int h = items[item_ix];
+    ford(i0, x) {
+      ford(j0, x) {
+        foru(dir, 3) {
+          int i = i0 + h*(dir==0);
+          int j = j0 + h*(dir==1);
+          int move_cost = dir!=2;
+          if(i <= x && j <= x) {
             int &ij0 = best_yet[i0][j0];
             int &ij  = best_yet[i][j];
-            if(ij0 + 1 < ij) {
-              ij = ij0 + 1;
-              from[i][j] = II(i0, j0);
+            if(ij0 + move_cost <= ij) {
+              ij = ij0 + move_cost;
+              from[i][j][item_ix] = II(i0, j0);
             }
           }
         }
@@ -146,11 +148,12 @@ int main(){
 
   VI ans(2);
   II pos = II(x,x);
-  while(pos != II(0,0)) {
-    II new_pos = from[pos.first][pos.second];
-    ans[pos.first > new_pos.first]++;
+  ford(item_ix, n-1) {
+    // cout << pos << endl; // Good for debugging
+    II new_pos = from[pos.first][pos.second][item_ix];
+    ans[pos.first > new_pos.first] += pos != new_pos;
     pos = new_pos;
   }
   sort(all(ans));
-  cout << ans;
+  cout << ans << endl;
 }
