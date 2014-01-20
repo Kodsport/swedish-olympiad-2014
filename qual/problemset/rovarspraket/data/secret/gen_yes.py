@@ -11,15 +11,22 @@ N = int(line[0])
 p = float(line[1])
 a = ''.join(random.choice(string.ascii_lowercase) for x in range(N/3))
 b = ""
+areal = ""
 
 for x in a:
     if is_cons(x) and random.random() < p:
         b = b + x + 'o' + x
+        areal = areal + x
     else:
-        b = b + x
+        if is_cons(x) and random.random() < 0.3:
+            areal = areal + x + 'o' + x
+            b = b + x + 'o' + x
+        else:
+            areal = areal + x
+            b = b + x
 
-assert len(a) <= N
+assert len(areal) <= N
 assert len(b) <= N
 
-print a
+print areal
 print b
