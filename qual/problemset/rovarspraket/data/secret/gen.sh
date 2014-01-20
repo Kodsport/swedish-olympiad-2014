@@ -27,11 +27,11 @@ small=(g0 g1)
 
 for i in ${small[@]}
 do
-    echo "20 0" | python gen_yes.py > $i/$PROBLEMNAME.$i.1.in
-    echo "20 0.5" | python gen_yes.py > $i/$PROBLEMNAME.$i.2.in
-    echo "20 0.5" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
-    echo "20 0.5" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
-    echo "20 1" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
+    echo "20 0 1$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.1.in
+    echo "20 0.5 2$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.2.in
+    echo "20 0.5 3$i" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
+    echo "20 0.5 4$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
+    echo "20 1 5$i" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
 	cat fail1 > $i/$PROBLEMNAME.$i.6.in
 	cat fail2 > $i/$PROBLEMNAME.$i.7.in
 done
@@ -41,13 +41,14 @@ med=(g2 g3 g4)
 
 for i in ${med[@]}
 do
-    echo "100 0.5" | python gen_yes.py > $i/$PROBLEMNAME.$i.1.in
-    echo "100 0" | python gen_yes.py > $i/$PROBLEMNAME.$i.2.in
-    echo "100 0.5" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
-    echo "100 1" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
-    echo "100 0.5" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
-	cat fail1 > $i/$PROBLEMNAME.$i.6.in
-	cat fail2 > $i/$PROBLEMNAME.$i.7.in
+    echo "100 0.5 1$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.1.in
+    echo "100 0.5 3$i" | python gen_no.py > $i/$PROBLEMNAME.$i.2.in
+    echo "100 1 4$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.3.in
+    echo "100 0.5 5$i" | python gen_no.py > $i/$PROBLEMNAME.$i.4.in
+	cat fail1 > $i/$PROBLEMNAME.$i.5.in
+	cat fail2 > $i/$PROBLEMNAME.$i.6.in
+    echo "100" | python gen_lolol_ja.py > $i/$PROBLEMNAME.$i.7.in
+    echo "100" | python gen_lolol_nej.py > $i/$PROBLEMNAME.$i.8.in
 done
 
 # N <= 1000, max 100 points
@@ -55,13 +56,14 @@ large=(g5 g6 g7 g8 g9)
 
 for i in ${large[@]}
 do
-    echo "1000 0.2" | python gen_yes.py > $i/$PROBLEMNAME.$i.1.in
-    echo "1000 0" | python gen_yes.py > $i/$PROBLEMNAME.$i.2.in
-    echo "1000 0.3" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
-    echo "1000 1" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
-    echo "1000 0.99" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
-	cat fail1 > $i/$PROBLEMNAME.$i.6.in
-	cat fail2 > $i/$PROBLEMNAME.$i.7.in
+    echo "1000 0.2 1$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.1.in
+    echo "1000 0.3 3$i" | python gen_no.py > $i/$PROBLEMNAME.$i.2.in
+    echo "1000 1 4$i" | python gen_yes.py > $i/$PROBLEMNAME.$i.3.in
+    echo "1000 0.99 5$i" | python gen_no.py > $i/$PROBLEMNAME.$i.4.in
+	cat fail1 > $i/$PROBLEMNAME.$i.5.in
+	cat fail2 > $i/$PROBLEMNAME.$i.6.in
+    echo "1000" | python gen_lolol_ja.py > $i/$PROBLEMNAME.$i.7.in
+    echo "1000" | python gen_lolol_nej.py > $i/$PROBLEMNAME.$i.8.in
 done
 
 if [[ ! -z $SOLVER ]]
