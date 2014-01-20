@@ -3,7 +3,7 @@
 PROBLEMNAME="rovarspraket"
 
 # Set this if you want to generate answers.
-SOLVER=osk_dp
+SOLVER=sol
 
 # 1. Create subdirectories and set them to "min"
 #    grading mode.
@@ -32,6 +32,8 @@ do
     echo "20 0.5" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
     echo "20 0.5" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
     echo "20 1" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
+	cat fail1 > $i/$PROBLEMNAME.$i.6.in
+	cat fail2 > $i/$PROBLEMNAME.$i.7.in
 done
 
 # N <= 100, max 50 points
@@ -44,6 +46,8 @@ do
     echo "100 0.5" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
     echo "100 1" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
     echo "100 0.5" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
+	cat fail1 > $i/$PROBLEMNAME.$i.6.in
+	cat fail2 > $i/$PROBLEMNAME.$i.7.in
 done
 
 # N <= 1000, max 100 points
@@ -56,6 +60,8 @@ do
     echo "1000 0.3" | python gen_no.py > $i/$PROBLEMNAME.$i.3.in
     echo "1000 1" | python gen_yes.py > $i/$PROBLEMNAME.$i.4.in
     echo "1000 0.99" | python gen_no.py > $i/$PROBLEMNAME.$i.5.in
+	cat fail1 > $i/$PROBLEMNAME.$i.6.in
+	cat fail2 > $i/$PROBLEMNAME.$i.7.in
 done
 
 if [[ ! -z $SOLVER ]]
