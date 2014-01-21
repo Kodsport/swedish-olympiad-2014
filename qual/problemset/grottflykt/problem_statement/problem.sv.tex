@@ -1,8 +1,24 @@
 \problemname{Grottflykt}
-Du håller på att utforska en grotta och råkar väcka en arg björn. Björnen är större och snabbare än dig, så din enda chans är att överlista den för att ta dig ut. Grottan kan representeras som ett rektangulärt bräde bestående av väggar och en utgång. Du och björnen kan förflytta er i riktningarna upp, ner, höger eller vänster men kan inte gå igenom väggar. Varje gång efter att du förflyttat dig ett steg så kan björnen förflytta sig 2, men som tur är så använder den en korkad AI. Först kollar den om det är möjligt att komma närmare dig (fågelvägen) genom att gå till höger eller vänster, och förflyttar sig i så fall. Om den har något steg kvar så kollar den sedan om den kan komma närmare genom att gå upp eller ner. Det är alltså möjligt att björnen förflyttar sig 0, 1, eller 2 steg beroende på om den är blockerad av väggar eller inte. Givet beskrivningen av grottan är det din uppgift att ta fram en sekvens av förflyttningar som tar dig till utgången utan att bli fångad av björnen (du blir fångad om ni någon gång befinner er på samma position).
+Av okänd anledning håller du på att utforska en grotta och har råkat väcka en arg björn. Björnen är större och snabbare än dig, så din enda chans är att överlista den för att ta dig ut. Grottan kan representeras som ett rektangulärt bräde bestående av väggar och en utgång. Du och björnen kan förflytta er i riktningarna upp, ner, höger eller vänster men kan inte gå igenom väggar.
+
+Varje gång som du tar ett steg så kommer björnen svara genom att flytta upp till $2$ steg i ett försök att ta sig så nära dig som möjligt. Om ni någon gång befinner er på samma ruta, och du inte kommit fram till utgången, så är flykten över. Som tur är så är björnen inte helt medveten om väggar, och använder sig därför av en korkad algoritm för att flytta sig.
+
+Det första björnen gör är att flytta sig mot dig i horisontell riktning. Detta gör den tills den fått slut på steg, nått en vägg eller befinner sig i samma kolumn som du. Efter det gör den samma sak i vertikal riktning, tills den fått slut på steg, nått en vägg eller befinner sig i samma rad som du. Det är alltså möjligt att björnen förflyttar sig $0$, $1$ eller $2$ steg beroende på var du befinner dig och var det finns väggar.
+
+Givet utseendet på grottan är det din uppgift att skriva ett program som hittar en sekvens av förflyttningar som låter dig fly grottan utan att bli fångad.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\textwidth]{grottflykt.png}
+\caption{En illustration av det första exemplet}
+\label{overflow}
+\end{figure}
 
 \section*{Indata}
-På första raden två heltal $w$ och $h$. Sedan följer $h$ rader med $w$ tecken var, en beskrivning av grottan. En vägg beskrivs med '\#', spelarens startposition med 'S', utgången med 'U' och björnen med 'B'.
+På första raden två heltal $w$ och $h$, grottans storlek. Sedan följer $h$ rader med $w$ tecken var, en beskrivning av grottan. En vägg beskrivs med '\#', din startposition med 'S', utgången med 'U' och björnen med 'B'. Det är garanterat att varje indata-instans går att lösa. Det är också garanterat att det aldrig uppstår en situation där björnen står på utgången.
 
 \section*{Utdata}
-En rad med en sträng bestående av tecken 'U' för upp, 'N' för ner, 'H' för höger och 'V' för vänster. Det är garanterat att det alltid finns en lösning.
+En rad med en sträng bestående av tecken 'U' för upp, 'N' för ner, 'H' för höger och 'V' för vänster, stegen du ska ta för att fly grottan.
+
+\section*{Delpoäng}
+För $2$ av testfallen kommer grottan bestå av högst $25$ celler. För full poäng kan banorna ha upp till $64$ celler.
