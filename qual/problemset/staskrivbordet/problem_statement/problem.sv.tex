@@ -4,33 +4,28 @@ Annas mamma klagar att hon \emph{sitter} för mycket vid datorn varje
 dag. Nä detta ska Anna minsann ordna. Hon har bestämt sig för att
 \emph{stå} upp vid datorn istället!
 
-<infoga bild>
-
-Men datorskärmen ligger för högt upp! Anna behöver komma upp exakt
+Men datorskärmen står för högt upp! Anna behöver komma upp exakt
 $x$ centimeter av ergonomiska skäl. Hon har $n$ plattor till sin
-hjälp, plattorna har olika höjder $h_1 \dots h_n$. Genom att ställa
-dem under vardera fot, så kan hon komma upp exakt $x$ centimeter.
-Alltså hon måste stoppa plattor under både höger och vänster fot.
-Vad är det minsta totala antalet plattor hon behöver?
-
-Det kommer alltid finnas en lösning. Finns det flera lösningar där
-totala klossantalet är samma så kan du välja vilket som helst utav
-dem.
+hjälp. Plattorna har höjderna $h_1 \dots h_n$. Genom att lägga
+ett antal av dem under vardera foten, så kan hon komma upp exakt $x$ centimeter.
+Plattorna under höger fot måste alltså ha sammanlagd höjd $x$ centimeter, och plattorna under vänster fot måste
+också ha sammanlagd höjd $x$ centimeter. Vad är det minsta totala antalet plattor hon behöver?
 
 \section*{Indata}
 
 Först kommer en rad med talen $10 \leq x \leq 100$ och $2 \leq n \leq
 20$, hur många centimeter Anna måste lägga under varje fot respektive
-antalet klossar. Därefter kommer en rad med $n$ heltal, höjderna $h_1
-\dots h_n$ på klossarna. $1 \leq h_i \leq 100$. Det kommer alltid att
+antalet plattor. Därefter kommer en rad med $n$ heltal, höjderna $h_1
+\dots h_n$ på plattorna. $1 \leq h_i \leq 100$. Det kommer alltid att
 finnas en lösning.
 
 \section*{Utdata}
 
-För att göra det svårare att gissa rätt svar, så måste du skriva
-ut antalet plattor hon har under vardera fot. Ifall det är olika antal
-klossar under varje fot, så skriv det mindre talet först.
+För att göra det svårare att gissa rätt svar, så ska du skriva
+ut två heltal $n_1$ och $n_2$, antalet plattor hon har under vardera fot. Skriv det minsta talet först, d.v.s. se till att $n_1\leq n_2$. Om det finns flera lösningar där
+totala antalet plattor är samma så kan du välja vilken som helst utav dem.
+
 
 \section*{Delpoäng}
 
-I två utav testfallen så kommer $n$ ej överstiga $12$.
+I två utav testfallen kommer $n$ ej överstiga $12$.
