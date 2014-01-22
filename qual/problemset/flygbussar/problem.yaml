@@ -1,0 +1,9 @@
+author: Johan Sannemo
+type: scoring
+source: Programmeringsolympiadens onlinekval 2014
+license: cc by-sa
+rights_owner: Programmeringsolympiaden
+grading:
+  on_reject: grade
+  range: 0 100
+  accept_score: 5
