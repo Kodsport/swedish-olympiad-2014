@@ -1,4 +1,4 @@
-// Tror denna är korrekt, men behövs mer testning
+package flygbussar;
 
 import java.util.*;
 import java.io.*;
@@ -73,7 +73,7 @@ public class Solver {
 		int next = team + jump[team][offset];
 		int nextOffset = next >= n ? 0 : Math.max(0, (int)(time[team] + offset + rtt - time[next]));
 		long res = cost[team][offset] + solve(next, nextOffset);
-		if (next < n && time[next] - (time[team] + offset) < rtt) {
+		if (next < n && time[next] - time[team] < 2*rtt) {
 			res = Math.min(res, solve(team, (int)(time[next] - time[team])));
 		}
 		return dp[team][offset] = res;
