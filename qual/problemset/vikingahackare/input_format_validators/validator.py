@@ -25,6 +25,7 @@ for i in xrange(T):
 line = sys.stdin.readline()
 assert re.match(bin_re, line)
 assert len(line.strip()) % 4 == 0
+assert len(line.strip()) >= 4
 line = sys.stdin.readline()
 assert len(line) == 0
 sys.exit(42)
