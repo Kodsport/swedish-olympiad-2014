@@ -20,17 +20,23 @@ public class PixelProblem {
 			g[i] = Integer.parseInt(st.nextToken());
 			b[i] = Integer.parseInt(st.nextToken());
 		}
-		long best = -1;
+		double best = -1;
 		int bestW = -1;
 		for (int w = 2; w < N; w++) {
 			if (N % w == 0) {
-				long d = 0;
+				double d = 0;
+				int cnt = 0;
 				for (int i = 0; i < N; i++) {
-					if (i/w > 0) {
-						d += diff(i, i - w);
+					if (i + w < N) {
+						d += diff(i, i + w);
+						cnt++;
 					}
-				}
-				if (best == -1 || d < best) {
+					if (i % w < w-1) {
+						d += diff(i, i+1);
+						cnt++;
+					}
+				}d /= cnt;
+				if (best < 0 || d < best) {
 					best = d;
 					bestW = w;
 				}
