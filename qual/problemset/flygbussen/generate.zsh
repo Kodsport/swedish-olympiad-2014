@@ -4,7 +4,7 @@ go () {
   typeset case_id="$1"; shift
   echo case_id
   # echo $@ | ruby generate.rb | sed -n 1,1p # > data/secret/flybussar.$case_id.in
-  echo $@ | ruby generate.rb | > data/secret/flygbussar.$case_id.in
+  echo $@ | ruby generate.rb | > data/secret/flygbussen.$case_id.in
 }
 
 # min_n, k, max_t, max_group_size, max_duplicate = gets.split.map(&:to_i)
