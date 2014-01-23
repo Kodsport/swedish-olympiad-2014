@@ -14,7 +14,7 @@ n = min_n # It will always become at least as much as n
 assert(n > 0)
 assert(0 < k && k <= 100)
 assert(max_t > 4*k)
-assert(max_group_size >= 1)
+assert(max_group_size >= 2)
 assert(max_duplicate >= 1)
 
 t = 0

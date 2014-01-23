@@ -1,4 +1,4 @@
-// Inte alls säker på den här. O(N^2).
+// O(N^2).
 
 #include <iostream>
 #include <algorithm>
@@ -37,7 +37,7 @@ int main() {
 		for (int j = i+1; j < N; ++j) {
 			int now = times[j];
 
-			if (now > iend) {
+			if (now >= iend) {
 				// send at time iend
 				cost += iend * icount - isum;
 
@@ -49,25 +49,32 @@ int main() {
 				icount = isum = 0;
 			}
 
-			if (seenone || now == iend) {
-				// Send at time now, i.e. at point sols[j]. This can only
-				// happen if the first bus has returned.
-				int c = cost + (now * icount - isum) + (seenone ? now * lastcount - lastsum : 0);
-				sols[j] = min(sols[j], c);
-			}
-
-			if (now > iend) {
+			if (now >= iend) {
 				// Send empty buses. We want to make the inequality
-				// |now <= iend + n*K| hold, so set
-				// |n = ceil((now - iend) / K)|.
-				int n = (now - iend + K - 1) / K;
+				// |now < iend + n*K| hold, so set
+				// |n = floor((now - iend) / K) + 1|.
+				int n = (now - iend) / K + 1;
 				ibegin += n * K;
 				iend += n * K;
 				lastcount = lastsum = 0;
 			}
 
-			icount++;
-			isum += now;
+			if (seenone) {
+				// Send at time now, i.e. at point sols[j]. This can only
+				// happen if the first bus has returned.
+				int c = cost + (now * icount - isum);
+				c += (now - ibegin) * lastcount;
+				sols[j] = min(sols[j], c);
+			}
+
+			if (now == ibegin) {
+				lastcount++;
+				lastsum += now;
+			}
+			else {
+				icount++;
+				isum += now;
+			}
 		}
 
 		// send at time iend

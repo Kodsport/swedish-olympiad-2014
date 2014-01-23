@@ -1,5 +1,3 @@
-package flygbussar;
-
 import java.util.*;
 import java.io.*;
 
