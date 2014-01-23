@@ -18,7 +18,7 @@ arr = line.split()
 assert len(arr) == N
 for x in arr:
     re.match(int_re, x)
-    assert 0 <= int(x) <= 10**9
+    assert 1 <= int(x) <= 10**9
 
 line = sys.stdin.readline()
 assert len(line) == 0
