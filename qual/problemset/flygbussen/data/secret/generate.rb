@@ -1,6 +1,6 @@
-min_n, k, max_t, max_group_size, max_duplicate = gets.split.map(&:to_i)
+min_n, k, max_t, max_group_size, max_duplicate, seed = gets.split.map(&:to_i)
 
-srand 0 # Deterministisk!
+srand seed # Deterministisk! (Och dynamisk! / osk)
 
 def assert(b)
   if not b then
@@ -10,12 +10,6 @@ def assert(b)
 end
 
 n = min_n # It will always become at least as much as n
-
-assert(n > 0)
-assert(0 < k && k <= 100)
-assert(max_t > 4*k)
-assert(max_group_size >= 2)
-assert(max_duplicate >= 1)
 
 t = 0
 

@@ -7,24 +7,23 @@ Bussen kan rymma godtyckligt många lag (den är \emph{jättestor}), och det tar
 
 Givet schemat för de $N$ lagens ankomster vill man därför se till så att den sammanlagda väntetiden för alla lag, det vill säga summan av antal minuter mellan ankomst och bussavgång, är så liten som möjligt. Beräkna hur liten denna väntetid kan bli om bussens avgångar planeras optimalt.
 
-\section*{Exempelindata 1}
+\section*{Indata}
+Den första raden innehåller heltalen $1 \leq N \leq 1 000$, och $1 \leq K \leq 1000$.
+Den andra raden innehåller $N$ heltal - tidpunkten i minuter då de olika lagen anländer. Varje tidpunkt är ett tal mellan 1 och $10^9$.
+
+\section*{Utdata}
+Utdata ska bestå av ett enda tal, summan av väntetiden för alla lag givet att bussens avgångar planeras optimalt.
+
+\section*{Exempel}
 $N = 3, K = 2$
 $A = {1, 1, 1}$
 
 Svaret är 0 minuter. Alla tre grupper anländer samtidigt. Väntetiden är därför 0 minuter.
 
-\section*{Exempelindata 2}
 $N = 4, K = 3$
 $A = {1, 1, 1, 5, 5}$
 
 Svaret är 2 minuter. Bussen hämtar direkt upp de tre grupperna som anländer vid $t = 1$. Vid $t = 6$ är bussen tillbaka vid flygplatsen och då har det sista två lagen fått vänta 2 minuter totalt (eftersom de är två). Alternativet hade varit att låta bussen vänta fram till $t = 5$, men då hade totala väntetiden blivit 12 minuter.
 
-\section*{Indata}
-Den första raden innehåller heltalen $1 \leq N \leq 50 000$, och $1 \leq K \leq 100$.
-Den andra raden innehåller $N$ heltal - tidpunkten i minuter då de olika lagen anländer.
-
-\section*{Utdata}
-Utdata ska bestå av ett enda tal, summan av väntetiden för alla lag givet att bussens avgångar planeras optimalt.
-
 \section*{Delpoäng}
-TODO: fixme
+I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt. För 20 poäng så gäller att $N, K \leq 15$. För ytterligare 30 poäng så gäller att $N,K \leq 100$. För resterande 50 poäng (och full poäng) måste ditt program kunna hantera maximala indatagränser, dvs att $N, K \leq 10^3$.
