@@ -8,7 +8,7 @@ int_re = "^(0|[1-9][0-9]*)$"
 line = sys.stdin.readline()
 assert re.match(int_re, line)
 n = int(line)
-assert 1 <= n <= 100000
+assert 1 <= n <= 10000
 
 for i in xrange(n):
 	line = sys.stdin.readline()

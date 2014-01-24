@@ -11,6 +11,8 @@ line = sys.stdin.readline()
 assert re.match(first_re, line)
 N = int(line)
 
+assert 1 <= N <= 1000
+
 for i in xrange(N):
     line = sys.stdin.readline()
     intervals = line.split()
@@ -30,6 +32,7 @@ for i in xrange(N):
     # match entire line at once \o/
     #assert re.match(temp_re, line)
 
+    assert 0 <= k <= 1440
     assert len(intervals) == k+1
 
     times = []
