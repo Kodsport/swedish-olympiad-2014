@@ -26,26 +26,27 @@ done
 ./rand_gen 10 295798 1 > g01/$PROBLEMNAME.g01.1.in
 ./rand_gen 10 295799 1 > g01/$PROBLEMNAME.g01.2.in
 ./rand_gen 10 34598 1 > g01/$PROBLEMNAME.g01.3.in
+./rand_gen 1 34594 1 > g01/$PROBLEMNAME.g01.4.in
 
 # single
-./rand_gen 2000 295800 1 > g02/$PROBLEMNAME.g02.3.in
-./rand_gen 2000 295801 1 > g02/$PROBLEMNAME.g02.4.in
-./rand_gen 10000 295802 1 > g02/$PROBLEMNAME.g02.5.in
-./rand_gen 10000 295803 1 > g02/$PROBLEMNAME.g02.6.in
+./rand_gen 10 295800 1 > g02/$PROBLEMNAME.g02.3.in
+./rand_gen 10 295801 1 > g02/$PROBLEMNAME.g02.4.in
+./rand_gen 10 295802 1 > g02/$PROBLEMNAME.g02.5.in
+./rand_gen 1 295803 1 > g02/$PROBLEMNAME.g02.6.in
 
 # single
-./rand_gen 999 295804 1 > g03/$PROBLEMNAME.g03.1.in
-./rand_gen 999 295805 1 > g03/$PROBLEMNAME.g03.2.in
-./rand_gen 999 295806 1 > g03/$PROBLEMNAME.g03.3.in
+./rand_gen 6666 295804 1 > g03/$PROBLEMNAME.g03.1.in
+./rand_gen 9993 295805 1 > g03/$PROBLEMNAME.g03.2.in
+./rand_gen 9996 295806 1 > g03/$PROBLEMNAME.g03.3.in
 
 # single
-./rand_gen 800 295807 1 > g04/$PROBLEMNAME.g04.1.in
-./rand_gen 800 295808 1 > g04/$PROBLEMNAME.g04.2.in
-./rand_gen 800 295809 1 > g04/$PROBLEMNAME.g04.3.in
+./rand_gen 8002 295807 1 > g04/$PROBLEMNAME.g04.1.in
+./rand_gen 8007 295808 1 > g04/$PROBLEMNAME.g04.2.in
+./rand_gen 8004 295809 1 > g04/$PROBLEMNAME.g04.3.in
 
-./rand_gen 2000 295810 0 > g05/$PROBLEMNAME.g05.1.in
-./rand_gen 2000 295811 0 > g05/$PROBLEMNAME.g05.2.in
-./rand_gen 2000 295812 0 > g05/$PROBLEMNAME.g05.3.in
+./rand_gen 5555 295810 1 > g05/$PROBLEMNAME.g05.1.in
+./rand_gen 7234 295811 1 > g05/$PROBLEMNAME.g05.2.in
+./rand_gen 4564 295812 1 > g05/$PROBLEMNAME.g05.3.in
 
 ./rand_gen 5000 295813 0 > g06/$PROBLEMNAME.g06.1.in
 ./rand_gen 5000 295814 0 > g06/$PROBLEMNAME.g06.2.in
