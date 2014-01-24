@@ -16,12 +16,18 @@ long long getDiff(int p1, int p2) {
 
 long long getSum(int w) {
     long long ret = 0;
-    int h = N/w;
+    int cnt = 0;
     for (int p = 0; p < N; ++p) {
-        if (p >= w) ret += getDiff(p, p-w);
-        if (p % w != 0) ret += getDiff(p, p-1);
+        if (p >= w) {
+            ret += getDiff(p, p-w);
+            cnt++;
+        }
+        if (p % w != 0) {
+            ret += getDiff(p, p-1);
+            cnt++;
+        }
     }
-    return (N-w) * ret;
+    return ret/cnt;
 }
 
 int main() {
@@ -40,7 +46,6 @@ int main() {
     for (int w = 2; w < N; ++w) {
         if (N % w != 0) continue;
         long long cur = getSum(w);
-        cout << "score " << cur << " for w = " << w << endl;
         if (cur < best) {
             int h = N/w;
             bestw = w;
