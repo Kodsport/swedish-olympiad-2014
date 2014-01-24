@@ -20,9 +20,10 @@ public class PixelProblem {
 			g[i] = Integer.parseInt(st.nextToken());
 			b[i] = Integer.parseInt(st.nextToken());
 		}
+		int s = (int)Math.sqrt(N);
 		double best = -1;
 		int bestW = -1;
-		for (int w = 2; w < N; w++) {
+		for (int w = Math.max(2, s/10); w < N; w++) {
 			if (N % w == 0) {
 				double d = 0;
 				int cnt = 0;
