@@ -5,7 +5,8 @@ paths = [
 "data/secret/g1",
 "data/secret/g2",
 "data/secret/g3",
-"data/secret/g4"]
+"data/secret/g4",
+"data/secret/g5"]
 
 image_formats = ["jpg", "jpeg", "png", "gif"]
 
