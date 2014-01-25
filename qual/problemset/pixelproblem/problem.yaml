@@ -4,6 +4,6 @@ source: Programmeringsolympiadens onlinekval 2014
 license: cc by-sa
 rights_owner: Programmeringsolympiaden
 grading:
-  accept_score: 5
+  accept_score: 4
   on_reject: grade
   range: 0 100
