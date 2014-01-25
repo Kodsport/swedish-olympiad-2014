@@ -1,12 +1,27 @@
 \problemname{Pixelproblem}
 
-Simons hårddisk gick sönder, inklusive hans stora samling vackra algoritmiskt genererade bilder och norrländska landskap. Som tur lyckades han rädda några av bilderna, men bara färgdatan. Bredden och höjden på bilderna har gått förlorad.
+Simon tycker att det är trevligt med bilder. Han samlar på alla sorters bilder: vackra algoritmiskt genererade bilder, norrländska landskap och skärmdumpar av diverse obskyra matematiska bevis. Med andra ord, lite av varje.
+
+<Todo: förklaring av hur en bild lagras på simons dator, vad är RGB-värden osv, row-major osv>
+
+Nu har det dock strulat till sig ordentligt. Simons hårddisk har gått sönder. Som tur var så lyckades han rädda några av bilderna, men bara färgdatan. Han har med andra ord \emph{inte en aning} om vilka dimensioner bilderna hade. Och inte nog med det - det verkar dessutom som att Simon kanske inte har lyckats återställa alla pixlar i bilderna. Det enda Simon är säker på är att minst en pixel på sista raden i varje bild är kvar, och alla pixlar på sista raden som är kvar är sammanhängande. Den sista raden har alltså blivit \emph{avklippt} vid någon position.
+
+<Todo: figur som förklarar sista raden-grejen>
+
+Nu behöver Simon experthjälp för att ta reda på bildernas dimensioner utifrån färgdatan och informationen ovan. I sin desperation går Simon in på den välkända Internet-sökmotorn Lolgee och söker på \texttt{"algoritmproffs"}. Första träffen är förstås \emph{Programmeringsolympiaden}. Det är din uppgift att hjälpa Simon så gott du kan.
 
 \section*{Indata}
-Ett heltal $N$ på första raden, antal pixlar. Sedan en rad med $3N$ heltal, rgb för varje pixel.
+Varje testfall innehåller precis en bild.
+
+Indata börjar med ett heltal $N$ på första raden, antalet pixlar vars färgvärden Simon lyckats återställa. Du vet alltså att bilden innehöll minst $N$ pixlar (och kanske exakt $N$ pixlar), men du vet inte hur många pixlar som har försvunnit på sista raden i bilden.
+
+Sedan följer en rad med $3N$ heltal, en lista med RGB-värden för varje pixel. Pixlarna ges i den ordning som de lagras i Simons dator, dvs i \emph{row-major order} (se figur ovan).
 
 \section*{Utdata}
-En rad med två heltal $w$ och $h$, din gissning för bildens ursprungliga dimensioner.
+Du ska skriva ut ett enda heltal: bildens ursprungliga bredd.
+
+\section*{Exempel}
+<Todo: förklara sample>
 
 \section*{Poängsättning}
-derp
+<Todo: förklara grading>
