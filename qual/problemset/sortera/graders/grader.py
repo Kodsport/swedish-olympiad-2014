@@ -25,8 +25,6 @@ else:
     total_score += float(score)
   if total_score:
     score = int(total_score)
-    if "multiply100" in sys.argv:
-      score *= 100
     print "AC", score
   else:
     if rte:
