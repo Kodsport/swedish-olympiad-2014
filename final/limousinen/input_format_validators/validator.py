@@ -17,8 +17,8 @@ for i in xrange(N):
     l = sys.stdin.readline()
     assert re.match(two_ints_re, l)
     x, y = map(int, l.split())
-    assert -10**9 <= x <= 10**9
-    assert -10**9 <= y <= 10**9
+    assert -10**8 <= x <= 10**8
+    assert -10**8 <= y <= 10**8
 
 line = sys.stdin.readline()
 assert len(line) == 0

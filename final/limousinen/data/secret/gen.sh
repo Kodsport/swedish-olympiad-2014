@@ -33,8 +33,8 @@ do
     # one line here per file in test group
     echo "10 1000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "10 1000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "10 1000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "10 1000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "10 600 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "10 100 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # medium data sets
@@ -43,10 +43,10 @@ medium=(2 3 4)
 for i in ${medium[@]}
 do
     # one line here per file in test group
-    echo "1000 1000000000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "1000 1000000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "1000 100000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "999 1000000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "777 10000000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "999 10000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "777 100000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # large data sets
@@ -58,7 +58,7 @@ do
     echo "100000 10000000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "100000 500000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "99034 1000000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "77100 1000000000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "77100 100000000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # generate solutions for all files
