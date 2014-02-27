@@ -32,22 +32,29 @@ att hjälpa Simon så gott du kan.
 \section*{Indata}
 Varje testfall innehåller precis en bild.
 
-Indata börjar med ett heltal ?$ \leq N \leq $? på första raden, antalet pixlar vars
+Indata börjar med ett heltal $100 \leq N \leq 250\,000$ på första raden, antalet pixlar vars
 färgvärden Simon lyckats återställa. Du vet alltså att bilden innehöll minst
 $N$ pixlar (och kanske exakt $N$ pixlar), men du vet inte hur många pixlar som
 har försvunnit på sista raden i bilden. Du vet också att ursprungsbredden för
-bilden var minst $5$ pixlar, och likaså den ursprungliga höjden.
+bilden var minst $20$ pixlar, och likaså den ursprungliga höjden.
 
 Sedan följer en rad med $3N$ heltal, en lista med RGB-värden för varje pixel.
 Pixlarna ges i den ordning som de lagras i Simons dator, dvs i \emph{row-major
 order} (se figur ovan). Värdena för varje pixel ges i ordningen \emph{röd,
 grön, blå}. Varje värde är ett heltal mellan $0$ och $255$.
 
+Du kan läsa mer om RGB-färgmodellen på Wikipedia: \url{http://en.wikipedia.org/wiki/RGB_color_model}
+
 \section*{Utdata}
 Du ska skriva ut ett enda heltal: bildens ursprungliga bredd.
 
 \section*{Exempel}
-<Todo: förklara sample>
+Det finns ett antal exempel-bilder, mot tillhörande indata och utdata som du
+kan ladda ner som en zip-fil på \url{http://progolymp.se/pixel.zip}.
+
+"sample0x.in" innehåller bildens färgdata, som beskriven ovan (med sista raden avklippt).
+"sample0x.ans" innehåller svaret, dvs bildens ursprungliga bredd.
+"sample0x.png/jpg" är den ursprungliga bilden, i PNG- eller JPEG-format.
 
 \section*{Poängsättning}
-<Todo: förklara grading>
+Ditt program kommer testas på 25 bilder och får 4 poäng för varje rätt svar.
