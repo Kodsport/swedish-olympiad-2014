@@ -1,8 +1,8 @@
 #/usr/bin/env python
 import re
 import sys
-int_re = "^(0|[1-9][0-9]*)$"
-two_ints_re = "^(0|[1-9][0-9]*) (0|[1-9][0-9]*)$"
+int_re = "^(0|\-?[1-9][0-9]*)$"
+two_ints_re = "^(0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 
 line = sys.stdin.readline()
 words = line.split()

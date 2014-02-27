@@ -18,10 +18,10 @@ random.seed(seed)
 coords = []
 S = 0
 for i in xrange(N):
-    x = random.randrange(amplitude)
-    y = random.randrange(amplitude)
+    x = random.randrange(-amplitude, amplitude)
+    y = random.randrange(-amplitude, amplitude)
     coords.append((x,y))
-    S = S + x + y;
+    S = S + abs(x) + abs(y);
 
 print N, min(int(2*S * fraction), 10**9)
 

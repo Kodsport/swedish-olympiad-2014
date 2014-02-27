@@ -8,15 +8,15 @@ using namespace std;
 int main() {
     int N, T;
     cin >> N >> T;
-    vector<int> v;
+    vector<long long> v;
     for (int i = 0; i < N; ++i) {
-        int x, y;
+        long long x, y;
         cin >> x >> y;
         v.push_back(2*abs(x)+2*abs(y));
     }
     sort(v.begin(), v.end());
     int ans = 0;
-    int t = 0;
+    long long t = 0;
     for (int i = 0; i < N; ++i) {
         if (t + v[i] <= T) {
             ++ans;
