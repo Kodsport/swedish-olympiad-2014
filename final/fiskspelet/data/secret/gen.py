@@ -24,20 +24,11 @@ difficulty = MODES.index(mode)
 difficulty_nomideat = MODES.index('nomideat')
 difficulty_noeat = MODES.index('noeat')
 
-xAim = 100 * 1000 if mode == 'lowdist' else int(1e17)
+# Well you will almost always go above xAim, so lets undershoot
+xAim = 10 * 1000 if mode == 'lowdist' else int(1e17)
 
 random.seed(seed)
 
-
-# def sizeToNum(size):
-#     return {'L': 0, 'M': 1, 'S': 2}[size]
-
-
-# def transition_factor(size_from, size_to):
-#     gets_smaller = sizeToNum(size_from) >= sizeToNum(size_to)  # or as big
-#     if gets_smaller:
-#         return 0
-#     return 0
 
 def transition_factor(size_from, size_to):
     gets_smaller = size_from >= size_to  # or as big
