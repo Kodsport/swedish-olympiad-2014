@@ -25,14 +25,14 @@ else:
     total_score += float(score)
   if total_score:
     score = int(total_score)
-    if score < 25:
-        score = 0
-    elif 25 <= score < 50:
-        score = 10*(score - 25)/25
-    elif 50 <= score < 90:
-        score = 10 + 90*(score - 50)/40
-    else:
-        score = 100
+    #if score < 25:
+    #    score = 0
+    #elif 25 <= score < 50:
+    #    score = 10*(score - 25)/25
+    #elif 50 <= score < 90:
+    #    score = 10 + 90*(score - 50)/40
+    #else:
+    #    score = 100
     print "AC", score
   else:
     if rte:

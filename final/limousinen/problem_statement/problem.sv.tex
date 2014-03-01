@@ -1,0 +1,34 @@
+%% plainproblemname: Limousinen
+\problemname{Limousinen}
+Den svenska programmeringsolympiaden har anlänt till världsfinalen i Taipei och tävlingen har satt igång med ett intensivt schema. De tävlande ska närvara på diverse föreläsningar, lekar, förberedelser, matpauser, sömnpauser och tävlingar. Men vid världsfinalen i år fanns det en ny aktivitet på schemat: fritid. Det innebär alltså att de tävlande fick göra precis vad de ville under en timme. Detta var ett oväntat problem, ett problem som lagledarna inte alls förberett de tävlande på.
+
+Förvirring och kaos uppstod i de tävlandes hjärnor, och mitt i kaoset gick de alla vilse i staden. När fritidstimmen var slut så var de $N$ tävlande utspridda vid olika korsningar i storstaden och de hade inte en aning om hur de skulle hitta tillbaka, inte heller hade de några mobiltelefoner med sig (eller åtminstone påslagna). Men som tur var så hade tävlingsledningen installerat ett chip i varje tävlandes väska som gjorde att de kunde se exakt vid vilken gatukorsning som varje tävlande befann sig vid via en ny mobilapp.
+
+Limousinföraren Simon har fått i uppdrag att plocka upp de tävlande och köra dem till tävlingsarenan. Hans uppdrag är att skjutsa tillbaka så många som möjligt innan nästa föreläsning börjar (vilket sker om $T$ minuter). Simon har ingen mobiltelefon (påslagen), men kan ändå se de tävlandes positioner via en monitor i instrumentbrädet.
+
+Taipei kan (som bekant) modelleras som ett oändligt regelbundet rutnät där heltalskoordinater är korsningar och det finns lodräta och horisontella dubbelriktade vägar. Det tar exakt 1 minut att köra från en korsning till en närliggande korsning. Simon tänker köra hem de $N$ tävlande i tur och ordning, en i taget. Han får välja i vilken ordning han vill köra hem dem i, men han vill välja den ordning som gör att han hinner köra hem så många som möjligt inom $T$ minuter.
+
+När Simon hämtar upp och skjutsar en tävlande så sker det på följande vis: Han börjar vid tävlingsarenan på adressen $(0, 0)$, kör sedan till personen och hämtar upp den, kör sedan hem personen till arenan, sedan är det nästa persons tur, och så vidare. Han fortsätter så tills tiden tar slut, och han kan bara skjutsa en i taget.
+
+Om han väljer ordningen han hämtar upp de tävlande i optimalt (så att han hinner hämta så många som möjligt), hur många hinner han hämta upp och skjutsa tillbaka inom $T$ minuter?
+
+\section*{Indata}
+På första raden i indata står två heltal $1 \leq N \leq 100\,000$ och $1 \leq T \leq 10^9$, antalet tävlande som ska plockas upp och mängden tid Simon har på sig, respektive. Sedan följer $N$ rader (en rad per tävlande). Varje rad består av två heltal $-10^8 \leq x, y \leq 10^8$, x- och y-koordinater för personens nuvarande position.
+
+\section*{Utdata}
+Skriv ut hur många tävlande som Simon hinner hämta upp innan tiden är slut, givet att han väljer ordningen optimalt.
+
+\section*{Exempel}
+I det första exempeltestfallet så har Simon 5 minuter på sig, och det finns tre tävlande att hämta upp. Att hämta den första tävlande tar 4 minuter, att hämta den andra tar 6 minuter, och att hämta den trejde tar 4 minuter (om han åker optimalt). Eftersom han bara har 5 minuter på sig så hinner han då bara hämta en person.
+
+I det andra exempeltestfallet så hinner inte Simon hämta någon alls.
+
+I det tredje exempeltestfallet hinner Simon precis hämta en person, personen som befinner sig vid $(-100, 0)$.
+
+\section*{Delpoäng}
+I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
+
+\begin{itemize}
+    \item För 20 poäng gäller att $N \leq 10$ och att koordinaternas amplitud ej överstiger 1000.
+    \item För 30 poäng gäller att $N \leq 1\,000$ och att koordinaternas amplitud ej överstiger $10^6$.
+\end{itemize}
