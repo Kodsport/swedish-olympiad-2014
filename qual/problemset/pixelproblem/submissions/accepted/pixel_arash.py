@@ -1,7 +1,5 @@
 # Arash Rouhani
-# Testa alla dimensioner, ranka alla pixlar mot nedanstraende, O(N)
-
-##### SENARE # Testa alla dimensioner, survival of fittest, O(N*log(N))
+# Testa alla dimensioner, survival of fittest, O(N*log(N))
 
 from sys import stdin
 from collections import namedtuple
@@ -30,8 +28,8 @@ def compare(a, b):
     return square(a.r - b.r) + square(a.g - b.g) + square(a.b - b.b)
 
 
-def score(w, pic):
-    coords = pre_coords[0:100]
+def score(w, takes, pic):
+    coords = pre_coords[0:takes]
     return sum([compare(pic.rgbs[i], pic.rgbs[i + w]) for i in coords])
 
 pixels = splitEvery(flat_pixels, 3)
@@ -39,10 +37,13 @@ rgbs = map(lambda triple: RGB(*triple), pixels)
 pic = Picture(num_pixels, rgbs)
 assert(pic.num_pixels == len(rgbs))
 
-widths = range(5, max_width + 1)
+takes = 10
+widths = range(5*5, (max_width + 1) / 5)
 
-scores = [(s, w) for w in widths for s in [score(w, pic)]]
+while len(widths) > 1:
+    wp = [(s, w) for w in widths for s in [score(w, takes, pic)]]
+    wp.sort()
+    widths = [w for (_s, w) in wp[0:(len(wp) / 2)]]
+    takes *= 2
 
-scores.sort()
-
-print (scores[0][1])
+print widths[0]
