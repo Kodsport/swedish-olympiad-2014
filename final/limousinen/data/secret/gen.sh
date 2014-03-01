@@ -56,9 +56,9 @@ for i in ${large[@]}
 do
     # one line here per file in test group
     echo "100000 10000000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "100000 500000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "99034 1000000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "77100 100000000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "100000 50000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "99034 1000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "100000 100 0.91 1241$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # generate solutions for all files

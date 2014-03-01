@@ -8,7 +8,7 @@ Limousinföraren Simon har fått i uppdrag att plocka upp de tävlande och köra
 
 Taipei kan (som bekant) modelleras som ett oändligt regelbundet rutnät där heltalskoordinater är korsningar och det finns lodräta och horisontella dubbelriktade vägar. Det tar exakt 1 minut att köra från en korsning till en närliggande korsning. Simon tänker köra hem de $N$ tävlande i tur och ordning, en i taget. Han får välja i vilken ordning han vill köra hem dem i, men han vill välja den ordning som gör att han hinner köra hem så många som möjligt inom $T$ minuter.
 
-När Simon hämtar upp och skjutsar en tävlande så sker det på följande vis: Han börjar vid tävlingsarenan på adressen (0, 0), kör sedan till personen och hämtar upp den, kör sedan hem personen till arenan, sedan är det nästa persons tur, och så vidare. Han fortsätter så tills tiden tar slut, och han kan bara skjutsa en i taget.
+När Simon hämtar upp och skjutsar en tävlande så sker det på följande vis: Han börjar vid tävlingsarenan på adressen $(0, 0)$, kör sedan till personen och hämtar upp den, kör sedan hem personen till arenan, sedan är det nästa persons tur, och så vidare. Han fortsätter så tills tiden tar slut, och han kan bara skjutsa en i taget.
 
 Om han väljer ordningen han hämtar upp de tävlande i optimalt (så att han hinner hämta så många som möjligt), hur många hinner han hämta upp och skjutsa tillbaka inom $T$ minuter?
 
@@ -19,9 +19,16 @@ På första raden i indata står två heltal $1 \leq N \leq 100\,000$ och $1 \le
 Skriv ut hur många tävlande som Simon hinner hämta upp innan tiden är slut, givet att han väljer ordningen optimalt.
 
 \section*{Exempel}
-TODO
+I det första exempeltestfallet så har Simon 5 minuter på sig, och det finns tre tävlande att hämta upp. Att hämta den första tävlande tar 4 minuter, att hämta den andra tar 6 minuter, och att hämta den trejde tar 4 minuter (om han åker optimalt). Eftersom han bara har 5 minuter på sig så hinner han då bara hämta en person.
+
+I det andra exempeltestfallet så hinner inte Simon hämta någon alls.
+
+I det tredje exempeltestfallet hinner Simon precis hämta en person, personen som befinner sig vid $(-100, 0)$.
 
 \section*{Delpoäng}
 I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
 
-För 20p gäller att $N \leq 10$ och att koordinaternas amplitud ej överstiger 1000. För ytterligare 30p gäller att $N \leq 1000$ och att koordinaternas amplitud ej överstiger $10^6$.
+\begin{itemize}
+    \item För 20 poäng gäller att $N \leq 10$ och att koordinaternas amplitud ej överstiger 1000.
+    \item För 30 poäng gäller att $N \leq 1\,000$ och att koordinaternas amplitud ej överstiger $10^6$.
+\end{itemize}
