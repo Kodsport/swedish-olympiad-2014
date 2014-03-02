@@ -1,24 +1,75 @@
 %% plainproblemname: Fiskspelet
 \problemname{Fiskspelet}
-TODO
 
-\section*{Indata}
-TODO
+Du spelar fiskspelet. Du är en fisk som ska äta mindre fiskar men aldrig får
+bli uppäten av större fiskar. Fiskar ändrar aldrig storlek, men istället så får
+du poäng för varje fisk du äter.
 
-\section*{Utdata}
-TODO
+Din rörelse är begränsad till endast förflyttningar i y-led och din x-position
+kommer alltid vara 0. De andra fiskarna å andra sidan rör sig aldrig i y-led,
+men de flyter med konstant fart åt vänster i x-led. Din hastighet är 1
+y-koordinat per sekund (i den riktning du väljer att röra dig). Alla fiskar har bredd 1 (och även du). Din höjd är är 7. De andra fiskarna har höjder 3, 5 och 9. Du kan äta fiskar av storlek 3 och 5, men fiskar av höjd 9 kommer att äta upp dig, och du måste akta dig för dem. Skulle du äta en fisk med höjd 3 eller 5 får du 10 respektive
+20 poäng. Skulle du bli uppäten förlorar du. Fiskar av höjd 3 färdas med hastighet 1, fiskar av höjd 5 färdas med hastighet 2 och fiskar av höjd 9 färdas med hastighet 3.
 
-\section*{Exempel}
-TODO
+\begin{enumerate}
+  \item
+     Du flyttar (upp eller ner, eller stannar)
+  \item
+     Stora fiskar avancerar tre steg och äter allt i sin väg.
+  \item
+     Medium-fiskar (som överlevt) avancerar två steg och äter mindre fiskar (om några).
+  \item
+     Små fiskar avancerar ett steg
+  \item
+     Du äter små- och mellanfiskar.
+\end{enumerate}
 
-TODO
+Större fiskar äter mindre fiskar. För att det inte ska bli orättvist vem som äter vem så har fiskegudarna bestämt att följande sker i varje diskret tidssteg:
 
-TODO (Ett per testfall tydligen)
-
-\section*{Delpoäng}
-I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
+En fisk äter en annan fisk om följande tre villkor är uppfyllda:
 
 \begin{itemize}
-    \item TODO
-    \item TODO
+  \item
+    Den är större än den andra fisken 
+  \item
+    Den avancerar till eller förbi samma x-koordinat som den andra fisken befinner sig på 
+  \item
+    Fiskarna överlappar i y-led
 \end{itemize}
+
+Givet är banans höjd $h$ och antalet fiskar $n$ samt
+varje fisks storlek samt start position i form av $x$ och $y$ koordinat där y-koordinaten 
+representerar streckets mittpunkt. Du väljer på vilken höjd-nivå vart din fisk ska börja.
+
+Fiskarna förlyttar sig alla samtidigt, du får dock räkna med att du flyttar dig
+precis innan de gör. Om du vill kan du låta din fisk stanna kvar istället för
+att förflytta sig i y-led.
+
+\section*{Indata}
+
+Indatat börjar med en rad med två heltal, $1 \leq n \leq 100'000$ och $20 \leq h \leq 50$. Alltså antalet fiskar samt höjden på banan. Sedan följer $n$ rader, en per fisk. Fisken beskrivs med följande 3 mellansplagsseparerade värden. Först en bokstav, L/M/S, alltså om fisken är liten/mellan/stor. Därefter följer $x$-koordinat och sen $y$-koordinat.
+
+Både $x$ och $y$ koordinat har sina speciella restriktioner. $x$-koordinaten är ett positivt heltal mindre än $10^18$. $y$-koordinaten kommer vara ett heltal sådan så att hela fisken alltid får plats inom intervallet $[1, h]$. Utöver dessa restriktioner har vi att.
+
+\begin{itemize}
+  \item
+    Inga fiskar i indatat kommer överlappa varken helt eller delvis.
+  \item
+    $x$-koordinaten för alla fiskar kommer att vara jämn, för den större fiskstorleken kommer den även alltid att vara delbar med 3. Detta eftersom vi vill att alla krockar ska ske på heltals-koordinater.
+  \item
+    Du kommer alltid kunna klara dig från att bli uppäten.
+\end{itemize}
+
+\section*{Utdata}
+
+Utdata ska bestå utav en rad, antalet poäng du får om du spelar spelet optimalt.
+
+\section*{Delpoäng}
+
+\begin{itemize}
+    \item För 20 delpoäng, Inga uppkäkningar, x-koordinaterna är små ($\leq 10'000$).
+    \item För ytterligare 20 delpoäng, Inga uppkäkningar.
+    \item För ytterligare 30 delpoäng, Mellanfiskar äter aldrig småfiskar.
+\end{itemize}
+
+När det står "Inga uppkäkningar" menas att indata är konstruerat så att dem andra fiskarna aldrig kommer nå varandra, men fisken som du styr kan fortfarande bli uppäten. Med "Mellanfiskar äter aldrig småfiskar" så menas att mellanfiskar aldrig kommer nå småfiskar.
