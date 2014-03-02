@@ -16,11 +16,9 @@ do
     then
         mkdir $i
     fi
-    if [ ! -f $i/testdata.yaml ]
-    then
-        touch $i/testdata.yaml
-        echo "grader_flags: min" > $i/testdata.yaml
-    fi
+
+    # Always overwrite it!
+    echo "grader_flags: min" > $i/testdata.yaml
 done
 
 # small data sets
@@ -32,6 +30,7 @@ MODE='lowdist'
 
 for i in ${small[@]}
 do
+    echo $i
     # one line here per file in test group
     echo "1000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "1000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
@@ -46,6 +45,7 @@ MODE='noeat'
 
 for i in ${medium[@]}
 do
+    echo $i
     # one line here per file in test group
     echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
@@ -60,6 +60,7 @@ MODE='nomideat'
 
 for i in ${large[@]}
 do
+    echo $i
     # one line here per file in test group
     echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
@@ -72,8 +73,9 @@ done
 larger=(7 8 9)
 MODE='hardest'
 
-for i in ${large[@]}
+for i in ${larger[@]}
 do
+    echo $i
     # one line here per file in test group
     echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
@@ -90,6 +92,7 @@ then
     do
         for f in $i/*.in
         do
+            echo "solving $f" 
             ./$SOLVER < $f > ${f%???}.ans
         done
     done
