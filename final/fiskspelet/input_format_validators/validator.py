@@ -93,7 +93,7 @@ while i < N:
         j += 1
 
     # Update globals
-    righest_stor = rl
+    righest_liten = rl
     righest_mellan = rm
     i = j
 
