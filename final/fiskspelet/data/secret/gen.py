@@ -37,7 +37,10 @@ def transition_factor(size_from, size_to):
     elif size_to == 1:  # It must be mid eats small
         return (1 * (difficulty <= difficulty_nomideat)) + 1
     elif size_from == 0:  # large eats small
-        return (2 * (difficulty <= difficulty_noeat)) + 1
+        # So if we have nomideat, mediums could be generated as well, so we
+        # can't return a total sum of 1 then.
+        v = 2 if difficulty <= difficulty_noeat else mode == 'nomideat'
+        return v + 1
     elif size_from == 1:  # large eats mid
         return (0.5 * (difficulty <= difficulty_noeat)) + 1
     assert False
