@@ -46,9 +46,25 @@ for i in xrange(N):
     assert x % (2 if size <= 1 else 6) == 0
     fishes.append(Fish(x, y, size))
 
-# TODO, check that the eating properties are filled and
-# TODO, check no overlapping fishes
-
 line = sys.stdin.readline()
 assert len(line) == 0
+
+# TODO, check that the eating properties are filled and
+
+fishes.sort()
+
+i = 0
+while i < N:
+    j = i
+    f0 = fishes[i]
+    y_highest = -100
+    while j < N and f0.y == fishes[j].y:
+        f = fishes[j]
+        y_low = f.y - tail_height(f.size)
+        y_high = f.y + tail_height(f.size)
+        assert y_highest < y_low
+        y_highest = y_high
+        j += 1
+    i = j
+
 sys.exit(42)
