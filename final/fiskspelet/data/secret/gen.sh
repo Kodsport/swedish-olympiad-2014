@@ -32,10 +32,10 @@ for i in ${small[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "10000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "10000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "1000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "1000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "1000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "1000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
 
@@ -47,10 +47,10 @@ for i in ${medium[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "100000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "100000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "100000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "100000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "50000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "50000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
 
@@ -62,10 +62,10 @@ for i in ${large[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "100000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "100000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "100000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "100000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "50000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "50000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
 
@@ -77,10 +77,10 @@ for i in ${larger[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "100000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "100000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "100000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "100000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "50000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "50000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
 
