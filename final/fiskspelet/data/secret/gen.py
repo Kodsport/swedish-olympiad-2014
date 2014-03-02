@@ -69,16 +69,19 @@ x = 0
 last_smallest = 2  # 2 == Stor
 HEIGHT_OF_US = 7
 
+# make tighter for lowdist mode
+recommended_height = h if mode != 'lowdist' else 15
+
 while len(fishes) < N:
     max_size = lessen_ambition(x, last_smallest, random.randint(0, 2))
     xInc = int(x * (transition_factor(last_smallest, max_size) - 1))
-    xInc += random.randint(1, 100)
+    xInc += random.randint(1, 10)
     if mode == 'hardest' and random.randint(1, 100) >= 90:
         # If mode is hardest, then transition_factor() will never return > 1
         xInc += random.randint(1, 123456789)
     x += xInc
     x = round_up(x, max_size)
-    y = random.randint(0, h)
+    y = random.randint(0, recommended_height)
     sizes = []
     while y < h and len(fishes) < N:
         size = random.randint(0, max_size)
@@ -89,7 +92,8 @@ while len(fishes) < N:
         if ok:
             fishes.append((size, x, y + 1))
             sizes.append(size)
-        y += max(4 + tail_height(size) + 1, random.randint(0, h))
+        at_least_increase = 4 + tail_height(size) + 1
+        y += max(at_least_increase, random.randint(0, recommended_height))
     if sizes:
         last_smallest = min(sizes)
 
