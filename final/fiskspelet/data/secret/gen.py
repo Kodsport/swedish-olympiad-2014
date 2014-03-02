@@ -79,7 +79,7 @@ while len(fishes) < N:
     x += xInc
     x = round_up(x, max_size)
     y = random.randint(0, h)
-    smallest_outputted = 2
+    sizes = []
     while y < h and len(fishes) < N:
         size = random.randint(0, max_size)
         ok = y - tail_height(size) >= 0 and y + tail_height(size) < h
@@ -88,9 +88,10 @@ while len(fishes) < N:
         ok = ok and not large_fish_is_at_top
         if ok:
             fishes.append((size, x, y + 1))
-            smallest_outputted = min(smallest_outputted, size)
+            sizes.append(size)
         y += max(4 + tail_height(size) + 1, random.randint(0, h))
-    last_smallest = smallest_outputted
+    if sizes:
+        last_smallest = min(sizes)
 
 random.shuffle(fishes)
 
