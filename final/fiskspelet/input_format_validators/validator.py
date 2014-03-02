@@ -6,6 +6,10 @@ int_re = "^(0|\-?[1-9][0-9]*)$"
 two_ints_re = "^(0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 fish_re = "^(L|M|S) (0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 
+# General note about this fiskspelet validator:
+#
+# It only validaes a *subset* of valid inputs.
+
 # Initialize mode
 MODES = ["lowdist", "noeat", "nomideat", "hardest"]
 assert len(sys.argv) == 2
