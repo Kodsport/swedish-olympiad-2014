@@ -8,8 +8,8 @@ fish_re = "^(L|M|S) (0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 
 # Initialize mode
 MODES = ["lowdist", "noeat", "nomideat", "hardest"]
-assert len(sys.argv) == 1
-mode = sys.argv[0]
+assert len(sys.argv) == 2
+mode = sys.argv[1]
 assert mode in MODES
 difficulty = MODES.index(mode)
 difficulty_nomideat = MODES.index('nomideat')
@@ -38,7 +38,10 @@ for i in xrange(N):
     assert re.match(fish_re, l)
     size, x, y = l.split()
     size = {'L': 0, 'M': 1, 'S': 2}[size]
+    x, y = map(int, [x, y])
     assert 1 <= x <= (10 ** 18)
+    if mode == 'lowdist':
+        assert x <= 10 ** 4
     assert 1 + tail_height(size) <= y <= h - tail_height(size)
     if size == 2:
         # No large fish may be in top (see the note in the generator)
