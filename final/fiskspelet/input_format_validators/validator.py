@@ -49,8 +49,6 @@ for i in xrange(N):
 line = sys.stdin.readline()
 assert len(line) == 0
 
-# TODO, check that the eating properties are filled and
-
 fishes.sort()
 
 # Check non-overlapping-ness (a y dimensional property)
@@ -67,5 +65,34 @@ while i < N:
         y_highest = y_high
         j += 1
     i = j
+
+# Check eatness-constraints (a x dimensional property)
+i = 0
+righest_liten = 0
+righest_mellan = 0
+while i < N:
+    j = i
+    f0 = fishes[i]
+    rl = righest_liten
+    rm = righest_mellan
+    while j < N and f0.x == fishes[j].x:
+        f = fishes[j]
+        if size == 0:
+            rl = f.x
+        elif size == 1:
+            if difficulty <= difficulty_nomideat:
+                assert righest_liten * 2 < f.x
+            rm = f.x
+        elif size == 2:
+            if difficulty <= difficulty_noeat:
+                assert righest_liten * 3 < f.x
+                assert righest_mellan * 1.5 < f.x
+        j += 1
+
+    # Update globals
+    righest_stor = rl
+    righest_mellan = rm
+    i = j
+
 
 sys.exit(42)
