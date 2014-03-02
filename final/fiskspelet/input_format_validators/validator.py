@@ -80,13 +80,13 @@ while i < N:
     rm = righest_mellan
     while j < N and f0.x == fishes[j].x:
         f = fishes[j]
-        if size == 0:
+        if f.size == 0:
             rl = f.x
-        elif size == 1:
+        elif f.size == 1:
             if difficulty <= difficulty_nomideat:
                 assert righest_liten * 2 < f.x
             rm = f.x
-        elif size == 2:
+        elif f.size == 2:
             if difficulty <= difficulty_noeat:
                 assert righest_liten * 3 < f.x
                 assert righest_mellan * 1.5 < f.x
