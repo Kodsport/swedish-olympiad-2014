@@ -15,11 +15,11 @@ upp $\rightarrow$ höger $\rightarrow \dots$
 \\
 Fotografen tycker det verkar tråkigt att rotera foton och bestämmer sig för att
 göra det till ett roligt spel. Fotografen väljer ett positivt heltal $k$ och
-bestämmer att det enda sättet att rotera foton är att rotera k på varandra
+bestämmer att det enda sättet att rotera foton är att rotera $k$ på varandra
 följande foton samtidigt. Listan med foton har en början och ett slut, den är
 inte cyklisk. Formellt har fotografen $N$ foton, kalla dem $a_1, a_2, \dots
 a_N$. För att rotera väljer fotografen ett index $i$ ($1 \leq i \leq N-k+1$)
-och bilderna $a_i, a_i+1, ... , a_i+k-1$ roteras $90^\circ$ medurs. Detta kallar vi en
+och bilderna $a_i, a_{i+1}, ... , a_{i+k-1}$ roteras $90^\circ$ medurs. Detta kallar vi en
 operation.
 
 Målet med spelet är att vända alla foton rätt med så få operationer som
@@ -42,7 +42,11 @@ tecken betyder följande:
 Skriv ut det minsta antalet operationer som krävs. Om det inte går att vända
 alla foton rätt, skriv ut -1.
 
-\section*{Exempel} TODO
+\section*{Exempel}
+För det första exempelindatat så är en möjlig optimal lösning denna: Rotera
+tre gånger på position 3-4 för att få \texttt{UVVU}, rotera sedan en gång på
+position 2-3 för att slutligen få \texttt{UUUU}, och vi är klara med fyra
+operationer utförda.
 
 \section*{Delpoäng} I det här problemet kan du samla en del av poängen utan att
 lösa problemet fullständigt.
