@@ -1,24 +1,45 @@
 #/usr/bin/env python
 import re
 import sys
+import collections
 int_re = "^(0|\-?[1-9][0-9]*)$"
 two_ints_re = "^(0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
+fish_re = "^(L|M|S) (0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 
+# Initialize mode
+MODES = ["lowdist", "noeat", "nomideat", "hardest"]
+mode = sys.argv[0]
+assert mode in MODES
+difficulty = MODES.index(mode)
+difficulty_nomideat = MODES.index('nomideat')
+difficulty_noeat = MODES.index('noeat')
+
+# Start reading from stdin
 line = sys.stdin.readline()
 words = line.split()
 assert re.match(two_ints_re, line)
 
-N, T = map(int, words)
+N, h = map(int, words)
 
 assert 1 <= N <= 100000
-assert 1 <= T <= 10**9
+assert 20 <= h <= 50
+
+# I must sort them later, so I do this now
+Fish = collections.namedtuple('Fish', ['x', 'y', 'size'])
+fishes = []
 
 for i in xrange(N):
     l = sys.stdin.readline()
-    assert re.match(two_ints_re, l)
-    x, y = map(int, l.split())
-    assert -10**8 <= x <= 10**8
-    assert -10**8 <= y <= 10**8
+    assert re.match(fish_re, l)
+    size, x, y = l.split()
+    size = {'L': 0, 'M': 1, 'S': 2}[size]
+    assert 1 <= x <= (10 ** 18)
+    assert 1 <= y <= h
+    assert x % (2 if size <= 1 else 6) == 0
+    fishes.append(Fish(x, y, size))
+
+# TODO, check that the eating properties are filled and
+# TODO, check no overlapping fishes
 
 line = sys.stdin.readline()
 assert len(line) == 0
