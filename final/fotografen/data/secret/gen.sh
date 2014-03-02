@@ -49,7 +49,7 @@ do
 done
 
 # large data sets
-large=(4 5 6 7 8 9)
+large=(5 6 7 8 9)
 
 for i in ${large[@]}
 do
