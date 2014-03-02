@@ -43,7 +43,7 @@ for i in xrange(N):
     size, x, y = l.split()
     size = {'L': 0, 'M': 1, 'S': 2}[size]
     x, y = map(int, [x, y])
-    assert 1 <= x <= (10 ** 18)
+    assert 1 <= x <= (10 ** 16)
     if mode == 'lowdist':
         assert x <= 10 ** 4
     assert 1 + tail_height(size) <= y <= h - tail_height(size)

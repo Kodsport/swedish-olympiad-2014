@@ -45,25 +45,24 @@ En fisk äter en annan fisk om följande tre villkor är uppfyllda:
     Fiskarna överlappar i y-led.
 \end{itemize}
 
+Hela din fisk måste vara alltid vara innanför banan. Det innebär att
+din mittpunkt alltid måste vara inom intervallet $[4, h-3]$.
+
 Givet är banans höjd $h$ och antalet fiskar $n$ samt
 varje fisks storlek samt start position i form av $x$ och $y$ koordinat där y-koordinaten
 representerar streckets mittpunkt. Du väljer på vilken höjd-nivå vart din fisk ska börja.
 
-Fiskarna förlyttar sig alla samtidigt, du får dock räkna med att du flyttar dig
-precis innan de gör. Om du vill kan du låta din fisk stanna kvar istället för
-att förflytta sig i y-led.
-
 \section*{Indata}
 
 Indata börjar med en rad med två heltal, $1 \leq n \leq 100\,000$ och $20 \leq
-h \leq 50$. Alltså antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
+h \leq 50$. Antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
 en per fisk. Fisken beskrivs med följande 3 mellansplagsseparerade värden.
 Först en bokstav, \texttt{L}/\texttt{M}/\texttt{S}, alltså om fisken är av
 storlek liten, mellan eller stor. Därefter följer $x$-koordinat och sedan
 $y$-koordinat.
 
 Både $x$ och $y$-koordinater har sina speciella restriktioner. $x$-koordinaten
-är ett positivt heltal mindre än $10^{18}$. $y$-koordinaten kommer vara ett
+är ett positivt heltal mindre än $10^{16}$. $y$-koordinaten kommer vara ett
 heltal sådan så att hela fisken alltid får plats inom intervallet $[1, h]$.
 Utöver dessa restriktioner så gäller att:
 

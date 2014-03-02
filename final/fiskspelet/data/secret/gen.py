@@ -25,7 +25,7 @@ difficulty_nomideat = MODES.index('nomideat')
 difficulty_noeat = MODES.index('noeat')
 
 # Well you will almost always go above xAim, so lets undershoot
-xAim = 10 ** 3 if mode == 'lowdist' else 10 ** 17
+xAim = 10 ** 3 if mode == 'lowdist' else 10 ** 15
 
 random.seed(seed)
 
