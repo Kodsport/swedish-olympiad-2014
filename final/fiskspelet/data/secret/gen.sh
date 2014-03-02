@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the problem name to generate correct file names
-PROBLEMNAME="limousinen"
+PROBLEMNAME="fiskspelet"
 
 # Set this if you want to generate answers.
 SOLVER=sol
@@ -25,41 +25,63 @@ done
 
 # small data sets
 small=(0 1)
+MODE='lowdist'
 
-# N, amplitude, fraction, seed
+# N, h, mode, seed
+#MODES = ["lowdist", "noeat", "nomideat", "hardest"]
 
 for i in ${small[@]}
 do
     # one line here per file in test group
-    echo "10 1000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "10 1000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "10 600 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "10 100 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "1000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "1000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "1000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "1000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
 
 # medium data sets
-medium=(2 3 4)
+medium=(2 3)
+MODE='noeat'
 
 for i in ${medium[@]}
 do
     # one line here per file in test group
-    echo "1000 1000000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "1000 100000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "999 10000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "777 100000 1 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "10000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "10000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
 
 # large data sets
-large=(5 6 7 8 9)
+large=(4 5 6)
+MODE='nomideat'
 
 for i in ${large[@]}
 do
     # one line here per file in test group
-    echo "100000 10000000 0.2 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "100000 50000 0.5 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "99034 1000 0.8 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "100000 100 0.91 1241$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "10000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "10000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
 done
+
+# hardest!
+larger=(7 8 9)
+MODE='hardest'
+
+for i in ${large[@]}
+do
+    # one line here per file in test group
+    echo "10000 50 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "10000 50 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "10000 50 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "10000 50 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
+done
+
 
 # generate solutions for all files
 if [[ ! -z $SOLVER ]]
