@@ -53,12 +53,13 @@ assert len(line) == 0
 
 fishes.sort()
 
+# Check non-overlapping-ness (a y dimensional property)
 i = 0
 while i < N:
     j = i
     f0 = fishes[i]
     y_highest = -100
-    while j < N and f0.y == fishes[j].y:
+    while j < N and f0.x == fishes[j].x:
         f = fishes[j]
         y_low = f.y - tail_height(f.size)
         y_high = f.y + tail_height(f.size)
