@@ -2,7 +2,7 @@
 \problemname{Trevliga tal}
 Det svenska juniorlandslaget i programmering älskar att ha det trevligt, särskilt när de är ute och reser. En som uppskattade trevlighet mer än någon annan var en kille som hette Mårten. Mårten hade inte samma bild av trevlighet som alla andra. För Mårten hade trevlighet snarare en matematisk definition: Mårten sade alltid att ett visst tal är trevligt om och endast om det är delbart med 3.
 
-Eftersom inte alla tal är trevliga så måste man förstås hitta sätt att göra dem trevliga på. Du kommer att få ett heltal, och ditt uppdrag är att hjälpa Mårten räkna på hur många sätt han kan göra talet trevligt genom att stryka vissa av siffrorna i talet. När en siffra stryks så försvinner den helt enkelt ur talet. Observera att Mårten inte får stryka alla siffror i talet. Kom ihåg att ett tal är delbart med tre om och endast om dess siffersumma är delbar med tre.
+Eftersom inte alla tal är trevliga så måste man förstås hitta sätt att göra dem trevliga på. Du kommer att få ett heltal, och ditt uppdrag är att hjälpa Mårten räkna på hur många sätt han kan göra talet trevligt genom att stryka vissa av siffrorna i talet. Kom ihåg att ett tal är delbart med tre om och endast om dess siffersumma är delbar med tre. Det är garanterat att Mårten alltid kan lyckas, eftersom han kan stryka alla siffror i talet.
 
 \section*{Indata}
 På den första och enda raden i indata står ett heltal (med upp till $100\,000$ siffror). Talet innehåller endast siffror $0-9$. Talet kan innehålla ledande nollor.
@@ -11,15 +11,11 @@ På den första och enda raden i indata står ett heltal (med upp till $100\,000
 Ditt program ska skriva ut ett enda tal på en rad: antalet olika sätt på vilket Mårten kan ta bort siffror ur talet så att det blir delbart med 3. Två sätt anses vara olika om indexen där siffror tagits bort skiljer sig. Eftersom svaret kan bli jättestort så ska du printa det modulo $1\,000\,000\,007$, dvs resten av svaret då det divideras med $10^9 + 7$. Notera att ett potentiellt tal efter siffor strukits över \emph{kan innehålla ledande nollor}.
 
 \section*{Exempel}
-I det första exempeltestfallet kan Mårten bara åstadkomma delbarhet på ett sätt: genom att stryka ettan i talet. Kvar blir då bara siffran 3, som förstås är delbart med tre.
+I det första exempeltestfallet kan Mårten åstadkomma delbarhet på två sätt. Det första är att stryka ettan i talet. Kvar blir då bara siffran 3, som förstås är delbart med tre. Det andra sättet är att stryka alla siffror i talet.
 
-I det andra exempeltestfallet åstadkommer Mårten delbarhet genom att inte stryka någon siffra alls.
+I det andra exempeltestfallet åstadkommer Mårten delbarhet genom att inte stryka någon siffra alls, eller att stryka alla siffror.
 
-I det tredje exempeltestfallet finns det inga möjliga strykningar som ger delbarthet med 3.
-
-I det fjärde exempeltestfallet kan Mårten åstadkomma delbarhet genom att bilda tre olika tal: 1914, 9, 114.
-
-I det femte exempeltestfallet kan Mårten åstadkomma delbarhet genom att stryka ettan.
+I det tredje exempeltestfallet finns det bara ett sätt att åstadkomma delbarhet på: genom att stryka alla siffror.
 
 \section*{Delpoäng}
 I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.

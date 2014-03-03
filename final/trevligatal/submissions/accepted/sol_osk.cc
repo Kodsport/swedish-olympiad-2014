@@ -23,5 +23,5 @@ int main() {
     for (int i = 0; i < number.size(); ++i)
         number[i] -= '0';
     memset(dp,-1,sizeof(dp));
-    cout << (ways(number, 0, 0)-1) << endl;
+    cout << (ways(number, 0, 0)) << endl;
 }
