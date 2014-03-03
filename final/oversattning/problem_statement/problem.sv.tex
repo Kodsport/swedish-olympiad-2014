@@ -1,0 +1,36 @@
+%% plainproblemname: Översättning
+\problemname{Översättning}
+Ett enkelt översättningsprogram används för att översätta texter mellan två
+olika språk, kalla dem A och B. Programmet översätter texten ord för ord enligt
+en ordlista. När ett ord ska översättas letar programmet upp den första
+förekomsten av ordet i ordlistan och översätter enligt den. När man översätter
+på det sättet är det vanligt att textens innehåll förändras något. För att se
+om det är fallet kan man översätta texten upprepade gånger. Upprepningsprogrammet
+följer denna algoritm:
+
+\begin{enumerate}
+    \item Låt $a$ vara en text (en samling ord) i språket $A$.
+    \item Översätt $a$ från $A$ till $B$, kalla den nya texten $b$.
+    \item Översätt $b$ från $B$ till $A$, kalla den nya texten $a'$.
+    \item Om $a \not = a'$, börja om från steg 1 med $a'$. Annars är texten färdigöversatt.
+\end{enumerate}
+
+Givet en ordlista och en text, skriv ut texten som skapas av ovanstående algoritm.
+
+\section*{Indata}
+På första raden står ett heltal n ($1 \leq N \leq 1\,000$), antalet ord i ordlistan.
+Sedan följer $N$ rader med två ord (bestående av endast tecken \texttt{a-z},
+inga mellanslag) på varje rad som beskriver hur ord ska översättas. Det första
+ordet är i språket $A$ och det andra i språket $B$. Sista raden innehåller en textsträng
+bestående av ord separerade av mellanslag, texten som ska översättas. Det är garanterat
+att alla ord i texten finns i ordlistan.
+
+\section*{Utdata}
+Skriv ut en enda rad, texten som ges av algoritmen när den är färdig.
+
+\section*{Exempel}
+TODO
+
+\section*{Delpoäng}
+I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
+TODO
