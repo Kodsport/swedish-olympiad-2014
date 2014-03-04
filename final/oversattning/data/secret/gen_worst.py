@@ -36,6 +36,6 @@ l = list(used_words)
 
 for i in xrange(sentencelen):
     sys.stdout.write(random.choice(l))
-    sys.stdout.write(" ")
-
+    if i != sentencelen-1:
+        sys.stdout.write(" ")
 print ""

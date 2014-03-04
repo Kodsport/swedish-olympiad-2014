@@ -25,10 +25,12 @@ for i in xrange(N):
 
 line = sys.stdin.readline()
 words = line.split()
-for w in words:
+
+for i in xrange(len(words)):
+    w = words[i]
     assert re.match(input_re3, w)
     assert 1 <= len(w) <= 20
-    assert w1 in words
+    assert w in words
 
 line = sys.stdin.readline()
 assert len(line) == 0
