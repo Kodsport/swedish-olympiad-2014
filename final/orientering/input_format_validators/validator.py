@@ -17,7 +17,7 @@ assert 1 <= y_dest <= h
 assert 1 <= x_dest <= b
 
 for i in xrange(h):
-    line = sys.stdin.readline()
+    line = sys.stdin.readline().strip()
     assert re.match(rest_lines_re, line)
     assert len(line) == b
 
