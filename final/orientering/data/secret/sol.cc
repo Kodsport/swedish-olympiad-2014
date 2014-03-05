@@ -1,6 +1,6 @@
 //Arash Rouhani
-#define _GLIBCXX_DEBUG
-//#define NDEBUG
+//#define _GLIBCXX_DEBUG
+#define NDEBUG
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -120,9 +120,9 @@ int yDirs[] = { 1, 0, -1, 0};
 int xDirs[] = { 0, 1, 0, -1};
 
 struct State {
-  int x, y, dir;
+  int y, x, dir;
   State() : x(-100), y(-100), dir(-100) {}
-  State(int x, int y, int t) : x(x), y(y), dir(t) {}
+  State(int y, int x, int t) : x(x), y(y), dir(t) {}
 
   bool operator< (const State& other) const {
     if( x != other.x) return x < other.x;
@@ -139,9 +139,9 @@ struct StateC {
 
 int main(){
   VI to_dir(255, -1);
-  to_dir['^'] = 0;
+  to_dir['v'] = 0;
   to_dir['>'] = 1;
-  to_dir['v'] = 2;
+  to_dir['^'] = 2;
   to_dir['<'] = 3;
 
   mr4(int, N, M, R, C);
@@ -153,6 +153,39 @@ int main(){
   const State state0(0,0,1); // 1 == höger
   dq.push_back(StateC(state0,0));
   while(!dq.empty()) {
-    // TODO implement
+    StateC sc = dq.front(); dq.pop_front();
+    const State s0 = sc.s;
+    /* cout << I_II(s0.dir, II(s0.y, s0.x)) << endl; */
+    if(!visited.count(s0)) {
+      visited.insert(s0);
+      bool did_win = s0.y == (R-1) && s0.x == (C-1);
+      if (did_win) {
+        cout << sc.c << endl;
+        return 0;
+      }
+      int dir = to_dir[karta[s0.y][s0.x]];
+      {
+        State s(s0.y + yDirs[s0.dir], s0.x + xDirs[s0.dir], s0.dir);
+        if(0 <= s.y && s.y < N &&
+            0 <= s.x && s.x < M){
+          if(dir >= 0 && dir != s0.dir) {
+            // don't follow arrow, go ahead
+            dq.push_back(StateC(s, sc.c + 1));
+          }
+          else {
+            // there is no arrow, keep going
+            dq.push_front(StateC(s, sc.c));
+          }
+        }
+      }
+      if (dir >= 0) {
+        // follow the arrow, change direction
+        State s(s0.y, s0.x, dir);
+        dq.push_front(StateC(s, sc.c));
+      }
+    }
   }
+  cout << -1 << endl;
+  assert(false);
+  return 1;
 }
