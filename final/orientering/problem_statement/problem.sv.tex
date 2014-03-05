@@ -3,16 +3,14 @@
 
 Springoalla har börjat med orientering, men är ärligt talat inte
 särskilt bra på det. Faktum är att hon trots de vägvisande pilarna
-som satts upp springer vilse nästan varenda gång.
-
-Skogen hon springer i kan ses som ett rektangulärt $M$x$N$ rutnät, med
-pilar av fyra olika sorter utsatta: \texttt{\^}, \texttt{>}, \texttt{v},
-\texttt{<}. Tecken \texttt{.} används för rutor som är markerade med pilar.
-
-Springoalla kommer in på den övre vänstra rutan, springandes åt
-höger. När hon kommer till en pil byter hon automatiskt riktning och
-börjar springa åt det håll pilen pekar. Det händer dock ibland att
-hon missar en pil, och i stället fortsätter rakt förbi den.
+som satts upp springer vilse nästan varenda gång. Skogen hon springer
+i kan ses som ett rektangulärt $M$x$N$ rutnät, med pilar av fyra
+olika sorter utsatta: \texttt{\^}, \texttt{>}, \texttt{v}, \texttt{<}.
+Punkttecken (\texttt{.}) används för rutor utan pil. Springoalla
+kommer in på den övre vänstra rutan, springandes åt höger. När hon
+kommer till en pil byter hon automatiskt riktning och börjar springa
+åt det håll pilen pekar. Det händer dock ibland att hon missar en
+pil, och i stället fortsätter rakt förbi den.
 
 Givet en position i skogen, hur många pilar måste Springoalla minst ha
 missat för att hamna där? Notera att hon aldrig kan ha sprungit ut ur
@@ -22,18 +20,12 @@ som två missar).
 
 \section*{Indata}
 
-På första raden står fyra tal $N$, $M$, $R$ och $C$, höjden och bredden på
-skogen, samt positionen (rad och kolumn) Springoalla slutar på (raderna
-är numrerade från 1 till $N$ och kolumnerna från 1 till $M$). Därefter
-följer $N$ rader med $M$ tecken, som beskriver skogens utseende. Varje
-tecken kommer att vara antingen \texttt{.}, \texttt{v}, \texttt{\^}, \texttt{<} eller \texttt{>}.
-
-\begin{itemize}
-\item \texttt{\^} representerar upp
-\item \texttt{>} representerar höger
-\item \texttt{v} representerar ner
-\item \texttt{<} representerar väster
-\end{itemize}
+På den första raden står fyra tal $N$, $M$, $R$ och $C$, höjden och
+bredden på skogen, samt positionen (rad och kolumn) Springoalla slutar
+på (raderna är numrerade från 1 till $N$ och kolumnerna från 1 till
+$M$). Därefter följer $N$ rader med $M$ tecken, som beskriver skogen.
+Varje tecken kommer att vara antingen \texttt{.}, \texttt{v} (ner),
+\texttt{\^} (upp), \texttt{<} (vänster) eller \texttt{>} (höger).
 
 Höjden och bredden kommer vara max 2000. Raden och kolumnen som
 Springoalla slutar på kommer vara inom skogens koordinater.
@@ -44,8 +36,9 @@ Ett enda tal: Det minsta antalet pilar Springoalla måste ha missat.
 
 \section*{Exempel}
 
-För det första exempelindatat så har hon missat alla nedåtpilar utom en.  För
-det andra exempelindatat så har hon missat mittenpilen två gånger
+För det första exempelindatat så har hon missat alla nedåtpilar utom
+en. För det andra exempelindatat så har hon missat mittenpilen två
+gånger. I det tredje exemplet så missar hon inga pilar.
 
 \section*{Delpoäng}
 
