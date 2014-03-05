@@ -123,12 +123,6 @@ struct State {
   int y, x, dir;
   State() : x(-100), y(-100), dir(-100) {}
   State(int y, int x, int t) : x(x), y(y), dir(t) {}
-
-  bool operator< (const State& other) const {
-    if( x != other.x) return x < other.x;
-    if( y != other.y) return y < other.y;
-    return dir < other.dir;
-  }
 };
 
 struct StateC {
@@ -149,15 +143,16 @@ int main(){
   tr(karta, it) cin >> *it;
 
   deque<StateC> dq;
-  set<State> visited;
+  VVVI visited(N, VVI(M, VI(nDirs)));
   const State state0(0,0,1); // 1 == höger
   dq.push_back(StateC(state0,0));
   while(!dq.empty()) {
     StateC sc = dq.front(); dq.pop_front();
     const State s0 = sc.s;
     /* cout << I_II(s0.dir, II(s0.y, s0.x)) << endl; */
-    if(!visited.count(s0)) {
-      visited.insert(s0);
+    int &v = visited[s0.y][s0.x][s0.dir];
+    if(v == false) {
+      v = true;
       bool did_win = s0.y == (R-1) && s0.x == (C-1);
       if (did_win) {
         cout << sc.c << endl;

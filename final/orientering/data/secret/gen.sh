@@ -29,6 +29,7 @@ small=(0 1 2 3 4)
 # length, seed
 for i in ${small[@]}
 do
+    echo $i
     # one line here per file in test group
     echo "200 200 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "200 200 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
@@ -41,6 +42,7 @@ large=(5 6 7 8 9)
 
 for i in ${large[@]}
 do
+    echo $i
     # one line here per file in test group
     echo "2000 2000 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "2000 2000 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
@@ -55,6 +57,7 @@ then
     do
         for f in $i/*.in
         do
+            echo "solving $f"
             ./$SOLVER < $f > ${f%???}.ans
         done
     done

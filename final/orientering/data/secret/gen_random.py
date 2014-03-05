@@ -21,10 +21,7 @@ R = random.randint(1, N)
 C = random.randint(1, M)
 
 
-def random_square(_ignore):
-    return random.choice(values)
-
 print N, M, R, C
 
 for i in xrange(N):
-    print ''.join(map(random_square, range(M)))
+    print ''.join([random.choice(values) for _ignore in xrange(M)])
