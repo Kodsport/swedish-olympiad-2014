@@ -202,9 +202,10 @@ VF killFishes(VF fishes, int h) {
             // If dies
             LL xOfKiller = (leftestKr*3/2);
             assert(xOfKiller > fish.x);
-            LL xWhereDied = (xOfKiller-fish.x)*3;
+            LL stepsTakenByMediumFish = (xOfKiller-fish.x)*2;
+            LL xWhereDied = fish.x - stepsTakenByMediumFish;
             for(int y = fish.y-2 ; y <= fish.y+2; y++) {
-              MIN(krSmall[y], xWhereDied + (fish.x-xWhereDied)/2);
+              MIN(krSmall[y], (xWhereDied + (fish.x-xWhereDied)/2) + 1);
             }
           }
           break;
