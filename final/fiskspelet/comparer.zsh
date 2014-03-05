@@ -17,11 +17,36 @@ wa () {
   (cd submissions && ./wa)
 }
 
+arash () {
+  (cd submissions/accepted && ./$0)
+}
+
+marten () {
+  (cd submissions/accepted  && ./$0)
+}
+
+
 # Kör båda
 boda () {
-  fisk $@ | sol
-  fisk $@ | wa
+  fisk $@ | arash
+  fisk $@ | marten
 }
+
+same () {
+  [[ $(fisk $@ | arash) == $(fisk $@ | marten) ]]
+}
+
+not_same () {
+  same $@
+  [[ $? != 0 ]]
+}
+
+cas='4 30
+L 30 10
+S 48 15
+L 30 16
+L 36 12
+'
 
 # sen kan du typ köra
 #

@@ -254,6 +254,12 @@ int dpStep(VF fishes, int h) {
       }
       j++;
     }
+    values[0] -= 12345678;
+    values[1] -= 12345678;
+    values[2] -= 12345678;
+    values[h-3] -= 12345678;
+    values[h-2] -= 12345678;
+    values[h-1] -= 12345678;
     LL diffx = (j < n ? fishes[j].x : 123456789123456789LL) - fishes[i].x;
     values = updateSteps(values, min(diffx, LL(h)));
     i = j;
