@@ -23,4 +23,7 @@ for i in xrange(h):
 
 line = sys.stdin.readline()
 assert len(line) == 0
+
+# TODO: Check that the problem is solveable
+
 sys.exit(42)
