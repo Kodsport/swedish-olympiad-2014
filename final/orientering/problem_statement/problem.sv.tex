@@ -4,9 +4,11 @@
 Springoalla har börjat med orientering, men är ärligt talat inte
 särskilt bra på det. Faktum är att hon trots de vägvisande pilarna
 som satts upp springer vilse nästan varenda gång. Skogen hon springer
-i kan ses som ett rektangulärt $M$x$N$ rutnät, med pilar av fyra
-olika sorter utsatta: \texttt{\^}, \texttt{>}, \texttt{v}, \texttt{<}.
-Punkttecken (\texttt{.}) används för rutor utan pil. Springoalla
+i kan ses som ett rektangulärt rutnät med $N$ rader och $M$ kolumner,
+med pilar av fyra olika sorter utsatta: \texttt{\^}, \texttt{>},
+\texttt{v} och \texttt{<}.
+Punkttecken (\texttt{.}) används för att markera att en ruta inte har någon
+pil. Springoalla
 kommer in på den övre vänstra rutan, springandes åt höger. När hon
 kommer till en pil byter hon automatiskt riktning och börjar springa
 åt det håll pilen pekar. Det händer dock ibland att hon missar en
@@ -27,12 +29,12 @@ $M$). Därefter följer $N$ rader med $M$ tecken, som beskriver skogen.
 Varje tecken kommer att vara antingen \texttt{.}, \texttt{v} (ner),
 \texttt{\^} (upp), \texttt{<} (vänster) eller \texttt{>} (höger).
 
-Höjden och bredden kommer vara max 2000. Raden och kolumnen som
+Höjden och bredden kommer vara max 2000 ($1 \leq N,M \leq 2\,000$). Raden och kolumnen som
 Springoalla slutar på kommer vara inom skogens koordinater.
 
 \section*{Utdata}
 
-Ett enda tal: Det minsta antalet pilar Springoalla måste ha missat.
+Ett enda tal: det minsta antalet pilar Springoalla måste ha missat.
 
 \section*{Exempel}
 
