@@ -1,6 +1,6 @@
 %% plainproblemname: Trevliga tal
 \problemname{Trevliga tal}
-Det svenska juniorlandslaget i programmering älskar att ha det trevligt, särskilt när de är ute och reser. En som uppskattade trevlighet mer än någon annan var en kille som hette Mårten. Mårten hade inte samma bild av trevlighet som alla andra. För Mårten hade trevlighet snarare en matematisk definition: Mårten sade alltid att ett visst tal är trevligt om och endast om det är delbart med 3.
+Det svenska juniorlandslaget i programmering älskar att ha det trevligt när de är ute och reser. En som uppskattade trevlighet mer än någon annan var Mårten. Han hade dock inte samma bild av trevlighet som alla andra. För Mårten hade trevlighet snarare en matematisk definition: Ett visst tal är trevligt om och endast om det är delbart med 3.
 
 Eftersom inte alla tal är trevliga så måste man förstås hitta sätt att göra dem trevliga på. Du kommer att få ett heltal, och ditt uppdrag är att hjälpa Mårten räkna på hur många sätt han kan göra talet trevligt genom att stryka vissa av siffrorna i talet. Kom ihåg att ett tal är delbart med tre om och endast om dess siffersumma är delbar med tre. Det är garanterat att Mårten alltid kan lyckas, eftersom han kan stryka alla siffror i talet.
 
@@ -8,7 +8,7 @@ Eftersom inte alla tal är trevliga så måste man förstås hitta sätt att gö
 På den första och enda raden i indata står ett heltal (med upp till $100\,000$ siffror). Talet innehåller endast siffror $0-9$. Talet kan innehålla ledande nollor.
 
 \section*{Utdata}
-Ditt program ska skriva ut ett enda tal på en rad: antalet olika sätt på vilket Mårten kan ta bort siffror ur talet så att det blir delbart med 3. Två sätt anses vara olika om indexen där siffror tagits bort skiljer sig. Eftersom svaret kan bli jättestort så ska du printa det modulo $1\,000\,000\,007$, dvs resten av svaret då det divideras med $10^9 + 7$. Notera att ett potentiellt tal efter siffor strukits över \emph{kan innehålla ledande nollor}.
+Ditt program ska skriva ut ett enda tal på en rad: antalet olika sätt på vilket Mårten kan ta bort siffror ur talet så att det blir delbart med 3. Två sätt anses vara olika om indexen där siffror tagits bort skiljer sig. Eftersom svaret kan bli jättestort så ska du skriva ut det modulo $1\,000\,000\,007$, dvs \emph{resten} som uppstår då svaret divideras med $10^9 + 7$. Notera att ett trevligt tal som uppstår när siffor strukits över \emph{kan börja med nollor}.
 
 \section*{Exempel}
 I det första exempeltestfallet kan Mårten åstadkomma delbarhet på två sätt. Det första är att stryka ettan i talet. Kvar blir då bara siffran 3, som förstås är delbart med tre. Det andra sättet är att stryka alla siffror i talet.
