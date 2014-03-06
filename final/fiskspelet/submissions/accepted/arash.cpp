@@ -120,7 +120,6 @@ template <class InIt> string rangeToString(InIt begin, InIt end, string seperato
   return oss.str();
 }
 
-
 struct Fish {
   LL x;
 	int y, type;
@@ -133,6 +132,17 @@ struct Fish {
     return type < other.type;
   }
 };
+
+std::ostream& operator << ( std::ostream& out, const Fish& f )
+{
+#define PRINT(x) out << #x << ": " << x << "\t";
+    PRINT(f.x);
+    PRINT(f.y);
+    PRINT(f.type);
+    out << endl;
+    return out;
+}
+
 
 
 typedef vector <Fish> VF;
@@ -172,6 +182,7 @@ VF killFishes(VF fishes, int h) {
 
   foru(i, n) {
     Fish fish = fishes[i];
+    WHEN_DEBUG(cout << fish << endl;)
     switch(fish.type) {
       case SMALL:
         {
@@ -227,10 +238,24 @@ VF killFishes(VF fishes, int h) {
 VI updateSteps(VI values, LL steps) {
   int h = sz(values);
   VI newValues = values;
+  if(steps >= h) {
+      return VI(h, *max_element(all(values)));
+  }
+  deque< int > window;
+  int right = 0;
   foru(i, h) {
-    for(int y = max(0LL, i - steps); y < min(LL(h), i + steps+1) ; y++) {
-      MAX(newValues[i], values[y]);
+    while(right < h && right <= i + steps) {
+      // insert element [right]
+      while(!window.empty() && values[window.back()] <= values[right]) {
+        window.pop_back();
+      }
+      window.push_back(right);
+      right++;
     }
+    if(window.front() == i - steps - 1){
+      window.pop_front();
+    }
+    newValues[i] = values[window.front()];
   }
   return newValues;
 }
@@ -284,6 +309,8 @@ int main(){
   }
   WHEN_DEBUG(cout << "Killing fishes ..." << endl;)
   fishes = killFishes(fishes, h);
+  WHEN_DEBUG(cout << "#fishes:" << sz(fishes) << endl;)
+  WHEN_DEBUG(cout << fishes << endl;)
   WHEN_DEBUG(cout << "dpstep ..." << endl;)
   int ans = dpStep(fishes, h);
   cout << ans << endl;
