@@ -26,6 +26,8 @@ for i in xrange(N):
 line = sys.stdin.readline()
 words = line.split()
 
+assert len(words) >= 1
+
 for i in xrange(len(words)):
     w = words[i]
     assert re.match(input_re3, w)
