@@ -9,9 +9,9 @@ map<string,string> target;
 map<string,string> to;
 map<string,string> from;
 
-string translate(const string &str) {
+const string &translate(const string &str) {
     if (target.find(str) != target.end()) return target[str];
-    string nextWord = to[str];
+    const string &nextWord = to[str];
 
     // found terminal word
     if (from[nextWord] == str) {

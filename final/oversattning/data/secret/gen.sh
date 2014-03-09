@@ -41,8 +41,8 @@ do
     echo "50 100 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
-# large data sets
-large=(4 5 6 7 8 9)
+# med data sets
+large=(4 5 6)
 
 for i in ${large[@]}
 do
@@ -52,6 +52,19 @@ do
     echo "100 1000 2 100000 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "1000 100000 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "500 100000 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
+done
+
+# large data sets
+large=(7 8 9)
+
+for i in ${large[@]}
+do
+    # one line here per file in test group
+    echo "1000 50000 10 100000 5$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "1000 50000 1000 100000 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "1000 50000 2 100000 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 100000 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "49999 100000 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # generate solutions for all files

@@ -11,7 +11,7 @@ assert re.match(input_re1, line)
 
 N = int(line)
 
-assert 1 <= N <= 1000
+assert 1 <= N <= 50000
 
 words = {}
 
