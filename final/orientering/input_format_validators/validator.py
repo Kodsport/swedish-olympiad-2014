@@ -11,8 +11,8 @@ assert re.match(line1_re, line)
 
 h, b, y_dest, x_dest = map(int, line.strip().split())
 
-assert 1 <= h <= 2000
-assert 1 <= b <= 2000
+assert 1 <= h <= 400
+assert 1 <= b <= 400
 assert 1 <= y_dest <= h
 assert 1 <= x_dest <= b
 
