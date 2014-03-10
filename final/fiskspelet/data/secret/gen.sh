@@ -88,17 +88,18 @@ done
 # hur man ska göra i gradern då.
 # hardester!
 largester=(9)
-MODE='hardester'
+MODE='dontuse'
+MOST_PERMISSIVE_MODE='hardest'  # Most permissive validator
 
 for i in ${largester[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "50000 500 $MODE 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "50000 500 $MODE 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "50000 500 $MODE 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "50000 500 $MODE 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
-    echo "input_validator_flags : $MODE" >> g$i/testdata.yaml
+    echo "50000 500 noeat 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "50000 500 noeat 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "50000 500 nomideat 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 500 hardest 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "input_validator_flags : $MOST_PERMISSIVE_MODE" >> g$i/testdata.yaml
 done
 
 

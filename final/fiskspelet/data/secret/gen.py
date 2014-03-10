@@ -6,7 +6,7 @@ import random
 # mode - in MODES
 # seed - random seed
 
-MODES = ["lowdist", "noeat", "nomideat", "hardest", "hardester"]
+MODES = ["lowdist", "noeat", "nomideat", "hardest"]
 
 inputs = sys.stdin.readline().strip().split()
 
@@ -20,7 +20,8 @@ assert mode in MODES
 difficulty = MODES.index(mode)
 difficulty_nomideat = MODES.index('nomideat')
 difficulty_noeat = MODES.index('noeat')
-difficulty_hardest = MODES.index('hardest')
+
+high_hight_mode = h > 50
 
 # Well you will almost always go above xAim, so lets undershoot
 xAim = 10 ** 3 if mode == 'lowdist' else 10 ** 15
@@ -73,8 +74,8 @@ recommended_height = h if mode != 'lowdist' else 15
 while len(fishes) < N:
     max_size = lessen_ambition(x, last_smallest, random.randint(0, 2))
     xInc = int(x * (transition_factor(last_smallest, max_size) - 1))
-    xInc += random.randint(1, 10 if difficulty <= difficulty_hardest else 400)
-    if difficulty >= difficulty_hardest and random.randint(1, 100) >= 90:
+    xInc += random.randint(1, 10 if not high_hight_mode else h)
+    if mode == 'hardest' and random.randint(1, 100) >= 90:
         # If mode is hardest, then transition_factor() will never return > 1
         xInc += random.randint(1, 123456789)
     x += xInc

@@ -11,7 +11,7 @@ fish_re = "^(L|M|S) (0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 # It only validaes a *subset* of valid inputs.
 
 # Initialize mode
-MODES = ["lowdist", "noeat", "nomideat", "hardest", "hardester"]
+MODES = ["lowdist", "noeat", "nomideat", "hardest"]
 assert len(sys.argv) == 2
 mode = sys.argv[1]
 assert mode in MODES
@@ -27,8 +27,7 @@ assert re.match(two_ints_re, line)
 N, h = map(int, words)
 
 assert 1 <= N <= 100000
-max_h = 500 if mode == 'hardester' else 50
-assert 20 <= h and h <= max_h
+assert 20 <= h and h <= 500
 
 # I must sort them later, so I do this now
 Fish = collections.namedtuple('Fish', ['x', 'y', 'size'])
