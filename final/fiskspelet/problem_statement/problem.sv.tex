@@ -44,7 +44,7 @@ representerar streckets mittpunkt. Du väljer på vilken höjd-nivå din fisk sk
 \section*{Indata}
 
 Indata börjar med en rad med två heltal, $1 \leq n \leq 50\,000$ och $20 \leq
-h \leq 50$. Antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
+h \leq 500$. Antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
 en per fisk. Fisken beskrivs med följande 3 mellansplagsseparerade värden.
 Först en bokstav, \texttt{L}/\texttt{M}/\texttt{S}, alltså om fisken är av
 storlek liten, mellan eller stor. Därefter följer $x$-koordinat och sedan
@@ -76,9 +76,10 @@ I det här problemet kan du samla en del av poängen utan att lösa problemet fu
 
 \begin{itemize}
     \item För 20 delpoäng så gäller det att inga andra fiskar äter upp
-          varandra, och x-koordinaterna är små ($\leq 10\,000$).
+          varandra, och x-koordinaterna är små ($\leq 10\,000$). $h \leq 50$.
     \item För ytterligare 20 delpoäng så gäller det att inga andra fiskar
-          äter upp varandra.
-    \item För ytterligare 30 delpoäng så gäller det att mellanfiskar aldrig
-          äter småfiskar.
+          äter upp varandra. $h \leq 50$.
+    \item För ytterligare 25 delpoäng så gäller det att mellanfiskar aldrig
+          äter småfiskar. $h \leq 50$.
+    \item För ytterligare 5 delpoäng så kan höjden $h$ vara $\leq 500$
 \end{itemize}
