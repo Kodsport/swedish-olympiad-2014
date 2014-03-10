@@ -95,10 +95,10 @@ for i in ${largester[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "50000 500 noeat 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "50000 500 noeat 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "50000 500 nomideat 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "50000 500 hardest 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50000 1000 noeat 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "50000 1000 noeat 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "50000 1000 nomideat 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 1000 hardest 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "input_validator_flags : $MOST_PERMISSIVE_MODE" >> g$i/testdata.yaml
 done
 

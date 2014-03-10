@@ -27,7 +27,7 @@ assert re.match(two_ints_re, line)
 N, h = map(int, words)
 
 assert 1 <= N <= 100000
-assert 20 <= h and h <= 500
+assert 20 <= h and h <= 1000
 
 # I must sort them later, so I do this now
 Fish = collections.namedtuple('Fish', ['x', 'y', 'size'])

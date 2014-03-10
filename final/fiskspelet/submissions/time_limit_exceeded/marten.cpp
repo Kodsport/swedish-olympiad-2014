@@ -3,7 +3,7 @@
 #include <vector>
 #include <queue>
 #define MAXN 50005
-#define MAXH 505
+#define MAXH 1005
  
 using namespace std;
  
