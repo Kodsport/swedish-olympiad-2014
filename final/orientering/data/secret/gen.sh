@@ -31,10 +31,10 @@ for i in ${small[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "80 80 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "80 80 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "80 80 3$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "80 80 4$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "200 200 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "200 200 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "200 200 3$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "200 200 4$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # large data sets
@@ -44,10 +44,10 @@ for i in ${large[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "400 400 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "400 400 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "400 400 3$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "400 400 4$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "800 800 11$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "800 800 21$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "800 800 31$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "800 800 41$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # generate solutions for all files
