@@ -99,6 +99,7 @@ do
     echo "50000 1000 noeat 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "50000 1000 nomideat 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "50000 1000 hardest 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50000 50 hardest 5$i" | python gen.py > g$i/$PROBLEMNAME.g$i.5.in
     echo "input_validator_flags : $MOST_PERMISSIVE_MODE" >> g$i/testdata.yaml
 done
 
