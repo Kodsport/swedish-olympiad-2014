@@ -37,8 +37,8 @@ do
     echo "30 100 100000 100 5$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "50 100 10 100 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "20 100 10 100 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "100 100 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
-    echo "50 100 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo "100 30 100 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50 3 100 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # med data sets
@@ -50,8 +50,8 @@ do
     echo "70 1000 10 100000 5$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "100 1000 1000 100000 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "100 1000 2 100000 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "1000 100000 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
-    echo "500 100000 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo "1000 200 100000 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "500 150 100000 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # large data sets
@@ -63,24 +63,24 @@ do
     echo "1000 50000 10 100000 5$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
     echo "1000 50000 1000 100000 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "1000 50000 2 100000 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "50000 100000 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
-    echo "49999 100000 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo "50000 4000 100000 3$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "49999 20000 100000 4$i" | python gen_worst.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # generate solutions for all files
 if [[ ! -z $SOLVER ]]
 then
     for i in ${subfolders[@]}; do for f in $i/*.in; do echo -n '.'; done; done
-	printf '\r'
+    printf '\r'
     for i in ${subfolders[@]}
     do
         for f in $i/*.in
         do
             ./$SOLVER < $f > ${f%???}.ans
-			echo -n '='
+            echo -n '='
         done
     done
-	printf '\r'
+    printf '\r'
     for i in ${subfolders[@]}; do for f in $i/*.in; do echo -n ' '; done; done
-	printf '\r'
+    printf '\r'
 fi
