@@ -1,26 +1,52 @@
 %% plainproblemname: Trevliga tal
 \problemname{Trevliga tal}
-Det svenska juniorlandslaget i programmering älskar att ha det trevligt när de är ute och reser. En som uppskattade trevlighet mer än någon annan var Mårten. Han hade dock inte samma bild av trevlighet som alla andra. För Mårten hade trevlighet snarare en matematisk definition: Ett visst tal är trevligt om och endast om det är delbart med 3.
+Det svenska juniorlandslaget i programmering älskar att ha det trevligt när de
+är ute och reser. En som uppskattade trevlighet mer än någon annan var Mårten.
+Han hade dock inte samma bild av trevlighet som alla andra. För Mårten hade
+trevlighet snarare en matematisk definition: Ett visst tal är trevligt om och
+endast om det är delbart med 3.
 
-Eftersom inte alla tal är trevliga så måste man förstås hitta sätt att göra dem trevliga på. Du kommer att få ett heltal, och ditt uppdrag är att hjälpa Mårten räkna på hur många sätt han kan göra talet trevligt genom att stryka vissa av siffrorna i talet. Han får dock inte stryka alla siffrorna och det resulterande talet får inte ha inledande nollor. Kom ihåg att ett tal är delbart med tre om och endast om dess siffersumma är delbar med tre. 
+Eftersom inte alla tal är trevliga så måste man förstås hitta sätt att göra dem
+trevliga på. Du kommer att få ett heltal, och ditt uppdrag är att hjälpa Mårten
+räkna på hur många sätt han kan göra talet trevligt genom att stryka vissa av
+siffrorna i talet. Han får dock inte stryka alla siffrorna och det resulterande
+talet får inte ha inledande nollor (dock anses talet $0$ vara trevligt, så en
+enkel nolla är okej). Kom ihåg att ett tal är delbart med tre om
+och endast om dess siffersumma är delbar med tre.
 
 \section*{Indata}
-På den första och enda raden i indata står ett heltal (med upp till $100\,000$ siffror). Talet innehåller endast siffror $0-9$. Talet kan innehålla ledande nollor.
+På den första och enda raden i indata står ett heltal (med upp till $100\,000$
+siffror). Talet innehåller endast siffror $0-9$. Talet börjar inte med en nolla.
 
 \section*{Utdata}
-Ditt program ska skriva ut ett enda tal på en rad: antalet olika sätt på vilket Mårten kan ta bort siffror ur talet så att det blir delbart med 3. Två sätt anses vara olika om indexen där siffror tagits bort skiljer sig. Eftersom svaret kan bli jättestort så ska du skriva ut det modulo $1\,000\,000\,007$, dvs \emph{resten} som uppstår då svaret divideras med $10^9 + 7$. Notera att ett trevligt tal som uppstår när siffor strukits över \emph{kan börja med nollor}.
+Ditt program ska skriva ut ett enda tal på en rad: antalet olika sätt på vilket
+Mårten kan ta bort siffror ur talet så att det blir delbart med 3. Två sätt
+anses vara olika om indexen där siffror tagits bort skiljer sig. Eftersom
+svaret kan bli jättestort så ska du skriva ut det modulo $1\,000\,000\,007$,
+dvs \emph{resten} som uppstår då svaret divideras med $10^9 + 7$. Notera att
+ett trevligt tal som uppstår när siffor strukits över \emph{inte kan börja
+börja med en nolla, förutom om talet är $0$}.
 
 \section*{Exempel}
-I det första exempeltestfallet kan Mårten åstadkomma delbarhet på ett sätt, genom att stryka ettan i talet. Kvar blir då bara siffran 3, som förstås är delbart med tre.
+I det första exempeltestfallet kan Mårten åstadkomma delbarhet på ett sätt,
+genom att stryka ettan i talet. Kvar blir då bara siffran 3, som förstås är
+delbart med tre.
 
-I det andra exempeltestfallet åstadkommer Mårten delbarhet genom att inte stryka någon siffra alls.
+I det andra exempeltestfallet åstadkommer Mårten delbarhet genom att inte
+stryka någon siffra alls.
 
-I det tredje exempeltestfallet går det inte att skapa ett trevligt tal oavsett vad Mårten gör.
+I det tredje exempeltestfallet går det inte att skapa ett trevligt tal oavsett
+vad Mårten gör.
 
 \section*{Delpoäng}
-I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
+I det här problemet kan du samla en del av poängen utan att lösa problemet
+fullständigt.
 
 \begin{itemize}
-    \item För 20 poäng gäller att talet är max 6 siffror långt, och du behöver inte bry dig om att beräkna svaret modulo $10^9 + 7$ (svaret kommer vara mindre än så).
-    \item För ytterligare 20 poäng gäller att talet är max 20 siffror långt, och du behöver inte bry dig om att beräkna svaret modulo $10^9 + 7$ (svaret kommer vara mindre än så).
+    \item För 20 poäng gäller att talet är max 6 siffror långt, och du behöver
+        inte bry dig om att beräkna svaret modulo $10^9 + 7$ (svaret kommer
+        vara mindre än så).
+    \item För ytterligare 20 poäng gäller att talet är max 20 siffror långt,
+        och du behöver inte bry dig om att beräkna svaret modulo $10^9 + 7$
+        (svaret kommer vara mindre än så).
 \end{itemize}

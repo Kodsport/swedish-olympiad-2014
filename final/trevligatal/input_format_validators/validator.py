@@ -1,7 +1,7 @@
 #/usr/bin/env python
 import re
 import sys
-input_re = "^[0-9]+$"
+input_re = "^[1-9][0-9]*$"
 
 line = sys.stdin.readline()
 assert re.match(input_re, line)
