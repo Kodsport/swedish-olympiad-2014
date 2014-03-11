@@ -8,8 +8,8 @@ import random
 inp = sys.stdin.readline().strip().split()
 N, M, seed = map(int, inp)
 
-values = ['^', '>', 'v', '<'] + (5 * ['.'])
 random.seed(seed)
+values = ['^', '>', 'v', '<'] + (random.randint(0, 8) * ['.'])
 
 # vary N and M a bit
 N -= random.randint(0, 5)
