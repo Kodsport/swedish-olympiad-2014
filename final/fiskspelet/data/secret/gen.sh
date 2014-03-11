@@ -100,6 +100,10 @@ do
     echo "50000 1000 nomideat 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "50000 1000 hardest 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
     echo "50000 50 hardest 5$i" | python gen.py > g$i/$PROBLEMNAME.g$i.5.in
+    python -c 'n=50000; h=1000; print n, h; print "\n".join(map(lambda x: "L {} 500".format((1+x)*(h/2)), xrange(n)))' > g$i/$PROBLEMNAME.g$i.6.in
+    python -c 'n=50000; h=1000; print n, h; print "\n".join(map(lambda x: "L {} 500".format((1+x)*2), xrange(n)))' > g$i/$PROBLEMNAME.g$i.7.in
+    python -c 'n=50000; h=1000; print n, h; print "\n".join(map(lambda x: "L {} 1".format((1+x)*400), xrange(n)))' > g$i/$PROBLEMNAME.g$i.8.in
+    python -c 'n=50000; h=1000; print n, h; print "\n".join(map(lambda x: "L {} 1000".format((1+x)*400), xrange(n)))' > g$i/$PROBLEMNAME.g$i.9.in
     echo "input_validator_flags : $MOST_PERMISSIVE_MODE" >> g$i/testdata.yaml
 done
 
