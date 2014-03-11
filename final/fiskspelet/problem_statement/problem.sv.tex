@@ -40,7 +40,7 @@ sekundsteg:
 \section*{Indata}
 
 På första raden står två heltal, $1 \leq n \leq 50\,000$ och $20 \leq
-h \leq 50$, antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
+h \leq 1\,000$, antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
 en för varje fisk. På varje rad står först en bokstav, \texttt{L}/\texttt{M}/\texttt{S}, alltså om fisken är liten, mellan eller stor. Därefter följer kolumnen $x$ som fisken startar på ($2 \leq x \leq 10^{16}$), samt vilken rad $y$ som utgör fiskens mellersta ruta (alltid vald så att hela fisken får plats inom intervallet $[1, h]$). De tre värdena åtskiljs med blanksteg.
 
 Dessutom gäller att:
@@ -65,10 +65,11 @@ I det här problemet kan du samla en del av poängen utan att lösa problemet fu
 
 \begin{itemize}
     \item För 20 delpoäng så gäller det att inga andra fiskar äter upp
-          varandra, och x-koordinaterna är små ($\leq 10\,000$). Observera att förutom i dessa testfall ryms x-koordinaterna oftast inte i 32-bitars heltal.
+          varandra, $h \leq 50$, och x-koordinaterna är små ($\leq 10\,000$). Observera att förutom i dessa testfall ryms x-koordinaterna oftast inte i 32-bitars heltal.
     \item För ytterligare 20 delpoäng så gäller det att inga andra fiskar
-          äter upp varandra.
-    \item För ytterligare 30 delpoäng så gäller det att mellanfiskar aldrig
-          äter småfiskar.
+          äter upp varandra. $h \leq 50$.
+    \item För ytterligare 25 delpoäng så gäller det att mellanfiskar aldrig
+          äter småfiskar. $h \leq 50$.
+    \item För ytterligare 5 delpoäng så kan höjden $h$ vara $\leq 1\,000$
 \end{itemize}
 
