@@ -2,59 +2,50 @@
 \problemname{Fiskspelet}
 
 Du spelar fiskspelet. Du är en fisk som ska äta mindre fiskar men aldrig får
-bli uppäten av större fiskar. Fiskar ändrar aldrig storlek, men istället så får
-du poäng för varje fisk du äter. Nu är det dags för spel, och du vill ha så mycket
-poäng som möjligt, förstås.
+bli uppäten av större fiskar. Fiskarna ändrar aldrig storlek. Du får poäng för varje fisk du äter och självklart vill du ha så mycket
+poäng som möjligt.
 
-Din rörelse är begränsad till endast förflyttningar i y-led och din x-position
-kommer alltid vara 0. De andra fiskarna å andra sidan rör sig aldrig i y-led,
-men de flyter med konstant fart åt vänster i x-led. Din hastighet är 1
-y-koordinat per sekund (i den riktning du väljer att röra dig). Alla fiskar har
-bredd 1 (och även du). Din höjd är 7. De andra fiskarna har höjder 3, 5 och
-9. Du kan äta fiskar av storlek 3 och 5, men fiskar av höjd 9 kommer att äta
-upp dig, och du måste akta dig för dem. Skulle du äta en fisk med höjd 3 eller
-5 får du 10 respektive 20 poäng. Skulle du bli uppäten förlorar du. Fiskar av
-höjd 3 färdas med hastighet 1, fiskar av höjd 5 färdas med hastighet 2 och
-fiskar av höjd 9 färdas med hastighet 3.
+Spelplanen kan ses som ett rutnät med $h$ rader (numrerade från 1 till $h$) men obegränsat antal kolumner. Du befinner dig i kolumnen $x=0$ och kan bara röra dig vertikalt. De andra fiskarna rör sig däremot aldrig vertikalt utan börjar i en viss kolumn $x>0$ och flyter med konstant fart åt vänster (mot din kolumn). 
 
-Större fiskar äter mindre fiskar. För att det inte ska bli orättvist vem som
+Alla fiskar (även du) har bredden 1 ruta. Din höjd är 7. Det finns tre andra sorters fiskar: "liten" med höjd 3, "mellan" med höjd 5 och "stor" med höjd 9. Fiskarna har olika hastigheter. Varje sekund kan du röra dig en ruta uppåt eller nedåt (eller stå stilla). På samma tid rör sig en liten fisk 1 ruta, en mellanfisk 2 rutor och en stor fisk 3 rutor åt vänster.
+
+En fisk kan äta fiskar som är mindre än den själv. Du kan alltså äta fiskar av storlek 3 och 5, och får då 10 respektive 20 poäng. Men fiskar av höjd 9 kommer att äta upp dig, och du måste akta dig för dem. Skulle du bli uppäten förlorar du. 
+
+För att det inte ska bli orättvist vem som
 äter vem så har sjöjungfrun Arashiel bestämt att följande sker i varje diskret
-tidssteg:
+sekundsteg:
 
 \begin{enumerate}
   \item
      Du gör ditt drag (du flyttar upp, ner, eller stannar).
   \item
-     Stora fiskar avancerar tre steg, medium-fiskar avancerar två steg och små fiskar avancerar ett steg.
+     Stora fiskar avancerar tre steg, mellan-fiskar avancerar två steg och små fiskar avancerar ett steg.
   \item
-     Stora fiskar äter mellan och små-fiskar som är på samma x-koordinat och överlappar y-mässigt.
+     Stora fiskar äter mellan- och småfiskar (eller dig) om de är i samma kolumn och överlappar vertikalt (minst en ruta gemensam).
   \item
-     Mellanfiskar som överlevt äter små-fiskar som är på samma x-koordinat och överlappar y-mässigt.
+     Mellanfiskar som överlevt äter småfiskar om är i samma kolumn och överlappar vertikalt.
   \item
-     Du äter små- och mellanfiskar.
+     Du äter små- och mellanfiskar om de är i din kolumn ($x=0$) och överlappar vertikalt.
 \end{enumerate}
 
 Hela din fisk måste vara alltid vara innanför banan. Det innebär att
-din mittpunkt alltid måste vara inom intervallet $[4, h-3]$.
+din mittenruta alltid måste vara inom intervallet $[4, h-3]$. Du väljer själv på vilken höjd-nivå din fisk ska börja.
 
-Givet är banans höjd $h$ och antalet fiskar $n$ samt
-varje fisks storlek samt start position i form av $x$ och $y$ koordinat där y-koordinaten
-representerar streckets mittpunkt. Du väljer på vilken höjd-nivå din fisk ska börja.
+\includegraphics[width=0.8\textwidth]{fiskspelet.png}\\
+\emph{Situationen i första exemplet. De heldragna färgade rektanglarna visar fiskarnas utgångspositioner och de streckade rektanglarna visar deras positioner efter 4 respektive 8 sekunder. Den svarta rektangeln visar en av flera optimala utgångspositioner för dig. I detta fall kan du helt enkelt stå stilla och invänta den gröna mellanfisken.}
+
+\includegraphics[width=0.8\textwidth]{fiskspelet2.png}\\
+\emph{Situationen i andra exemplet. Den svarta rektangeln visar var du måste befinna dig vid tiden $t=4$ sekunder när du äter den blå lilla fisken (det går bra att även ha detta som utgångsposition). Den delade rutan markerar att fiskarna överlappar på denna ruta. Sedan måste du röra dig i full fart uppåt för att kunna äta den gröna mellanfisken vid $t=11$ (din position visas då av den grå streckade rektangeln). Slutligen måste du fortsätta uppåt för att undkomma den röda stora fisken som når din kolumn vid $t=14$ (detta skulle bli för kladdigt att visa i figuren).}
+
+
 
 \section*{Indata}
 
 Indata börjar med en rad med två heltal, $1 \leq n \leq 50\,000$ och $20 \leq
-h \leq 50$. Antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
-en per fisk. Fisken beskrivs med följande 3 mellansplagsseparerade värden.
-Först en bokstav, \texttt{L}/\texttt{M}/\texttt{S}, alltså om fisken är av
-storlek liten, mellan eller stor. Därefter följer $x$-koordinat och sedan
-$y$-koordinat.
+h \leq 50$, antalet fiskar samt höjden på banan. Sedan följer $n$ rader,
+en för varje fisk. På varje rad står först en bokstav, \texttt{L}/\texttt{M}/\texttt{S}, alltså om fisken är liten, mellan eller stor. Därefter följer kolumnen $x$ som fisken startar på ($2 \leq x \leq 10^{16}$), samt vilken rad $y$ som utgör fiskens mittpunkt (vald så att hela fisken alltid får plats inom intervallet $[1, h]$). De tre värdena åtskiljs med blanksteg.
 
-Både $x$ och $y$-koordinater har sina speciella restriktioner. $x$-koordinaten
-är ett positivt heltal mindre än $10^{16}$. $y$-koordinaten kommer vara ett
-heltal sådan så att hela fisken alltid får plats inom intervallet $[1, h]$.
-Utöver dessa restriktioner så gäller att:
-
+Dessutom gäller att:
 \begin{itemize}
   \item
     Inga fiskar i indata kommer överlappa varken helt eller delvis (initialt).
@@ -71,14 +62,22 @@ Utöver dessa restriktioner så gäller att:
 \section*{Utdata}
 Utdata ska bestå utav en rad med ett enda heltal, antalet poäng du får om du spelar spelet optimalt.
 
+
+Givet är banans höjd $h$ och antalet fiskar $n$ samt
+varje fisks storlek samt start position i form av $x$ och $y$ koordinat där y-koordinaten
+representerar streckets mittpunkt. 
+
+
+
 \section*{Delpoäng}
 I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
 
 \begin{itemize}
     \item För 20 delpoäng så gäller det att inga andra fiskar äter upp
-          varandra, och x-koordinaterna är små ($\leq 10\,000$).
+          varandra, och x-koordinaterna är små ($\leq 10\,000$). Observera att förutom i dessa testfall ryms x-koordinaterna oftast inte i 32-bitars heltal.
     \item För ytterligare 20 delpoäng så gäller det att inga andra fiskar
           äter upp varandra.
     \item För ytterligare 30 delpoäng så gäller det att mellanfiskar aldrig
           äter småfiskar.
 \end{itemize}
+
