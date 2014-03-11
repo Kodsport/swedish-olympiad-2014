@@ -49,9 +49,21 @@ do
 done
 
 # large data sets
-large=(4 5 6 7 8 9)
+large=(4 5)
 
 for i in ${large[@]}
+do
+    # one line here per file in test group
+    echo "822 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "205 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "1000 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "678 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+done
+
+# xlarge data sets
+xlarge=(6 7 8 9)
+
+for i in ${xlarge[@]}
 do
     # one line here per file in test group
     echo "16923 1$i" | python gen.py > g$i/$PROBLEMNAME.g$i.1.in

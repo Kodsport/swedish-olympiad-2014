@@ -91,7 +91,7 @@ public class Yarin {
         String s = io.getWord();
         int dp[][] = new int[s.length() + 1][3];
         dp[s.length()][0] = 1;
-        int MOD = 1000000007;
+        int MOD = 1000000000;
         for (int i = s.length() - 1; i >= 0; i--) {
             for (int j = 0; j < 3; j++) {
                 // at digit i, sum is j
