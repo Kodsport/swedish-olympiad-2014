@@ -8,7 +8,7 @@ int m3(int n) {
         return ((n % 3) + 3) % 3;
 }
 
-int mod = 1000000007;
+int mod = 1000000000;
  
 int main() {
         string str;
