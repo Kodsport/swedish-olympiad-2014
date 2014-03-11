@@ -11,7 +11,7 @@ map<string,string> from;
 
 string translate(const string &str) {
     if (target.find(str) != target.end()) return target[str];
-    string nextWord = to[str];
+    const string &nextWord = to[str];
 
     // found terminal word
     if (from[nextWord] == str) {
@@ -27,6 +27,7 @@ string translate(const string &str) {
 
 int main() {
     int N;
+    int M;
     cin >> N;
     for (int i = 0; i < N; ++i) {
         string l, r;
@@ -38,10 +39,10 @@ int main() {
             from[r] = l;
     }
 
-    cin.ignore(); // hurr durr
-
+    cin >> M;
     string word;
-    while (cin >> word) {
+    for (int i = 0; i < M; ++i) {
+        cin >> word;
         cout << translate(word) << " ";
     }
 

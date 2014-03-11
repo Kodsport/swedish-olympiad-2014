@@ -34,6 +34,8 @@ for i in xrange(num_entries):
 
 candidates = list(picked)
 
+print sentencelen
+
 for i in xrange(sentencelen):
     sys.stdout.write(random.choice(candidates))
     if i != sentencelen-1:

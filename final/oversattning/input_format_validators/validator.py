@@ -24,9 +24,15 @@ for i in xrange(N):
     assert 1 <= len(w2) <= 20
 
 line = sys.stdin.readline()
+assert re.match(input_re1, line)
+M = int(line)
+
+assert 1 <= M <= 100000
+
+line = sys.stdin.readline()
 wordlist = line.split()
 
-assert len(wordlist) >= 1
+assert len(wordlist) == M
 
 for i in xrange(len(wordlist)):
     w = wordlist[i]

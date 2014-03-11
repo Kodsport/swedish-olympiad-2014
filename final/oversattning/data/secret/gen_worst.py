@@ -48,6 +48,7 @@ print len(output)
 for (x, y) in output:
     print x, y
 
+print sentencelen
 for i in xrange(sentencelen):
     sys.stdout.write(random.choice(used_words))
     if i != sentencelen-1:
