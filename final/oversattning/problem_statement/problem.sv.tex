@@ -3,11 +3,9 @@
 Ett enkelt översättningsprogram används för att översätta texter mellan två
 olika språk, kalla dem $A$ och $B$. Programmet översätter texten ord för ord enligt
 en ordlista. När ett ord ska översättas letar programmet upp den första
-förekomsten av ordet i ordlistan och översätter enligt den. När man översätter
-på det sättet är det vanligt att textens innehåll förändras något. För att se
-om det är fallet kan man översätta texten upprepade gånger. Upprepningsprogrammet
-följer denna algoritm:
+förekomsten av ordet i ordlistan och översätter enligt den. 
 
+Om vi med ett sådant program översätter en text från $A$ till $B$ och sedan tillbaka till $A$ är det inte säkert att vi får tillbaka precis samma text. I den här uppgiften ska du upprepa denna procedur tills texten inte ändrar sig längre. Närmare bestämt:
 \begin{enumerate}
     \item Låt $a$ vara en text (en samling ord) i språket $A$.
     \item Översätt $a$ från $A$ till $B$, kalla den nya texten $b$.
