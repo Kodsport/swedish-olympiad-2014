@@ -4,6 +4,7 @@ for i in range(n):
         tmp = raw_input().split()
         A.append(tmp[0].strip())
         B.append(tmp[1].strip())
+m = int(raw_input())
 text = raw_input().split()
 trA = {}; trB = {}
 for i in range(n):
