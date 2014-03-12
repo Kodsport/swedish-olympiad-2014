@@ -3,7 +3,7 @@ import java.util.*;
 
 public class TrevligaTal {
 	
-	static final int MOD = 1000000007;
+	static final int MOD = 1000000000;
 	
 	static int n;
 	static int[] d;

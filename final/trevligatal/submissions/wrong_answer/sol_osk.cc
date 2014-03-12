@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const long long MOD = 1000000007;
+const long long MOD = 1000000000;
 
 long long dp[100005][5];
 
@@ -17,7 +17,7 @@ long long ways(const string &str, int pos, int sum) {
 }
 
 int main() {
-    assert(MOD == 1e9 + 7);
+    assert(MOD == 1e9);
     string number;
     cin >> number;
     for (int i = 0; i < number.size(); ++i)
