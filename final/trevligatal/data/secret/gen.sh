@@ -70,6 +70,7 @@ do
     echo "92952 2$i" | python gen.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "100000 3$i" | python gen.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "32949 4$i" | python gen.py > g$i/$PROBLEMNAME.g$i.4.in
+    cat trevligatal_overflow  > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # generate solutions for all files
