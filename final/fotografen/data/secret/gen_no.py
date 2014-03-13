@@ -26,7 +26,7 @@ print N, k
 
 for i in xrange(N-k+2):
     offsets[i] = random.randrange(4)
-    if offsets[i] == 0
+    if offsets[i] == 0:
         offsets[i] = 1
 
 cur = 0
