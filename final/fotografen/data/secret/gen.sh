@@ -34,6 +34,7 @@ do
     echo "10 0.95 2$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "10 0.5 3$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "10 1 4$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "10 0.9 5$i" | python gen_no.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # medium data sets
@@ -46,6 +47,7 @@ do
     echo "5000 1 2$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "5000 0.77 3$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "5000 0.1 4$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "5000 0.07 5$i" | python gen_no.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # large data sets
@@ -58,6 +60,7 @@ do
     echo "100000 1 2$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "100000 0.5 3$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "100000 0.97 4$i" | python gen_yes.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "100000 0.0036 5$i" | python gen_no.py > g$i/$PROBLEMNAME.g$i.5.in
 done
 
 # generate solutions for all files
