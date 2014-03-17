@@ -1,0 +1,41 @@
+%% plainproblemname: Låttexter
+\problemname{Låttexter}
+
+Det är välkänt att informationsinnehållet i moderna låttexter inte är särskilt
+högt.\footnote{[1] http://en.wikipedia.org/wiki/The\_Complexity\_of\_Songs}
+Vi kan representera en text genom en samling variabler, där varje
+variabel antingen motsvarar en teckensträng eller en sammansättning av två
+tidigare variabler. Den slutgiltiga texten ges då av värdet på den sista
+variabeln.
+
+PO-ledningen vill nu veta, för $Q$ olika värden på $R$, vilket det $R$:te tecknet i
+låttexten är.
+
+\section*{Indata}
+
+På första raden står två heltal $N$ ($1 \leq N \leq 700000$) och $Q$ ($1 \leq Q
+\leq 50000$).
+
+Sedan följer $N$ rader, vardera innehållande något av följande två alternativ:
+
+\begin{itemize}
+\item En nolla och sedan ett ord: \texttt{0 <ett ord>} (högst $10$ tecken i
+      ordet, enbart \texttt{a-z}) om variabeln representerar ett enkelt ord.
+\itemvå heltal A och B, numren på de konkatenerade strängarna
+      ($1 \leq A, B < $ nuvarande radnummer). Detta är alltså ett ord som skapas
+      av två sammanslagna tidigare ord.
+\end{itemize}
+
+Därefter kommer $Q$ rader med ett heltal $R$ per rad ($1 \leq R \leq \min(10^{18},$ längd på
+strängen$))$, numren på de tecken vi är intresserade av.
+
+\section*{Utdata}
+
+En enda rad med $Q$ tecken, de utplockade tecknen.
+
+\section*{Delpoäng}
+
+I det här problemet kan du samla en del av poängen utan att
+lösa problemet fullständigt.
+
+TODO
