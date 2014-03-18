@@ -1,7 +1,5 @@
 #/usr/bin/env python
 
-# NOTE: untested!!
-
 import re
 import sys
 
@@ -13,14 +11,14 @@ assert re.match(two_ints_re, line)
 
 N, K = map(int, line.split())
 
-assert 2 <= N <= 50 * 1000
+assert 2 <= N <= 10 * 1000
 assert 2 <= 2 * K <= N
 
 line = sys.stdin.readline()
 colors = map(int, line.split())
 
 for color in colors:
-    assert 1 <= color <= 10 ** 9
+    assert 1 <= color <= 10 ** 15
 
 line = sys.stdin.readline()
 assert len(line) == 0

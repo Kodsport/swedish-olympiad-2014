@@ -23,6 +23,7 @@ typedef long long LL;
 typedef pair < int, int > II;
 typedef pair < int, II > I_II;
 typedef vector < int > VI;
+typedef vector < LL > VLL;
 typedef vector < II > VII;
 typedef vector < VI > VVI;
 typedef vector < VII > VVII;
@@ -115,12 +116,12 @@ template <class InIt> string rangeToString(InIt begin, InIt end, string seperato
   return oss.str();
 }
 
-bool works_for(const VI &socks, int k, int d) {
+bool works_for(const VLL &socks, int k, LL d) {
   int n = sz(socks);
   int matched = 0;
   foru(i, n) {
     if (i < n-1) {
-      int delta = socks[i+1] - socks[i];
+      LL delta = socks[i+1] - socks[i];
       if(delta < d) {
         matched++;
         i++; // So you dont use the same sock twice
@@ -132,11 +133,11 @@ bool works_for(const VI &socks, int k, int d) {
 
 int main(){
   mr2(int, n, k);
-  VI socks(n);
+  VLL socks(n);
   cin >> socks;
   sort(all(socks));
 
-  LL low = 0, high = 1231231230;
+  LL low = 0, high = 1234567890123456LL;
   while(low < high) {
     const LL mid = (high+low)/2;
     if(works_for(socks, k, mid)) {
