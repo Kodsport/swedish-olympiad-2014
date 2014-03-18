@@ -14,6 +14,7 @@ Q = int(inputs[1])
 D = int(inputs[2])
 F = float(inputs[3])
 seed = int(inputs[4])
+nstrings = 5
 
 random.seed(seed)
 
@@ -27,7 +28,7 @@ lens = []
 for i in range(N):
     first = random.randrange(max(int(i * F), 1))
     second = i - 1 - random.randrange(D)
-    if second < 0:
+    if second < 0 or i < nstrings:
         s = rand_string()
         print('0 ' + s)
         lens.append(len(s))
