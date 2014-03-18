@@ -1,3 +1,4 @@
+/* @EXPECTED_SCORE@:20 */
 import java.util.*;
 import java.io.*;
 
