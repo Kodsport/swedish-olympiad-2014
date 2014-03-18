@@ -11,7 +11,11 @@ assert re.match(two_ints_re, line)
 
 A,B = map(int, line.split())
 
-assert A <= 500
-assert B <= 500
+assert A <= 100
+assert B <= 100
+
+line = sys.stdin.readline()
+
+assert len(line) == 0
 
 sys.exit(42)
