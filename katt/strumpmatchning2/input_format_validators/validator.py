@@ -11,7 +11,7 @@ assert re.match(two_ints_re, line)
 
 N, K = map(int, line.split())
 
-assert 2 <= N <= 10 * 1000
+assert 2 <= N <= 50 * 1000
 assert 2 <= 2 * K <= N
 
 line = sys.stdin.readline()

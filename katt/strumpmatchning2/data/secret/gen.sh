@@ -25,7 +25,7 @@ do
 done
 
 # small data sets
-small=(0 1 2 3 4)
+small=(0 1 2 3)
 
 for i in ${small[@]}
 do
@@ -37,17 +37,30 @@ do
     echo "200 5000 7$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
+# medium data sets
+medium=(4 5 6)
+
+for i in ${medium[@]}
+do
+    echo $i
+    # one line here per file in test group
+    echo "1000 1000000000000000 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "1000 1000000000000000 21$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "1000 1000000000000000 31$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "1000 1000000000000000 41$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+done
+
 # large data sets
-large=(5 6 7 8 9)
+large=(7 8 9)
 
 for i in ${large[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "10000 1000000000000000 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "10000 1000000000000000 21$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "10000 1000000000000000 31$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "10000 1000000000000000 41$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "50000 1000000000000000 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "50000 1000000000000000 21$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "50000 1000000000000000 31$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "50000 1000000000000000 41$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # generate solutions for all files
