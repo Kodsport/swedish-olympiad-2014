@@ -2,7 +2,7 @@
 \problemname{Låttexter}
 
 Det är välkänt att informationsinnehållet i moderna låttexter inte är särskilt
-högt.\footnote{[1] http://en.wikipedia.org/wiki/The\_Complexity\_of\_Songs}
+högt.\footnote{http://en.wikipedia.org/wiki/The\_Complexity\_of\_Songs}
 Vi kan representera en text genom en samling variabler, där varje
 variabel antingen motsvarar en teckensträng eller en sammansättning av två
 tidigare variabler. Den slutgiltiga texten ges då av värdet på den sista
@@ -13,8 +13,8 @@ låttexten är.
 
 \section*{Indata}
 
-På första raden står två heltal $N$ ($1 \leq N \leq 700000$) och $Q$ ($1 \leq Q
-\leq 50000$).
+På första raden står två heltal $N$ ($1 \leq N \leq 500000$) och $Q$ ($1 \leq Q
+\leq 80000$).
 
 Sedan följer $N$ rader, vardera innehållande något av följande två alternativ:
 
@@ -38,4 +38,7 @@ En enda rad med $Q$ tecken, de utplockade tecknen.
 I det här problemet kan du samla en del av poängen utan att
 lösa problemet fullständigt.
 
-TODO
+\begin{itemize}
+    \item För $20$ poäng så kommer $N$ vara maximalt 5000, $Q$ vara maximalt $10000$, och alla strängar som bildas vara högst $10^{18}$ tecken långa.
+    \item För ytterligare $60$ poäng så kommer så kommer alla strängar vara högst $10^{18}$ tecken långa.
+\end{itemize}

@@ -27,7 +27,12 @@ char getNth(Node* node, long long n, int howfar, long long count) {
 			return (*node->str)[(int)n];
 		}
 		assert((n < node->left->size) == node->rightDominates());
-		cout << "turned at " << node->left->size << ' ' << node->right->size << endl;
+        {
+            long long a = node->left->size;
+            long long b = node->right->size;
+            cout << "turned at " << a << ' ' << b <<
+                " ratio " << max(a, b) / min(a, b) << endl;
+        }
 		if (node->rightDominates())
 			return getNthChar(node->left, n);
 		else
@@ -88,16 +93,14 @@ int main() {
 			make_pair(0LL, n->left));
 	}
 
-	bool any = true;
-	for (unsigned int i = 1; any; ++i) {
-		any = false;
-		for (Node* n : uniqueNodes) {
-			if (n->downwards.size() < i) continue;
-			pair<long long, Node*> a = n->downwards[i-1];
-			if (a.second->downwards.size() < i) continue;
+	for (Node* n : uniqueNodes) {
+		if (n->leaf()) continue;
+		vector<pair<long long, Node*> >& down = n->downwards;
+		for (unsigned int i = 1; ; ++i) {
+			pair<long long, Node*> a = down.back();
+			if (a.second->downwards.size() < i) break;
 			pair<long long, Node*> b = a.second->downwards[i-1];
-			n->downwards.emplace_back(min(a.first + b.first, INF), b.second);
-			any = true;
+			down.emplace_back(min(a.first + b.first, INF), b.second);
 		}
 	}
 

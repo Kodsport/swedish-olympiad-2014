@@ -11,8 +11,8 @@ assert re.match("^[1-9][0-9]* [1-9][0-9]*$", line)
 
 N, Q = map(int, line.split())
 
-assert 1 <= N <= 700000
-assert 1 <= Q <= 50000
+assert 1 <= N <= 500000
+assert 1 <= Q <= 80000
 
 lens = []
 for i in range(N):

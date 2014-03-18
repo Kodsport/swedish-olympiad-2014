@@ -1,0 +1,33 @@
+%% plainproblemname: strumpmatchning2
+\problemname{Strumpmatchning 2}
+
+Arash har nu kommit hem från onsite-finalen och är tillbaka i
+vardagen. Nu har han precist kommit hem från tvättstugan och ska
+återigen matcha strumpor. När han nu sitter där med sina $N$ strumpor
+så känner han att han bara behöver matcha $K$ par strumpor. Det
+är alltså ok om $N-2K$ strumpor förblir omatchade tänker Arash. 
+
+% TODO: kolla upp om detta e rätt sätt att hyperlänka uppgifter.
+Som i uppgiften
+\href{https://po.scrool.se/problems/strumpor}{strumpmatchning} så har
+varje strumpa en färg $F_i$. Två strumpor $i$ och $j$ kan paras ihop
+om skillnaden i färg strikt understiger heltalet $D$ d.v.s. $|F_{i} - F_{j}|<D$.
+Fast i denna uppgift så så ska du hjälpa Arash att hitta det minsta
+möjliga $D$ så att han fortfarande kan matcha minst $K$ strumppar!
+
+\section*{Indata}
+
+Indata består av en rad med de två heltalen $N$ och $K$ ($2 \le N \le 10\,000$, $2 \le 2K \le N$). Därefter följer en rad med $N$ heltal: $F_1$, $F_2$, o.s.v. till $F_N$. Talen $F_i$ ligger mellan $1$ och $1\,000\,000\,000\,000\,000$ (inklusive). Tänk på att använda 64-bitars tal!
+
+\section*{Utdata}
+
+Du ska skriva ut heltalet $D$ på en rad. Det är allt.
+
+\section*{Delpoäng}
+
+I det här problemet kan du samla en del av poängen utan att lösa
+problemet fullständigt.
+
+\begin{itemize}
+    \item För $50$ poäng så kommer $N$ vara maximalt $200$ och varje färg maximalt $5\,000$.
+\end{itemize}
