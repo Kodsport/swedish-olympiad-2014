@@ -15,6 +15,15 @@ assert 1 <= N <= 100000
 assert 1 <= M <= 100000
 assert 1 <= R <= 500000
 
-# TODO: use relation_re here
+for _ in range(R):
+    line = sys.stdin.readline()
+    assert re.match(relation_re, line)
+    i, r, j = line.split()
+    i, j = int(i), int(j)
+    assert 1 <= i <= N
+    assert 1 <= j <= N
+
+line = sys.stdin.readline()
+assert len(line) == 0
 
 sys.exit(42)
