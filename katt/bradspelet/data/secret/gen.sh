@@ -4,7 +4,7 @@
 PROBLEMNAME="bradspelet"
 
 # Set this if you want to generate answers.
-SOLVER=sol
+SOLVER=BradSpelet
 
 # 1. Create subdirectories and set them to "min"
 #    grading mode.
@@ -24,30 +24,29 @@ do
 done
 
 # small data sets
-small=(0 1 2 3 4)
+small=(0 1)
 
-# length, seed
 for i in ${small[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "200 200 1$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "200 200 2$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "200 200 3$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "200 200 4$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "10 0 1$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "10 1 2$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "10 0 3$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "10 1 7$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # large data sets
-large=(5 6 7 8 9)
+large=(2 3 4 5 6 7 8 9)
 
 for i in ${large[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "800 800 11$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "800 800 21$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "800 800 31$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "800 800 41$i" | python gen_random.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "100 0 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "100 1 21$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "100 0 31$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "100 1 41$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # generate solutions for all files
@@ -58,7 +57,7 @@ then
         for f in $i/*.in
         do
             echo "solving $f"
-            ./$SOLVER < $f > ${f%???}.ans
+            java $SOLVER < $f > ${f%???}.ans
         done
     done
 fi
