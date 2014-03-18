@@ -27,7 +27,12 @@ char getNth(Node* node, long long n, int howfar, long long count) {
 			return (*node->str)[(int)n];
 		}
 		assert((n < node->left->size) == node->rightDominates());
-		cout << "turned at " << node->left->size << ' ' << node->right->size << endl;
+        {
+            long long a = node->left->size;
+            long long b = node->right->size;
+            cout << "turned at " << a << ' ' << b <<
+                " ratio " << max(a, b) / min(a, b) << endl;
+        }
 		if (node->rightDominates())
 			return getNthChar(node->left, n);
 		else
