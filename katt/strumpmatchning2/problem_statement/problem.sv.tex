@@ -1,33 +1,37 @@
-%% plainproblemname: strumpmatchning2
+%% plainproblemname: Strumpmatchning 2
 \problemname{Strumpmatchning 2}
 
-Arash har nu kommit hem från onsite-finalen och är tillbaka i
-vardagen. Nu har han precist kommit hem från tvättstugan och ska
+Arash har nu kommit hem från onsite-finalen i Linköping och är tillbaka i
+vardagen. Nu har han precis kommit hem från ett tvättstugebesök och ska
 återigen matcha strumpor. När han nu sitter där med sina $N$ strumpor
-så känner han att han bara behöver matcha $K$ par strumpor. Det
-är alltså ok om $N-2K$ strumpor förblir omatchade tänker Arash. 
+så känner han att han bara behöver $K$ par strumpor, resten kan få förbli
+osorterade. Det är alltså okej om $N-2K$ strumpor förblir omatchade, tänker Arash.
 
 Som i uppgiften \href{https://po.scrool.se/problems/strumpor}{strumpmatchning}
 så har varje strumpa en färg $F_i$. Två strumpor $i$ och $j$ kan paras ihop om
 skillnaden i färg strikt understiger heltalet $D$ d.v.s. $|F_{i} - F_{j}|<D$.
-Fast i denna uppgift så så ska du hjälpa Arash att hitta det minsta möjliga $D$
-så att han fortfarande kan matcha minst $K$ strumppar! Arash tipsar även dig
-att kolla på algoritmen
+Men istället för att hjälpa Arash matcha så många strumpor som möjligt så ska
+du hjälpa honom att hitta det minsta möjliga $D$
+så att han kan matcha minst $K$ strumppar!
+
+Arash tipsar även dig att kolla på algoritmen
 \href{http://www.progolymp.se/Oldpage/ioitraning/dictionary.htm}{binärsökning}.
-Arash sa någonting om att ``Tänk på att binärsökning kan användas för mer än
-att hitta ett element i en lista''.
+Han mumlar något om att du ska ``tänka på att binärsökning kan användas för mer än
+att bara hitta ett element i en sorterad lista'', men vad det ska betyda får du
+klura ut själv.
 
 \section*{Indata}
 
 Indata består av en rad med de två heltalen $N$ och $K$ ($2 \le N
 \le 10\,000$, $2 \le 2K \le N$). Därefter följer en rad med $N$
-heltal: $F_1$, $F_2$, o\.s\.v\. till $F_N$. Talen $F_i$ ligger mellan $1$
+heltal: $F_1, F_2, \dots, F_N$. Talen $F_i$ ligger mellan $1$
 och $1\,000\,000\,000\,000\,000$ (inklusive). Tänk på att använda
-64-bitars tal!
+tillräckligt stora heltalstyper när du arbetar med dessa!
 
 \section*{Utdata}
 
-Du ska skriva ut heltalet $D$ på en rad. Det är allt.
+Du ska skriva ut ett enda heltal: den minimala differens $D$ som gör att Arash kan
+matcha minst $K$ strumppar med varandra.
 
 \section*{Delpoäng}
 

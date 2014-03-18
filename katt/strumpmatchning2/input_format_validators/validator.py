@@ -17,6 +17,8 @@ assert 2 <= 2 * K <= N
 line = sys.stdin.readline()
 colors = map(int, line.split())
 
+assert len(colors) == N
+
 for color in colors:
     assert 1 <= color <= 10 ** 15
 
