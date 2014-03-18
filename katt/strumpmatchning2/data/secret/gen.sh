@@ -31,10 +31,10 @@ for i in ${small[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "1000 1000 1$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "1000 1000 2$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "1000 1000 3$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "1000 1000 7$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "300 3000 1$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
+    echo "300 3000 2$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
+    echo "300 3000 3$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
+    echo "300 3000 7$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
 done
 
 # large data sets

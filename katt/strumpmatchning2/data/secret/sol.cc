@@ -115,18 +115,37 @@ template <class InIt> string rangeToString(InIt begin, InIt end, string seperato
   return oss.str();
 }
 
-int nDirs = 4; // Change to 8 if needed
-int yDirs[] = { 1, 0, -1, 0, 1, -1, -1, 1 };
-int xDirs[] = { 0, 1, 0, -1, 1, 1, -1, -1 };
-
-int reverseDir(int dir) {
-  assert(0 <= dir && dir < nDirs);
-  return (dir&4) // Type of diagonal or not
-       + (dir + 2)%4;
+bool works_for(const VI &socks, int k, int d) {
+  int n = sz(socks);
+  int matched = 0;
+  foru(i, n) {
+    if (i < n-1) {
+      int delta = socks[i+1] - socks[i];
+      if(delta < d) {
+        matched++;
+        i++; // So you dont use the same sock twice
+      }
+    }
+  }
+  return matched >= k;
 }
 
-
 int main(){
-  cout << 0 << endl; // TODO
+  mr2(int, n, k);
+  VI socks(n);
+  cin >> socks;
+  sort(all(socks));
+
+  LL low = 0, high = 1231231230;
+  while(low < high) {
+    const LL mid = (high+low)/2;
+    if(works_for(socks, k, mid)) {
+      high = mid;
+    } else {
+      low = mid + 1;
+    }
+  }
+  assert(low == high);
+  cout << low << endl;
 }
 
