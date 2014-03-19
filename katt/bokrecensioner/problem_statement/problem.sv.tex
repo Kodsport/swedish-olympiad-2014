@@ -23,20 +23,27 @@ $M$ ($1 \leq M \leq 100\,000$),
 $R$ ($1 \leq R \leq 500\,000$) - antalet böcker, högsta möjliga
 betyget och antalet jämförelser. Sedan följer $R$ rader med relationer som ska
 vara
-uppfyllda. Varje sådan rad har formatet "\texttt{<i> <r> <j>}",
+uppfyllda. Varje sådan rad har formatet "\texttt{<i> <relation> <j>}",
 som beskriver relationen mellan $a_i$ och $a_j$. $i$ och $j$ är heltal mellan
-$1$ och $N$, $i \neq j$. $c$ är någon av strängarna '\texttt{<}', '\texttt{=}',
-'\texttt{<=}'. Inget par av böcker kommer att jämföras mer än en gång.
+$1$ och $N$, $i \neq j$. Relationen $r$ är någon av strängarna '\texttt{<}', '\texttt{=}',
+'\texttt{<=}', och detta beskriver just att $a_i$ \texttt{<relation>} $a_j$ måste gälla.
+Inget par av böcker kommer att jämföras mer än en gång.
 
 \section*{Utdata}
 
-Skriv ut en lista med heltal $a_1, a_2, \ldots , a_N$ som uppfyller recensentens
-krav. Om det finns flera lösningar, skriv ut vilken som helst. Om det är
-omöjligt, skriv ut -1.
+Skriv ut en lista med heltal $a_1, a_2, \ldots , a_N$ sådan att alla relationer håller, och
+alla tal är på intervallet $[1, M]$. Om det finns flera lösningar, skriv ut vilken som helst.
+Om det är omöjligt, skriv ut -1.
+
+\section*{Exempel}
+TODO
 
 \section*{Delpoäng}
 
 I det här problemet kan du samla en del av poängen utan att
 lösa problemet fullständigt.
 
-TODO
+\begin{itemize}
+    \item För 30 poäng gäller att endast relationen \texttt{<} kan förekomma.
+    \item För ytterligare 30 poäng gäller att endast relationerna \texttt{<} och \texttt{=} kan förekomma.
+\end{itemize}
