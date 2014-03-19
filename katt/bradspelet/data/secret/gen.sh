@@ -34,6 +34,8 @@ do
     echo "10 1 2$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "10 0 3$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "10 1 7$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "10 1 9$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo "10 1 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
 done
 
 # large data sets
@@ -47,6 +49,8 @@ do
     echo "100 1 21$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
     echo "100 0 31$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
     echo "100 1 41$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo "100 1 45$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo "100 1 46$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
 done
 
 # generate solutions for all files
