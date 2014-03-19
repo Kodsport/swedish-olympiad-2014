@@ -122,13 +122,24 @@ def gen_component(size):
         ed[a] = mst1[a] + mst2[a]
         edset[a] = set(e for (e, rel) in ed[a])
     for a in range(size):
-        for bi in range(len(ed[a])):
-            (b, rel) = ed[a][bi]
+        eda = ed[a]
+        seenyet = set()
+        bi = 0
+        while bi < len(eda):
+            (b, rel) = eda[bi]
+
+            # include relations only once
+            if b in seenyet:
+                del eda[bi]
+                continue
+            seenyet.add(b)
+
             if a in edset[b]:
-                # duplicate relation! replace by =
-                ed[a][bi] = (b, '=')
+                # two opposite relations combine to =
+                eda[bi] = (b, '=')
                 edset[b].remove(a)
                 ed[b] = [x for x in ed[b] if x[0] != a]
+            bi += 1
 
     # could add more edges here, but meh, this makes them O(N) at least
     return ed
