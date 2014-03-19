@@ -5,9 +5,9 @@ import sys
 import random
 
 # Sample usage:
-# echo a yes 10 4 1000 -1 1 | python generate_testcase.py
+# echo a yes 10 4 1000 -1 1 | python generate_testcase.py debug
 
-debug = 1 # TODO remove
+debug = len(sys.argv) > 1 and sys.argv[1] == 'debug'
 
 if debug:
     sys.stderr.write('running in debug mode\n')
@@ -25,12 +25,16 @@ seed = int(inputs[6])
 look_behind = 10
 # growth rate of rating seems to be 1 / (look_behind/2)
 
-random.seed(seed)
-
-if mode == 'a':
+if ncomponents == -1:
     ncomponents = N
 
+assert mode in ['a', 'b', 'c']
+assert yesno in ['yes', 'no1', 'no2']
 assert 1 <= ncomponents <= N
+if mode == 'a':
+    assert ncomponents == N
+
+random.seed(seed)
 
 def get_rel():
     if mode == 'c' and random.random() < 0.9:
@@ -129,6 +133,18 @@ def gen_component(size):
     # could add more edges here, but meh, this makes them O(N) at least
     return ed
 
+def dag_has_solution(edges):
+    compvalues = [1 for _ in range(ncomponents)]
+    for i in range(ncomponents):
+        v = 1
+        if edges[i]:
+            v = max(compvalues[e[0]] + (1 if e[1] == '<' else 0) for e in edges[i])
+        if v <= M:
+            compvalues[i] = v
+        else:
+            return False
+    return True
+
 # distribute nodes over components according to some exponential distribution
 left_to_take = N - ncomponents
 sizes = [1] * ncomponents
@@ -140,9 +156,25 @@ if left_to_take:
         v = int(round(exps[i] * (N - ncomponents) / s))
         sizes[i] += v
         left_to_take -= v
-    sizes[-1] += left_to_take
-    assert sizes[-1] >= 1
-    random.shuffle(sizes)
+    if left_to_take <= 0:
+        sizes[-1] += left_to_take
+        assert sizes[-1] >= 1
+        random.shuffle(sizes)
+    else:
+        random.shuffle(sizes)
+        for i in range(ncomponents):
+            sizes[i] += 1
+            left_to_take -= 1
+            if not left_to_take:
+                break
+        else:
+            sizes[1] += left_to_take
+
+    if debug:
+        hist = [0] * max(sizes)
+        for s in sizes:
+            hist[s - 1] += 1
+        sys.stderr.write('component size counts: ' + str(hist) + '\n')
 
 res_edges = []
 
@@ -187,7 +219,7 @@ for i in range(ncomponents):
         # j relates as rel to i
         # find some representatives to bind together
         # if the relation is <, we may use both < and <= in mode c
-        lim = random.randrange(2) if sizes[i] > 1 and sizes[j] > 1 else 1
+        lim = random.randrange(1, 3) if sizes[i] > 1 and sizes[j] > 1 else 1
         used = []
         for k in range(lim):
             a = compleft[i] + random.randrange(sizes[i])
@@ -204,10 +236,16 @@ if yesno == 'no2':
     for _ in range(1000):
         i, j = random.sample(xrange(ncomponents), 2)
         if compvalues[i] <= compvalues[j]:
+            x = compleft[i] + random.randrange(sizes[i])
+            y = compleft[j] + random.randrange(sizes[j])
             # inject j < i if possible
-            if not any((a, b) == (i, j) or (b, a) == (i, j) for (a, b, e) in res_edges):
-                res_edges.append(j, i, '<')
-                break
+            if not any((a, b) == (x, y) or (a, b) == (y, x) for (a, b, e) in res_edges):
+                compedges[j].append((i, '<'))
+                if dag_has_solution(compedges):
+                    compedges[j].pop()
+                else:
+                    res_edges.append((y, x, '<'))
+                    break
     else:
         assert False, "didn't find a cycle to inject"
 
@@ -217,8 +255,13 @@ assert 1 <= R <= max_R
 tr = list(range(1, N+1))
 if not debug:
     random.shuffle(tr)
+    random.shuffle(res_edges)
 
 print(N, M, R)
 for (i, j, rel) in res_edges:
+    if mode == 'a':
+        assert rel == '<'
+    elif mode == 'b':
+        assert rel == '<' or rel == '='
     print(tr[i], rel, tr[j])
 
