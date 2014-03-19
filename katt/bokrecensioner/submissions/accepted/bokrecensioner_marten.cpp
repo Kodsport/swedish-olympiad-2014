@@ -29,7 +29,7 @@ int main(){
 	for(int i=0; i < k; ++i){
 		int a, b;
 		char c[3];
-		scanf("%d%s%d", &a, &c, &b);
+		scanf("%d%s%d", &a, c, &b);
 		--a;
 		--b;
 		if(c[0] == '='){
@@ -118,7 +118,9 @@ int main(){
 			ok=0;
 	if(!ok)
 		printf("-1\n");
-	else 
+	else {
 		for(int i=0; i < n; ++i)
 			printf("%d ", rating[sccBelong[i]]);
+		puts("");
+	}
 }
