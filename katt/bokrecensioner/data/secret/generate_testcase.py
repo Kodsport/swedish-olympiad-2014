@@ -144,18 +144,6 @@ def gen_component(size):
     # could add more edges here, but meh, this makes them O(N) at least
     return ed
 
-def dag_has_solution(edges):
-    compvalues = [1 for _ in range(ncomponents)]
-    for i in range(ncomponents):
-        v = 1
-        if edges[i]:
-            v = max(compvalues[e[0]] + (1 if e[1] == '<' else 0) for e in edges[i])
-        if v <= M:
-            compvalues[i] = v
-        else:
-            return False
-    return True
-
 # distribute nodes over components according to some exponential distribution
 left_to_take = N - ncomponents
 sizes = [1] * ncomponents
@@ -245,18 +233,28 @@ for i in range(ncomponents):
 if yesno == 'no2':
     # inject a cycle
     for _ in range(1000):
-        i, j = random.sample(xrange(ncomponents), 2)
-        if compvalues[i] <= compvalues[j]:
-            x = compleft[i] + random.randrange(sizes[i])
-            y = compleft[j] + random.randrange(sizes[j])
-            # inject j < i if possible
-            if not any((a, b) == (x, y) or (a, b) == (y, x) for (a, b, e) in res_edges):
-                compedges[j].append((i, '<'))
-                if dag_has_solution(compedges):
-                    compedges[j].pop()
-                else:
-                    res_edges.append((y, x, '<'))
-                    break
+        j = random.choice(xrange(ncomponents))
+        if not compedges[j]:
+            continue
+        q = [e for (e, rel) in compedges[j]]
+        seen = set(q)
+        k = 0
+        while k < len(q):
+            e = q[k]
+            for (v, rel) in compedges[e]:
+                if v not in seen:
+                    seen.add(v)
+                    q.append(v)
+            k += 1
+
+        i = random.choice(q)
+        x = compleft[i] + random.randrange(sizes[i])
+        y = compleft[j] + random.randrange(sizes[j])
+
+        # inject i < j if possible
+        if any((a, b) == (x, y) or (a, b) == (y, x) for (a, b, e) in res_edges):
+            res_edges.append((x, y, '<'))
+            break
     else:
         assert False, "didn't find a cycle to inject"
 
