@@ -252,7 +252,7 @@ if yesno == 'no2':
         y = compleft[j] + random.randrange(sizes[j])
 
         # inject i < j if possible
-        if any((a, b) == (x, y) or (a, b) == (y, x) for (a, b, e) in res_edges):
+        if not any((a, b) == (x, y) or (a, b) == (y, x) for (a, b, e) in res_edges):
             res_edges.append((x, y, '<'))
             break
     else:
