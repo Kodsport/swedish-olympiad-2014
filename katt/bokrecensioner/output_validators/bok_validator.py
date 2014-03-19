@@ -2,12 +2,23 @@
 
 import sys
 
-# TODO: This code is entirely untested! Once we have something to test, tell me
-# and I'll fix the bugs here. /Arash
-#
+
+def say(*stuff):
+    return  # Uncomment for debugging
+    with open('/home/arash/po2014/katt/bokrecensioner/OUTPUT', 'a') as f:
+        for l in stuff:
+            f.write(str(l) + " \t")
+        f.write('\n')
+    return
+
+# say('Starting yaaaay')
+# say(os.getcwd())
+
+# say(*sys.argv)
+
 # ./validator input judgeanswer feedbackdir < teamoutput
 
-input_file, judgeanswer_file, feedback_dir = sys.argv
+this_file, input_file, judgeanswer_file, feedback_dir = sys.argv
 judge_feedback_file = '{}/judgemessage.txt'.format(feedback_dir)
 
 
@@ -33,6 +44,8 @@ def they_are_right():
 
 
 def they_are_wrong(reason):
+    say('NOOOOOOOOOOO')
+    say(reason)
     with open(judge_feedback_file, 'w') as f:
         f.write(reason + '\n')
     sys.exit(43)
@@ -47,10 +60,12 @@ line = sys.stdin.readline()
 team_answer = map(int, line.split())
 
 # Read anwer of judg
-with open(input_file) as f:
+with open(judgeanswer_file) as f:
     judg_answer_lines = f.readlines()
+# print judg_answer_lines
 assert len(judg_answer_lines) == 1
-judg_answer = judg_answer_lines[0]
+judg_answer = judg_answer_lines[0].strip().split()
+# print judg_answer
 
 # They are list of ints so:
 team_answer = map(int, team_answer)
