@@ -34,6 +34,8 @@ do
     echo a yes 100000 10000 500000 -1 2$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
     echo a no1 100000 100 500000 -1 3$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
     echo a no2 100000 100 500000 -1 4$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo a no2 100000 10 500000 -1 5$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo a no2 100000 1000 500000 -1 6$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
 done
 
 # medium data sets (< and =)
@@ -46,6 +48,8 @@ do
     echo b yes 100000 10000 500000 90000 2$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
     echo b no1 100000 100 500000 70000 3$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
     echo b no2 100000 100 500000 80000 4$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo b no2 100000 10 500000 80000 5$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo b no2 100000 1000 500000 80000 6$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
 done
 
 # large data sets (<, = and <=)
@@ -58,6 +62,8 @@ do
     echo c yes 100000 100 500000 10000 2$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
     echo c no1 100000 100 500000 30000 3$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
     echo c no2 100000 100 500000 30000 4$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
+    echo c no2 100000 10 500000 30000 5$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
+    echo c no2 100000 1000 500000 30000 6$i | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
 done
 
 # generate solutions for all files
