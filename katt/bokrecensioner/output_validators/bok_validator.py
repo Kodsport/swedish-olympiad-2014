@@ -1,7 +1,7 @@
 #/usr/bin/env python
 
 import sys
-
+import re
 
 def say(*stuff):
     return  # Uncomment for debugging
@@ -57,7 +57,12 @@ N, M, R, relations = parse_input(raw_problem_input)
 
 # Read answer of team
 line = sys.stdin.readline()
-team_answer = map(int, line.split())
+
+# check answer format
+try:
+    team_answer = map(int, line.split())
+except:
+    they_are_wrong("Incorrect input format")
 
 # Read anwer of judg
 with open(judgeanswer_file) as f:
