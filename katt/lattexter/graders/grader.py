@@ -21,6 +21,8 @@ for line in sys.stdin.readlines():
   verdict, score = line.split()
   if first_error == None and verdict != "AC":
     first_error = verdict
+  if not verdict in verdicts:
+    verdicts[verdict] = 0
   verdicts[verdict] += 1
   if min_mode:
     if total_score == -1:
