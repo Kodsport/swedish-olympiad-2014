@@ -3,22 +3,26 @@
 import sys
 
 sample_mode = "sample" in sys.argv
+if sample_mode:
+  print "AC 0"
+  exit()
+
 min_mode = "min" in sys.argv
 multiply_10 = "multiply_10" in sys.argv
+first_error_mode = not "worst_error" in sys.argv
 verdicts = {"AC" : 0, "WA" : 0, "TLE" : 0, "RTE" : 0}
 
+first_error = None
 total_score = 0
 if min_mode:
   total_score = -1
 
 for line in sys.stdin.readlines():
   verdict, score = line.split()
+  if first_error == None and verdict != "AC":
+    first_error = verdict
   verdicts[verdict] += 1
-  if sample_mode:
-    if verdict != "AC":
-      print verdict, 0
-      exit()
-  elif min_mode:
+  if min_mode:
     if total_score == -1:
       total_score = float(score)
     else:
@@ -35,7 +39,9 @@ if total_score:
     score *= 10
   print "AC", score
 else:
-  if verdicts["RTE"]:
+  if first_error_mode and first_error:
+    print first_error, 0
+  elif verdicts["RTE"]:
     print "RTE 0"
   elif verdicts["TLE"]:
     print "TLE 0"

@@ -20,9 +20,9 @@ do
     if [ ! -f $i/testdata.yaml ]
     then
         touch $i/testdata.yaml
-        echo "grading: custom
-grader_flags: min" > $i/testdata.yaml
     fi
+    echo "grading: custom
+grader_flags: min" > $i/testdata.yaml
 done
 
 # small data sets (only <)
