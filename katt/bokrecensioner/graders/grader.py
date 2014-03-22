@@ -10,7 +10,7 @@ if sample_mode:
 min_mode = "min" in sys.argv
 multiply_10 = "multiply_10" in sys.argv
 first_error_mode = not "worst_error" in sys.argv
-verdicts = {"AC" : 0, "WA" : 0, "TLE" : 0, "RTE" : 0}
+verdicts = {"AC" : 0, "WA" : 0, "TLE" : 0, "MLE": 0, "RTE" : 0}
 
 first_error = None
 total_score = 0
@@ -21,6 +21,8 @@ for line in sys.stdin.readlines():
   verdict, score = line.split()
   if first_error == None and verdict != "AC":
     first_error = verdict
+  if not verdict in verdicts:
+    verdicts[verdict] = 0
   verdicts[verdict] += 1
   if min_mode:
     if total_score == -1:
@@ -41,6 +43,8 @@ if total_score:
 else:
   if first_error_mode and first_error:
     print first_error, 0
+  elif verdicts["MLE"]:
+    print "MLE 0"
   elif verdicts["RTE"]:
     print "RTE 0"
   elif verdicts["TLE"]:
