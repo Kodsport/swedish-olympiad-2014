@@ -1,0 +1,31 @@
+%% plainproblemname: Sock Matching 2
+\problemname{Sock Matching 2}
+
+Arash is back home again after the onsite-finals in Linköping and is starting to get back into everyday life.
+Now he just returned from a laundry room visit, and once again need to match his socks.
+He has $N$ socks in total, but feel like he only really need $K$ pairs.
+That means it is okay if $N-2K$ socks remain unmatched.
+
+Every one of his socks has a color $F_i$. Two socks $i$ and $j$ can be matched into a pair
+if the difference in color is strictly less than the integer $D$, that is $|F_i - F_j| \le D$.
+You want to help Arash find the smallest integer $D$ such that he can match \textit{at least} $K$ pairs of socks!
+
+\section*{Input}
+
+The input consists of two lines.
+The first line contains the two integers $N$ and $K$ ($2 \leq N \leq 50\,000$, $2 \leq 2K \leq N$).
+The second line contains $N$ integers: $F_1, F_2, \dots, F_N$. The integers $F_i$ will be in the range from $1$
+to $1\,000\,000\,000\,000\,000$ (inclusive).
+
+\section*{Output}
+
+You should print one integer: The minimal difference $D$ such that Arash can match at least $K$ pairs of socks.
+
+\section*{Subtasks}
+
+In this problem you can get some points without solving the problem fully.
+
+\begin{itemize}
+    \item For $40$ points it is guaranteed that $N$ will be at most $200$ and every color at most $5\,000$.
+    \item For another $30$ points it is guaranteed only that $N$ will be at most $1\,000$.
+\end{itemize}
