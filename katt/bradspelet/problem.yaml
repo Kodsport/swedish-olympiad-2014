@@ -1,8 +1,7 @@
 author: Erik Odenman
 type: scoring
-source: Programmeringsolympiaden 2014
+source: Programmeringsolympiadens KATT-tävling 2014
 license: cc by-sa
 rights_owner: Programmeringsolympiaden
 grading:
-  on_reject: grade
-  range: 0 100
+  show_test_data_groups: true

@@ -6,37 +6,21 @@ PROBLEMNAME="bradspelet"
 # Set this if you want to generate answers.
 SOLVER=BradSpelet
 
-# 1. Create subdirectories and set them to "min"
-#    grading mode.
-
-subfolders=(g0 g1 g2 g3 g4 g5 g6 g7 g8 g9)
-for i in ${subfolders[@]}
-do
-    if [ ! -d $i ]
-    then
-        mkdir $i
-    fi
-    if [ ! -f $i/testdata.yaml ]
-    then
-        touch $i/testdata.yaml
-    fi
-    echo "grading: custom
-grader_flags: min" > $i/testdata.yaml
-done
-
 # small data sets
 small=(0 1)
+
+mkdir g1 g2
 
 for i in ${small[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "10 0 1$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "10 1 2$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "10 0 3$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "10 1 7$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
-    echo "10 1 9$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
-    echo "10 1 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
+    echo "10 0 1$i" | python3 generate_testcase.py > g1/$PROBLEMNAME.g$i.1.in
+    echo "10 1 2$i" | python3 generate_testcase.py > g1/$PROBLEMNAME.g$i.2.in
+    echo "10 0 3$i" | python3 generate_testcase.py > g1/$PROBLEMNAME.g$i.3.in
+    echo "10 1 7$i" | python3 generate_testcase.py > g1/$PROBLEMNAME.g$i.4.in
+    echo "10 1 9$i" | python3 generate_testcase.py > g1/$PROBLEMNAME.g$i.5.in
+    echo "10 1 11$i" | python3 generate_testcase.py > g1/$PROBLEMNAME.g$i.6.in
 done
 
 # large data sets
@@ -46,14 +30,15 @@ for i in ${large[@]}
 do
     echo $i
     # one line here per file in test group
-    echo "100 0 11$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.1.in
-    echo "100 1 21$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.2.in
-    echo "100 0 31$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.3.in
-    echo "100 1 41$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.4.in
-    echo "100 1 45$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.5.in
-    echo "100 1 46$i" | python generate_testcase.py > g$i/$PROBLEMNAME.g$i.6.in
+    echo "100 0 11$i" | python3 generate_testcase.py > g2/$PROBLEMNAME.g$i.1.in
+    echo "100 1 21$i" | python3 generate_testcase.py > g2/$PROBLEMNAME.g$i.2.in
+    echo "100 0 31$i" | python3 generate_testcase.py > g2/$PROBLEMNAME.g$i.3.in
+    echo "100 1 41$i" | python3 generate_testcase.py > g2/$PROBLEMNAME.g$i.4.in
+    echo "100 1 45$i" | python3 generate_testcase.py > g2/$PROBLEMNAME.g$i.5.in
+    echo "100 1 46$i" | python3 generate_testcase.py > g2/$PROBLEMNAME.g$i.6.in
 done
 
+subfolders=(g1 g2)
 # generate solutions for all files
 if [[ ! -z $SOLVER ]]
 then

@@ -1,2 +1,2 @@
-grading: custom
-grader_flags: sample
+range: 0 0
+accept_score: 0

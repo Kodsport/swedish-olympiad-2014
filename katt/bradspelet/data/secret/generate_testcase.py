@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import random
 
@@ -63,4 +64,4 @@ def gen(max_val, win):
     return [A,B]
 
 A,B = gen(max_val, win)
-print A,B
+print(A,B)
