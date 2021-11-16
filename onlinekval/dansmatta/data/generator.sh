@@ -2,7 +2,7 @@
 
 PPATH=$(realpath ..)
 REQUIRE_SAMPLE_REUSE=0
-. ../../../../testdata_tools/gen.sh
+. ../../../../../testdata_tools/gen.sh
 
 ulimit -s unlimited
 
