@@ -1,1 +1,3 @@
 range: 0 100
+grader_flags: sum ignore_sample
+on_reject: continue

@@ -1,9 +1,7 @@
-%% plainproblemname: The Board Game
 \problemname{The Board Game}
-
 Ann-Charlotte and Berit have invented their own board game.
 The game is played with a board of size $N \times M$ and a chainsaw, and is intended for two players.
-They players take turns doing a move until one of them cannot make a move, that player loses.
+They players take turns making a move until one of them cannot make a move, that player loses.
 A move works the following way:
 
 The player who's turn it is chooses a horizontal or vertical line, and splits the board along it into two non-empty parts.
@@ -15,7 +13,7 @@ Given the size of the original board, and the fact that Ann-Charlotte always sta
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.7\textwidth]{bradspelet.png}
+\includegraphics[width=0.6\textwidth]{bradspelet.png}
 \caption{An illustration of the first example}
 \label{overflow}
 \end{figure}
@@ -29,7 +27,7 @@ Berit wins, given that they both play optimally. More precisely, if Ann-Charlott
 can win no matter how Berit plays you should write ``\texttt{A}'', otherwise you
 should write ``\texttt{B}''.
 
-\section*{Grading}
+\section*{Scoring}
 Your solution will be tested on several groups of test cases. To get points for a group you need to pass all the tests of that group.
 
 \noindent
@@ -37,7 +35,7 @@ Your solution will be tested on several groups of test cases. To get points for 
 	\hline
 	Group & Points & Constraints\\ \hline
  $1$    & $20$        & $N, M \le 10$ \\ \hline
- $2$    & $80$        & $N, M \le 100$ \\ \hline
+ $2$    & $80$        & No additional constraints \\ \hline
 \end{tabular}
 
 \section*{Explanation of sample 1}
