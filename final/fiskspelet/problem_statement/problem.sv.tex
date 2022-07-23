@@ -1,6 +1,5 @@
 %% plainproblemname: Fiskspelet
 \problemname{Fiskspelet}
-
 Du spelar fiskspelet. Du är en fisk som ska äta mindre fiskar men aldrig får
 bli uppäten av större fiskar. Fiskarna ändrar aldrig storlek. Du får poäng för varje fisk du äter och självklart vill du ha så mycket
 poäng som möjligt.
@@ -71,17 +70,17 @@ Dessutom gäller att:
 \section*{Utdata}
 Utdata ska bestå utav en rad med ett enda heltal, antalet poäng du får om du spelar spelet optimalt.
 
-\section*{Delpoäng}
-I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt.
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-\begin{itemize}
-    \item För 20 delpoäng så gäller det att inga andra fiskar äter upp
-          varandra, $n \leq 1\,000$, $h \leq 50$, och x-koordinaterna är små ($\leq 10\,000$).
-          Observera att förutom i dessa testfall ryms x-koordinaterna oftast inte i 32-bitars heltal.
-    \item För ytterligare 20 delpoäng så gäller det att inga andra fiskar
-          äter upp varandra. $h \leq 50$.
-    \item För ytterligare 30 delpoäng så gäller det att mellanfiskar aldrig
-          äter småfiskar. $h \leq 50$.
-    \item För ytterligare 20 delpoäng så gäller att höjden $h$ är $\leq 50$
-\end{itemize}
-
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$   & $20$       & $n \leq 1000$, $h \leq 50$, $x \leq 10\,000$ \\ \hline
+  $2$   & $20$       & $h \leq 50$, inga fiskar äter upp varandra \\ \hline
+  $3$   & $20$       & $h \leq 50$, mellanfiskar äter aldrig småfiskar \\ \hline
+  $4$   & $20$       & $h \leq 50$ \\ \hline
+  $5$   & $20$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}

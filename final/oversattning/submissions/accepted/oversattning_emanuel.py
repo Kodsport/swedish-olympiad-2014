@@ -1,11 +1,13 @@
-n = int(raw_input())
+#!/usr/bin/python3
+
+n = int(input())
 A = []; B = []
 for i in range(n):
-        tmp = raw_input().split()
+        tmp = input().split()
         A.append(tmp[0].strip())
         B.append(tmp[1].strip())
-m = int(raw_input())
-text = raw_input().split()
+m = int(input())
+text = input().split()
 trA = {}; trB = {}
 for i in range(n):
         if A[i] in trA and B[i] in trB: continue

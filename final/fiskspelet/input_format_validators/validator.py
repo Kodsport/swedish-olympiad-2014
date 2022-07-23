@@ -12,8 +12,7 @@ fish_re = "^(L|M|S) (0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 
 # Initialize mode
 MODES = ["lowdist", "noeat", "nomideat", "hardest"]
-assert len(sys.argv) == 2
-mode = sys.argv[1]
+mode = "hardest" #sys.argv[1]
 assert mode in MODES
 difficulty = MODES.index(mode)
 difficulty_nomideat = MODES.index('nomideat')
