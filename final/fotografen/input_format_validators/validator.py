@@ -9,9 +9,21 @@ line2_re = "^[UNVH]+$"
 line = sys.stdin.readline()
 assert re.match(line1_re, line)
 
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+
+max_n = int(cmdlinearg('max_n'))
+
 N, k = map(int, line.strip().split())
 
-assert 1 <= N <= 100000
+assert 1 <= N <= max_n
 assert 1 <= k <= N
 
 line = sys.stdin.readline()

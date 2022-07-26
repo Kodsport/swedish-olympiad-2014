@@ -8,7 +8,13 @@ definierar det som den sida som motsvarar uppåt i bilden. En bild är vänd rä
 om den är roterad \emph{upp}. Datorn visar bilderna i en lista och har en funktion
 som roterar en bild $90^\circ$ medurs. Rotationen sker alltså enligt följande ordning:
 
-\includegraphics[width=0.8\textwidth]{fotografen.png}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fotografen.png}
+\caption{Hur en bild roteras}
+\label{fig:rotatingcat}
+\end{figure}
+
 
 Fotografen tycker det verkar tråkigt att rotera foton och bestämmer sig för att
 göra det till ett roligt spel. Fotografen väljer ett positivt heltal $k$ och
@@ -23,6 +29,7 @@ möjligt. Skriv ett program som beräknar det minsta antalet operationer som kr�
 \section*{Indata}
 På första raden står två heltal $N$ och $k$ ($1 \leq k \leq N \leq 100\,000$),
 antalet foton totalt respektive antalet foton som måste roteras samtidigt.
+
 På andra raden står $N$ tecken som representerar fotografiernas rotation från
 början: \texttt{U} för upp, \texttt{H} för höger, \texttt{N} för ner och
 \texttt{V} för vänster.
@@ -31,17 +38,18 @@ början: \texttt{U} för upp, \texttt{H} för höger, \texttt{N} för ner och
 Skriv ut det minsta antalet operationer som krävs. Om det inte går att vända
 alla foton rätt, skriv ut $-1$.
 
-\section*{Exempel}
-För det första exempelindatat så är en möjlig optimal lösning denna: Rotera
-tre gånger på position 3-4 för att få \texttt{UVVU}, rotera sedan en gång på
-position 2-3 för att slutligen få \texttt{UUUU}, och vi är klara med fyra
-operationer utförda.
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-\section*{Delpoäng} I det här problemet kan du samla en del av poängen utan att
-lösa problemet fullständigt.
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$   & $10$       & $N \leq 10$ \\ \hline
+  $2$   & $40$       & $N \leq 5000$ \\ \hline
+  $3$   & $50$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
 
-\begin{itemize}
-    \item För 10 poäng så kommer $N$ vara maximalt 10.
-    \item För ytterligare 40 poäng så kommer $N$ vara maximalt $5\,000$.
-\end{itemize}
-
+\section*{Förklaring av exempelfall 1}
+En möjlig optimal lösning är denna: Rotera tre gånger på position 3-4 för att få \texttt{UVVU}, rotera sedan en gång på position 2-3 för att slutligen få \texttt{UUUU}, och vi är klara med fyra operationer utförda.

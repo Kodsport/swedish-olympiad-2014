@@ -16,42 +16,38 @@ och endast om dess siffersumma är delbar med tre.
 
 \section*{Indata}
 På den första och enda raden i indata står ett heltal (med upp till $100\,000$
-siffror). Talet innehåller endast siffror $0-9$. Talet börjar inte med en nolla.
+siffror). Talet innehåller endast siffror $0$-$9$. Talet börjar inte med en nolla.
 
 \section*{Utdata}
 Ditt program ska skriva ut ett enda tal på en rad: antalet olika sätt på vilket
-Mårten kan ta bort siffror ur talet så att det blir delbart med 3. Två sätt
+Mårten kan ta bort siffror ur talet så att det blir delbart med $3$. Två sätt
 anses vara olika om indexen där siffror tagits bort skiljer sig. Eftersom
-svaret kan bli jättestort så ska du slänga bort allt utom de nio sista siffrorna av svaret. Med andra ord
-ska du skriva ut \emph{resten} som uppstår då svaret divideras med en miljard. 
+svaret kan bli jättestort så ska du ska du skriva ut \emph{resten} som uppstår då svaret divideras med en miljard. 
 
 %Notera att ett trevligt tal som uppstår när siffor strukits över \emph{inte kan börja
 %börja med en nolla, förutom om talet är $0$}.
 
-\section*{Exempel}
-I det första exempeltestfallet kan Mårten åstadkomma delbarhet på ett sätt,
-genom att stryka ettan i talet. Kvar blir då bara talet 3, som förstås är
-delbart med tre.
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-I det andra exempeltestfallet åstadkommer Mårten delbarhet genom att inte
-stryka någon siffra alls.
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$   & $20$       & $N \leq 6$ och svaret är mindre än en miljard \\ \hline
+  $1$   & $20$       & $N \leq 20$ och svaret är mindre än en miljard \\ \hline
+  $3$   & $20$       & $N \leq 1000$ \\ \hline
+  $4$   & $40$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
 
-I det tredje exempeltestfallet går det inte att skapa ett trevligt tal oavsett
-vad Mårten gör.
+\section*{Förklaring av exempelfall}
+Förklaring av exempelfall 1: Mårten kan åstadkomma delbarhet på ett sätt, genom att stryka ettan i talet. Kvar blir då bara talet 3, som förstås är delbart med tre.
 
-I det fjärde exempeltestfallet går det att skapa de trevliga talen 9, 192, 912 och 12, men det sistnämnda kan åstadkommas på två sätt: genom att stryka de två första siffrorna eller genom att stryka de två mittersta siffrorna.
+Förklaring av exempelfall 2: Mårten åstadkommer delbarhet genom att inte stryka någon siffra alls.
 
-I det femte  exempeltestfallet går det att skapa de trevliga talen 0, 3, 12, 102, 123 och 1023.
+Förklaring av exempelfall 3: det går inte att skapa ett trevligt tal oavsett vad Mårten gör.
 
-\section*{Delpoäng}
-I det här problemet kan du samla en del av poängen utan att lösa problemet
-fullständigt.
-\begin{itemize}
-    \item För 20 poäng gäller att talet är max 6 siffror långt, och du behöver
-        inte bry dig om att slänga bort hela miljarder (svaret kommer
-        vara mindre än så).
-    \item För ytterligare 20 poäng gäller att talet är max 20 siffror långt,
-        och du behöver inte bry dig om att slänga bort hela miljarder
-        (svaret kommer vara mindre än så).
-    \item För ytterligare 20 poäng gäller att talet är max 1000 siffror långt.
-\end{itemize}
+Förklaring av exempelfall 4: det går att skapa de trevliga talen 9, 192, 912 och 12, men det sistnämnda kan åstadkommas på två sätt: genom att stryka de två första siffrorna eller genom att stryka de två mittersta siffrorna.
+
+Förklaring av exempelfall 5: det går att skapa de trevliga talen 0, 3, 12, 102, 123 och 1023.

@@ -1,6 +1,5 @@
 %% plainproblemname: Orientering
 \problemname{Orientering}
-
 Springoalla har börjat med orientering, men är ärligt talat inte
 särskilt bra på det. Faktum är att hon trots de vägvisande pilarna
 som satts upp springer vilse nästan varenda gång. Skogen hon springer
@@ -23,31 +22,30 @@ som två missar). Det finns alltid minst ett sätt hon kan ha hamnat på den giv
 
 \section*{Indata}
 
-På den första raden står fyra tal $N$, $M$, $R$ och $C$, höjden och
-bredden på skogen, samt positionen (rad och kolumn) Springoalla slutar
-på (raderna är numrerade från 1 till $N$ och kolumnerna från 1 till
-$M$). Därefter följer $N$ rader med $M$ tecken, som beskriver skogen.
+På den första raden står fyra tal $N$, $M$, $R$ och $C$ ($1 \leq R \leq N \leq 800$, $1 \leq C \leq M \leq 800$), höjden och bredden på skogen, samt positionen (rad och kolumn) Springoalla slutar
+på (raderna är numrerade från $1$ till $N$ och kolumnerna från $1$ till
+$M$). Därefter följer $N$ rader med $M$ tecken vardera, som beskriver skogen.
 Varje tecken kommer att vara antingen \texttt{.}, \texttt{v} (ner),
 \verb+^+ (upp), \texttt{<} (vänster) eller \texttt{>} (höger).
 
-Höjden och bredden kommer vara max $800$: ($1 \leq N,M \leq 800$). Raden och kolumnen som
-Springoalla slutar på kommer vara inom skogens koordinater.
-
 \section*{Utdata}
+Skriv ut ett enda tal: det minsta antalet pilar Springoalla måste ha missat.
 
-Ett enda tal: det minsta antalet pilar Springoalla måste ha missat.
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-\section*{Exempel}
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$   & $50$       & $N \leq 200$, $M \leq 200$ \\ \hline
+  $2$   & $50$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
 
-För det första exempelindatat så har hon missat alla nedåtpilar utom
-en. För det andra exempelindatat så har hon missat mittenpilen två
-gånger. I det tredje exemplet så missar hon inga pilar.
+\section*{Förklaring av exempelfall}
+Förklaring av exempelfall 1: hon har missat alla nedåtpilar utom en.
 
-\section*{Delpoäng}
+Förklaring av exempelfall 2: hon har missat mittenpilen två gånger.
 
-I det här problemet kan du samla en del av poängen utan att
-lösa problemet fullständigt.
-
-\begin{itemize}
-    \item För $50$ poäng så kommer $N$ och $M$ vara maximalt $200$.
-\end{itemize}
+Förklaring av exempelfall 3: hon missar inga pilar.
