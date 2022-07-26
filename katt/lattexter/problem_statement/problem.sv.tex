@@ -1,6 +1,5 @@
 %% plainproblemname: Låttexter
 \problemname{Låttexter}
-
 Det är välkänt att informationsinnehållet i moderna låttexter inte är särskilt
 högt.\footnote{http://en.wikipedia.org/wiki/The\_Complexity\_of\_Songs}
 Vi kan representera en text genom en samling variabler, där varje
@@ -31,19 +30,21 @@ strängen$))$, numren på de tecken vi är intresserade av.
 
 \section*{Utdata}
 
-En enda rad med $Q$ tecken, de utplockade tecknen.
+Skriv ut de $Q$ efterfrågade tecknena på en enda rad.
 
-\section*{Exempel}
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-I det första indataexemplet så får vi först ordet "\texttt{hej}". Sedan kommer en rad som slår ihop
-ordet med sig självt, så vi har nu "\texttt{hejhej}". Tecken 3 och 4 i strängen är "\texttt{jh}".
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$   & $20$       & $N \leq 5\,000$, $Q \leq 10\,000$, längden på strängarna som bildas är kortare än $10^{18}$ tecken \\ \hline
+  $2$   & $60$       & Längden på strängarna som bildas är kortare än $10^{18}$ tecken \\ \hline
+  $3$   & $20$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
 
-\section*{Delpoäng}
-
-I det här problemet kan du samla en del av poängen utan att
-lösa problemet fullständigt.
-
-\begin{itemize}
-    \item För $20$ poäng så kommer $N$ vara maximalt $5\,000$, $Q$ vara maximalt $10\,000$, och alla strängar som bildas vara högst $10^{18}$ tecken långa.
-    \item För ytterligare $60$ poäng så kommer så kommer alla strängar vara högst $10^{18}$ tecken långa.
-\end{itemize}
+\section*{Förklaring av exempelfall 1}
+Vi först ordet "\texttt{hej}". Sedan kommer en rad som slår ihop
+ordet med sig självt, så vi har nu "\texttt{hejhej}". Tecken $3$ och $4$ i strängen är "\texttt{jh}".

@@ -102,4 +102,5 @@ int main() {
 		cout.put(getNthChar(topNode, q));
 	}
 	endl(cout);
+    _Exit(0);
 }

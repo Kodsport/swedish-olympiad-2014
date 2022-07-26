@@ -1,6 +1,5 @@
 %% plainproblemname: Sock Matching 2
 \problemname{Sock Matching 2}
-
 Arash is back home again after the onsite-finals in Linköping and is starting to get back into everyday life.
 Now he just returned from a laundry room visit, and once again need to match his socks.
 He has $N$ socks in total, but feel like he only really need $K$ pairs.
@@ -14,6 +13,7 @@ You want to help Arash find the smallest integer $D$ such that he can match \tex
 
 The input consists of two lines.
 The first line contains the two integers $N$ and $K$ ($2 \leq N \leq 50\,000$, $2 \leq 2K \leq N$).
+
 The second line contains $N$ integers: $F_1, F_2, \dots, F_N$. The integers $F_i$ will be in the range from $1$
 to $1\,000\,000\,000\,000\,000$ (inclusive).
 
@@ -21,11 +21,15 @@ to $1\,000\,000\,000\,000\,000$ (inclusive).
 
 You should print one integer: The minimal difference $D$ such that Arash can match at least $K$ pairs of socks.
 
-\section*{Subtasks}
 
-In this problem you can get some points without solving the problem fully.
+\section*{Scoring}
+Your solution will be tested on several groups of test cases. To get points for a group you need to pass all the tests of that group.
 
-\begin{itemize}
-    \item For $40$ points it is guaranteed that $N$ will be at most $200$ and every color at most $5\,000$.
-    \item For another $30$ points it is guaranteed only that $N$ will be at most $1\,000$.
-\end{itemize}
+\noindent
+\begin{tabular}{| l | l | l |}
+	\hline
+	Group & Points & Constraints\\ \hline
+ $1$    & $40$        & $N \leq 200$, $F_i \leq 5\,000$ for all $i$ \\ \hline
+ $2$    & $30$        & $N \leq 1\,000$ \\ \hline
+ $3$    & $30$        & No additional constraints \\ \hline
+\end{tabular}
