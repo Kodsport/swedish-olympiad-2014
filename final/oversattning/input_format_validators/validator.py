@@ -9,9 +9,23 @@ input_re3 = "^[a-z]+$"
 line = sys.stdin.readline()
 assert re.match(input_re1, line)
 
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+
+max_n = int(cmdlinearg('max_n'))
+max_m = int(cmdlinearg('max_m'))
+
+
 N = int(line)
 
-assert 1 <= N <= 50000
+assert 1 <= N <= max_n
 
 words = {}
 
@@ -27,7 +41,7 @@ line = sys.stdin.readline()
 assert re.match(input_re1, line)
 M = int(line)
 
-assert 1 <= M <= 100000
+assert 1 <= M <= max_m
 
 line = sys.stdin.readline()
 wordlist = line.split()

@@ -11,8 +11,22 @@ assert re.match(line1_re, line)
 
 h, b, y_dest, x_dest = map(int, line.strip().split())
 
-assert 1 <= h <= 800
-assert 1 <= b <= 800
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+
+max_n = int(cmdlinearg('max_n'))
+max_m = int(cmdlinearg('max_m'))
+
+
+assert 1 <= h <= max_n
+assert 1 <= b <= max_m
 assert 1 <= y_dest <= h
 assert 1 <= x_dest <= b
 
@@ -24,6 +38,6 @@ for i in xrange(h):
 line = sys.stdin.readline()
 assert len(line) == 0
 
-# TODO: Check that the problem is solveable
+# validator.cpp checks whether the instance is solvable
 
 sys.exit(42)

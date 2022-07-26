@@ -13,11 +13,13 @@ compile gen_random.py
 
 # Sample
 samplegroup
+limits max_n=10
 sample_manual fotografen.1
 sample_manual fotografen.2
 sample_manual fotografen.3
 
 group group1 10
+limits max_n=10
 tc g1-1  gen_random n=10 ratio=0.5 seed=10
 tc g1-2  gen_random n=10 ratio=0.5 seed=11
 tc g1-3  gen_yes    n=10 ratio=0.95 seed=12
@@ -30,6 +32,7 @@ tc g1-9  gen_no     n=10 ratio=0.9 seed=18
 tc g1-10 gen_no     n=10 ratio=0.9 seed=19
 
 group group2 40
+limits max_n=5000
 tc g2-1  gen_random n=5000 ratio=0.1  seed=110
 tc g2-2  gen_random n=5000 ratio=0.1  seed=111
 tc g2-3  gen_yes    n=5000 ratio=1    seed=112
@@ -42,6 +45,7 @@ tc g2-9  gen_no     n=5000 ratio=0.07 seed=118
 tc g2-10 gen_no     n=5000 ratio=0.07 seed=119
 
 group group3 50
+limits max_n=100000
 tc g3-1  gen_random n=100000 ratio=0.1    seed=6942010
 tc g3-2  gen_random n=100000 ratio=0.1    seed=6942011
 tc g3-3  gen_yes    n=100000 ratio=1      seed=6942012

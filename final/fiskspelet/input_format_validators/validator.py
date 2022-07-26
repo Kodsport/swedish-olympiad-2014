@@ -10,9 +10,22 @@ fish_re = "^(L|M|S) (0|\-?[1-9][0-9]*) (0|\-?[1-9][0-9]*)$"
 #
 # It only validaes a *subset* of valid inputs.
 
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+
+max_n = int(cmdlinearg('max_n'))
+max_h = int(cmdlinearg('max_h'))
+mode = cmdlinearg('mode')
 # Initialize mode
 MODES = ["lowdist", "noeat", "nomideat", "hardest"]
-mode = "hardest" #sys.argv[1]
+
 assert mode in MODES
 difficulty = MODES.index(mode)
 difficulty_nomideat = MODES.index('nomideat')
@@ -25,8 +38,8 @@ assert re.match(two_ints_re, line)
 
 N, h = map(int, words)
 
-assert 1 <= N <= 100000
-assert 20 <= h and h <= 1000
+assert 1 <= N <= max_n
+assert 20 <= h and h <= max_h
 
 # I must sort them later, so I do this now
 Fish = collections.namedtuple('Fish', ['x', 'y', 'size'])

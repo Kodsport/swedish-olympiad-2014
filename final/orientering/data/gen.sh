@@ -11,12 +11,14 @@ compile gen_random.py
 
 # Sample
 samplegroup
+limits max_n=15 max_m=15
 sample_manual orientering.1
 sample_manual orientering.2
 sample_manual orientering.3
 
 # n,m=200
 group group1 50
+limits max_n=200 max_m=200
 tc g1-1  gen_random n=200 m=200 seed=10
 tc g1-2  gen_random n=200 m=200 seed=11
 tc g1-3  gen_random n=200 m=200 seed=12
@@ -30,6 +32,7 @@ tc g1-10 gen_random n=200 m=200 seed=19
 
 # n,m=800
 group group2 50
+limits max_n=800 max_m=800
 tc g2-1  gen_random n=800 m=800 seed=110
 tc g2-2  gen_random n=800 m=800 seed=111
 tc g2-3  gen_random n=800 m=800 seed=112

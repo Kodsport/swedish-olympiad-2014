@@ -12,10 +12,12 @@ compile gen_worst.py
 
 # Sample
 samplegroup
+limits max_n=10 max_m=10
 sample_manual oversattning.1
 
 # n=100
 group group1 40
+limits max_n=100 max_m=100
 tc g1-1 gen_random words=30 ent=100 leaf=100000 sentlen=100 seed=20
 tc g1-2 gen_random words=30 ent=100 leaf=100000 sentlen=100 seed=21
 tc g1-3 gen_random words=50 ent=100 leaf=10     sentlen=100 seed=22
@@ -29,6 +31,7 @@ tc g1-10 gen_worst ent=50  leaf=3  sentlen=100 seed=13
 
 # n=5e4, m=100
 group group2 30
+limits max_n=1000 max_m=100000
 tc g2-1 gen_random words=70  ent=1000 leaf=10   sentlen=100000 seed=20
 tc g2-2 gen_random words=70  ent=1000 leaf=10   sentlen=100000 seed=21
 tc g2-3 gen_random words=100 ent=1000 leaf=1000 sentlen=100000 seed=22
@@ -42,6 +45,7 @@ tc g2-10 gen_worst ent=500  leaf=150 sentlen=100000 seed=13
 
 # n=5e4
 group group3 30
+limits max_n=50000 max_m=100000
 tc g3-1 gen_random words=1000 ent=50000 leaf=10   sentlen=100000 seed=20
 tc g3-2 gen_random words=1000 ent=50000 leaf=10   sentlen=100000 seed=21
 tc g3-3 gen_random words=1000 ent=50000 leaf=1000 sentlen=100000 seed=22
