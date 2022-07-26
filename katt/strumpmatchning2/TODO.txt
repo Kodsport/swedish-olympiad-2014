@@ -1,0 +1,5 @@
+Om vi nånsin installerar strumpmatchning 1, inkludera en referens till den. Blir lite skumt att referera till en icke-installerad uppgift
+"
+Som i uppgiften \href{https://po.scrool.se/problems/strumpor}{strumpmatchning}
+så har varje strumpa en färg $F_i$.
+"
