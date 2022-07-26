@@ -4,13 +4,13 @@ Du spelar fiskspelet. Du är en fisk som ska äta mindre fiskar men aldrig får
 bli uppäten av större fiskar. Fiskarna ändrar aldrig storlek. Du får poäng för varje fisk du äter och självklart vill du ha så mycket
 poäng som möjligt.
 
-Spelplanen kan ses som ett rutnät med $H$ rader (numrerade från 1 till $H$) men obegränsat antal kolumner. Du befinner dig i kolumnen $x=0$ och kan bara röra dig vertikalt (uppåt och nedåt). De andra fiskarna rör sig däremot aldrig vertikalt utan börjar i en viss kolumn $x>0$ och flyter med konstant fart åt vänster (mot din kolumn). 
+Spelplanen kan ses som ett rutnät med $H$ rader (numrerade från $1$ till $H$) men obegränsat antal kolumner. Du befinner dig i kolumnen $x=0$ och kan bara röra dig vertikalt (uppåt och nedåt). De andra fiskarna rör sig däremot aldrig vertikalt utan börjar i en viss kolumn $x>0$ och flyter med konstant fart åt vänster (mot din kolumn). 
 
-Alla fiskar (även du) har bredden 1 ruta. Din höjd är 7. Det finns tre andra sorters fiskar: ``liten'' med höjd 3, ``mellan'' med höjd 5 och ``stor'' med höjd 9. Fiskarna har olika hastigheter. Varje sekund kan du röra dig en ruta uppåt eller nedåt (eller stå stilla). På samma tid rör sig en liten fisk 1 ruta, en mellanfisk 2 rutor och en stor fisk 3 rutor åt vänster. Du väljer själv på vilken höjd-nivå din fisk ska börja, men observera att \emph{hela} fisken alltid måste vara inom spelplanen. 
+Alla fiskar (även du) har bredden $1$ ruta. Din höjd är $7$. Det finns tre andra sorters fiskar: ``liten'' med höjd $3$, ``mellan'' med höjd $5$ och ``stor'' med höjd $9$. Fiskarna har olika hastigheter. Varje sekund kan du röra dig en ruta uppåt eller nedåt (eller stå stilla). På samma tid rör sig en liten fisk $1$ ruta, en mellanfisk $2$ rutor och en stor fisk $3$ rutor åt vänster. Du väljer själv på vilken höjd-nivå din fisk ska börja, men observera att \emph{hela} fisken alltid måste vara inom spelplanen. 
 %Det innebär att din mittenruta alltid måste vara inom intervallet $[4, h-3]$. THIS INFO IS NOT NEEDED I THINK
 
 
-En fisk kan äta fiskar som är mindre än den själv. Du kan alltså äta fiskar av storlek 3 och 5, och får då 10 respektive 20 poäng. Men fiskar av höjd 9 kommer att äta upp dig, och du måste akta dig för dem. Skulle du bli uppäten förlorar du. För att det inte ska bli orättvist vem som
+En fisk kan äta fiskar som är mindre än den själv. Du kan alltså äta fiskar av storlek $3$ och $5$, och får då $10$ respektive $20$ poäng. Men fiskar av höjd $9$ kommer att äta upp dig, och du måste akta dig för dem. Skulle du bli uppäten förlorar du. För att det inte ska bli orättvist vem som
 äter vem så har sjöjungfrun Arashiel bestämt att följande sker i varje diskret
 sekundsteg:
 \begin{enumerate}
