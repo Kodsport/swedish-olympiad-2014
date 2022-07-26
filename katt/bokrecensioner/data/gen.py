@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 from __future__ import division
 from __future__ import print_function
 import math
@@ -14,13 +16,33 @@ if debug:
 
 inputs = sys.stdin.readline().strip().split()
 
-mode = inputs[0]
-yesno = inputs[1]
-N = int(inputs[2])
-M = int(inputs[3])
-max_R = int(inputs[4])
-ncomponents = int(inputs[5])
-seed = int(inputs[6])
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+
+random.seed(int(cmdlinearg('seed')))
+mode = cmdlinearg('mode')
+yesno = cmdlinearg('yesno')
+N = int(cmdlinearg('n'))
+M = int(cmdlinearg('m'))
+max_R = int(cmdlinearg('r'))
+ncomponents = int(cmdlinearg('components'))
+
+# mode = inputs[0]
+# yesno = inputs[1]
+# N = int(inputs[2])
+# M = int(inputs[3])
+# max_R = int(inputs[4])
+# ncomponents = int(inputs[5])
+# seed = int(inputs[6])
+# random.seed(seed)
+
 
 look_behind = 10
 # growth rate of rating seems to be 1 / (look_behind/2)
@@ -34,7 +56,6 @@ assert 1 <= ncomponents <= N
 if mode == 'a':
     assert ncomponents == N
 
-random.seed(seed)
 
 def get_rel():
     if mode == 'c' and random.random() < 0.9:
