@@ -22,15 +22,12 @@ som två missar). Det finns alltid minst ett sätt hon kan ha hamnat på den giv
 
 \section*{Indata}
 
-På den första raden står fyra tal $N$, $M$, $R$ och $C$, höjden och
-bredden på skogen, samt positionen (rad och kolumn) Springoalla slutar
-på (raderna är numrerade från 1 till $N$ och kolumnerna från 1 till
-$M$). Därefter följer $N$ rader med $M$ tecken, som beskriver skogen.
+På den första raden står fyra tal $N$, $M$, $R$ och $C$, ($1 \leq R \leq N \leq 800$),
+($1 \leq C \leq M \leq 800$), höjden och bredden på skogen, samt positionen (rad och kolumn) Springoalla slutar
+på (raderna är numrerade från $1$ till $N$ och kolumnerna från $1$ till
+$M$). Därefter följer $N$ rader med $M$ tecken vardera, som beskriver skogen.
 Varje tecken kommer att vara antingen \texttt{.}, \texttt{v} (ner),
 \verb+^+ (upp), \texttt{<} (vänster) eller \texttt{>} (höger).
-
-Höjden och bredden kommer vara max $800$: ($1 \leq N,M \leq 800$). Raden och kolumnen som
-Springoalla slutar på kommer vara inom skogens koordinater.
 
 \section*{Utdata}
 Skriv ut ett enda tal: det minsta antalet pilar Springoalla måste ha missat.

@@ -6,14 +6,13 @@ poäng som möjligt.
 
 Spelplanen kan ses som ett rutnät med $H$ rader (numrerade från 1 till $H$) men obegränsat antal kolumner. Du befinner dig i kolumnen $x=0$ och kan bara röra dig vertikalt (uppåt och nedåt). De andra fiskarna rör sig däremot aldrig vertikalt utan börjar i en viss kolumn $x>0$ och flyter med konstant fart åt vänster (mot din kolumn). 
 
-Alla fiskar (även du) har bredden 1 ruta. Din höjd är 7. Det finns tre andra sorters fiskar: "liten" med höjd 3, "mellan" med höjd 5 och "stor" med höjd 9. Fiskarna har olika hastigheter. Varje sekund kan du röra dig en ruta uppåt eller nedåt (eller stå stilla). På samma tid rör sig en liten fisk 1 ruta, en mellanfisk 2 rutor och en stor fisk 3 rutor åt vänster. Du väljer själv på vilken höjd-nivå din fisk ska börja, men observera att \emph{hela} fisken alltid måste vara inom spelplanen. 
+Alla fiskar (även du) har bredden 1 ruta. Din höjd är 7. Det finns tre andra sorters fiskar: ``liten'' med höjd 3, ``mellan'' med höjd 5 och ``stor'' med höjd 9. Fiskarna har olika hastigheter. Varje sekund kan du röra dig en ruta uppåt eller nedåt (eller stå stilla). På samma tid rör sig en liten fisk 1 ruta, en mellanfisk 2 rutor och en stor fisk 3 rutor åt vänster. Du väljer själv på vilken höjd-nivå din fisk ska börja, men observera att \emph{hela} fisken alltid måste vara inom spelplanen. 
 %Det innebär att din mittenruta alltid måste vara inom intervallet $[4, h-3]$. THIS INFO IS NOT NEEDED I THINK
 
 
 En fisk kan äta fiskar som är mindre än den själv. Du kan alltså äta fiskar av storlek 3 och 5, och får då 10 respektive 20 poäng. Men fiskar av höjd 9 kommer att äta upp dig, och du måste akta dig för dem. Skulle du bli uppäten förlorar du. För att det inte ska bli orättvist vem som
 äter vem så har sjöjungfrun Arashiel bestämt att följande sker i varje diskret
 sekundsteg:
-
 \begin{enumerate}
   \item
      Du gör ditt drag (flyttar upp, ner, eller stannar kvar).
@@ -64,16 +63,27 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{tabular}
 
 \section*{Förklaring av exempelfall}
-\includegraphics[width=0.8\textwidth]{fiskspelet.png}\\
-Förklaring av exempelfall 1: De heldragna färgade rektanglarna
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fiskspelet.png}\\
+\caption{Situationen i exempelfall 1}
+\label{fig:sample1}
+\end{figure}
+En möjlig lösning till det första exemplet visas i figur~\ref{fig:sample1}.
+De heldragna färgade rektanglarna
 visar fiskarnas utgångspositioner och de streckade rektanglarna visar
-deras positioner efter 4 respektive 8 sekunder. Den svarta rektangeln
+deras positioner efter $4$ respektive $8$ sekunder. Den svarta rektangeln
 visar en av flera optimala utgångspositioner för dig. I detta fall kan
 du helt enkelt stå stilla och invänta den gröna mellanfisken.
 
-\includegraphics[width=0.8\textwidth]{fiskspelet2.png}\\
-Förklaring av exempelfall 2: Den svarta rektangeln visar var
-du måste befinna dig vid tiden $t=4$ sekunder när du äter den blå
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fiskspelet2.png}\\
+\caption{Situationen i exempelfall 2}
+\label{fig:sample2}
+\end{figure}
+En möjlig lösning till det andra exemplet visas i figur~\ref{fig:sample2}.
+Den svarta rektangeln visar var du måste befinna dig vid tiden $t=4$ sekunder när du äter den blå
 lilla fisken (det går bra att även ha detta som utgångsposition). Den
 delade rutan markerar att fiskarna överlappar på denna ruta. Sedan
 måste du röra dig i full fart uppåt för att kunna äta den gröna
