@@ -5,9 +5,10 @@ Sometimes two arrows can be shown for the same beat, so you have to make a jump 
 You can always remain on an arrow with a foot even if you don't need to press it for a beat.
 
 \begin{figure}[ht!]
-\centering
-\includegraphics[width=0.4\textwidth]{dansmatta.png}
+    \centering
+    \includegraphics[width=0.4\textwidth]{dansmatta.png}
 \caption{A dance pad.}
+\label{fig:sample1}
 \end{figure}
 
 Johan jumps around on his dance pad almost every day, but finds it hard to keep up with moving his feet sometimes.
@@ -21,14 +22,14 @@ Moving both his feet in a jump still counts as two movements.
 
 
 \section*{Input}
-The first line contains the integer $1 \le N \le 10\,000$, the number of beats in the song.
+The first line contains the integer $N$ ($1 \le N \le 10\,000$), the number of beats in the song.
 
 This is followed by $N$ lines, one line for each beat.
 Each beat consists of a string with \emph{one or two} letters of \texttt{U}, \texttt{H}, \texttt{N} or \texttt{V} meaning ``up'', ``right'', ``down'', ``left'', respectively.
 These are the arrows that must be pressed during the beat.
 
 \section*{Output}
-Output the least number of moves Johan must make.
+Output the an integer -- the least number of moves Johan must make.
 
 \section*{Scoring}
 Your solution will be tested on a set of test case groups.
@@ -44,7 +45,7 @@ Group & Points & Constraints \\ \hline
 \end{tabular}
 
 \section*{Explanation of sample 1}
-In the first sample, Johan starts with his feet on the left and right arrows (as always).
+Johan starts with his feet on the left and right arrows (as always).
 A possible optimal solution is the following.
 For the first beat, he moves the right foot to the up arrow.
 Then he moves the right foot again to the down arrow.

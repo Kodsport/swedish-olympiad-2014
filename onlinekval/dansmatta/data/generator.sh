@@ -2,9 +2,7 @@
 
 PPATH=$(realpath ..)
 REQUIRE_SAMPLE_REUSE=0
-. ../../../../../testdata_tools/gen.sh
-
-ulimit -s unlimited
+. ../../../testdata_tools/gen.sh
 
 use_solution dansmatta_dp_js.cc
 

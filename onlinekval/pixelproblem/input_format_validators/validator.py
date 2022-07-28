@@ -8,7 +8,7 @@ line = sys.stdin.readline()
 assert re.match(int_re, line)
 
 N = int(line)
-assert 1 <= N <= 1000000
+assert 1 <= N <= 250000
 
 line = sys.stdin.readline()
 arr = line.split()

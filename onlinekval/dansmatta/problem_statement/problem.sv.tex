@@ -5,9 +5,10 @@ Ibland kan två pilar komma upp samtidigt, så man måste göra ett hopp.
 Man kan alltid stå kvar på en pil även om man inte måste trycka ner den.
 
 \begin{figure}[ht!]
-\centering
-\includegraphics[width=0.4\textwidth]{dansmatta.png}
+    \centering
+    \includegraphics[width=0.4\textwidth]{dansmatta.png}
 \caption{En dansmatta.}
+\label{fig:sample1}
 \end{figure}
 
 Johan hoppar runt på sin dansmatta nästan varje dag, men tycker det är svårt att hinna flytta sina fötter ibland.
@@ -20,13 +21,13 @@ Att byta plats på båda fötterna i ett hopp räknas som två förflyttningar.
 
 
 \section*{Indata}
-Den första raden består av det positiva heltalet $1 \le N \le 10\,000$, antal takter i låten.
+Den första raden innehåller heltalet $N$ ($1 \le N \le 10\,000$), antal takter i låten.
 
-Sedan följer $N$ rader, en rad för varje takt. Varje rad består av en sträng med \emph{en eller två} bokstäver som är några av \texttt{U}, \texttt{H}, \texttt{N} eller \texttt{V} för ``upp'', ``höger'', ``ner'', ``vänster'', respektive.
+Därefter följer $N$ rader, en rad för varje takt. Varje rad består av en sträng med \emph{en eller två} bokstäver som är några av \texttt{U}, \texttt{H}, \texttt{N} eller \texttt{V} för ``upp'', ``höger'', ``ner'', ``vänster'', respektive.
 Dessa är pilarna som måste vara nedtryckta under takten.
 
 \section*{Utdata}
-Den första och enda raden ska bestå av ett heltal $F$, det minsta antalet förflyttningar Johan måste göra.
+Skriv ut ett heltal -- det minsta antalet förflyttningar Johan måste göra.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -42,7 +43,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{tabular}
 
 \section*{Förklaring av exempel 1}
-I det första exempelfallet börjar Johan med fötterna på höger och vänster platta (som alltid).
+Johan börjar med fötterna på höger och vänster platta (som alltid).
 Sedan kan en optimal lösning t.ex. se ut som följer: Johan väljer att flytta höger fot till \texttt{U}-pilen, för att uppfylla det första kravet.
 Sedan flyttar han samma fot igen, den här gången till \texttt{N}-pilen.
 Johan står sedan still de kommande två takterna som kräver \texttt{V}-pilen nedtryckt (han står kvar där med vänsterfoten), och flyttar sedan någon av fötterna till \texttt{H}-pilen.
