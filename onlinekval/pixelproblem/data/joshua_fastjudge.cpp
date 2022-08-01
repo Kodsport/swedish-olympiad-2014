@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <filesystem>
 
 
 using namespace std;
@@ -44,7 +45,6 @@ inline void fast()
     cin.tie(NULL); cout.tie(NULL);
 }
 
-// Idk, it's fast though
 inline float sqrt1(const float& n)
 {
     static union { int i; float f; } u;
@@ -52,7 +52,6 @@ inline float sqrt1(const float& n)
     return (int(3) - n * u.f * u.f) * n * u.f * 0.5f;
 }
 
-// Square roots are costly and there aren't that many possible differences between colors
 vector<double> sqrtlookup(256 * 256 * 3, -1);
 
 inline float coldist(tuple<int, int, int> a, tuple<int, int, int> b)
@@ -72,17 +71,9 @@ inline float coldist(tuple<int, int, int> a, tuple<int, int, int> b)
     }
 }
 
-
-int main()
+int solve(string filename, bool noheuristic = false)
 {
-    fast();
-
-#if 0
-    //ifstream cin("C:\\Users\\Matis\\source\\repos\\Comp prog\\x64\\Debug\\in.txt");
-    //ifstream cin("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group15\\015-spinning_fast.in");
-    ifstream cin("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group9\\009-johan_conversation.in");
-    //ifstream cin("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group2\\002-another_hard_pattern.in");
-#endif
+    ifstream cin(filename);
 
     dread(int, n);
     vector<tuple<int, int, int>> cols(n * 3);
@@ -97,7 +88,6 @@ int main()
 
     vector<pair<float, int>> scores;
 
-    // Check the color distance for each row
     for (int guessWidth = 20; guessWidth < 700; guessWidth++)
     {
         float score = 0;
@@ -142,13 +132,12 @@ int main()
         {
             int idx = getindex(j);
             int target = gettarget(idx);
-            if (max(idx,target) >= n) break;
+            if (max(idx, target) >= n) break;
             score += coldist(cols[idx], cols[target]);
             j++;
         }
         return score;
     };
-    // Look for lines in images
     rep(i, candidates.size())
     {
         int guessWidth = candidates[i];
@@ -156,15 +145,21 @@ int main()
 
         // -j-1 is right side line, +j is left side
         // distance from true=1
-        score += getscore([&](int j) {return guessWidth * (j + 1) + j; }, [&](int idx) {return idx + 1; });
-        score += getscore([&](int j) {return guessWidth * (j + 1) - j - 1; }, [&](int idx) {return idx - 1; });
+        score += getscore([&](int j) {return guessWidth * (j + 1) + j; },
+            [&](int idx) {return idx + 1; });
+        score += getscore([&](int j) {return guessWidth * (j + 1) - j - 1; },
+            [&](int idx) {return idx - 1; });
         // distance from true=2
-        score += getscore([&](int j) {return guessWidth * ((j + 2) / 2) - j - 1; }, [&](int idx) {return idx - 2 + idx % 2; });
-        score += getscore([&](int j) {return guessWidth * ((j + 2) / 2) + j; }, [&](int idx) {return idx + 1 + idx % 2; });
+        score += getscore([&](int j) {return guessWidth * ((j + 2) / 2) - j - 1; },
+            [&](int idx) {return idx - 2 + idx % 2; });
+        score += getscore([&](int j) {return guessWidth * ((j + 2) / 2) + j; },
+            [&](int idx) {return idx + 1 + idx % 2; });
         // distance from true=3
-        score += getscore([&](int j) {return guessWidth * ((j + 3) / 3) - j - 1; }, [&](int idx) {return idx - 3 + idx % 3; });
-        score += getscore([&](int j) {return guessWidth * ((j + 3) / 3) + j; }, [&](int idx) {return idx + 3 - idx % 3; });
-        
+        score += getscore([&](int j) {return guessWidth * ((j + 3) / 3) - j - 1; },
+            [&](int idx) {return idx - 3 + idx % 3; });
+        score += getscore([&](int j) {return guessWidth * ((j + 3) / 3) + j; },
+            [&](int idx) {return idx + 3 - idx % 3; });
+
         linescore.emplace_back(score, guessWidth);
     }
     sort(all(linescore));
@@ -180,6 +175,8 @@ int main()
                 break;
             }
         }
+
+
     }
     linescore.resize(0);
     repe(score, finalscores)
@@ -187,6 +184,75 @@ int main()
         linescore.emplace_back(score.second, score.first);
     }
     sort(all(linescore));
-    cout << linescore[0].second << "\n";
+    return linescore[0].second;
+}
+
+std::string slurp(std::ifstream in) {
+    std::ostringstream sstr;
+    sstr << in.rdbuf();
+    return sstr.str();
+}
+
+int main()
+{
+    fast();
+
+#if 0
+    //ifstream cin("C:\\Users\\Matis\\source\\repos\\Comp prog\\x64\\Debug\\in.txt");
+    //ifstream cin("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group15\\015-spinning_fast.in");
+    ifstream cin("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group9\\009-johan_conversation.in");
+    //ifstream cin("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group2\\002-another_hard_pattern.in");
+#endif
+
+    namespace fs = std::filesystem;
+
+    const char* PATH = ".";
+
+    //solve("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group15\\015-spinning_fast.in");
+    //solve("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group015\\015-spinning_fast.in");
+    //solve("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret\\group022\\022-tuppar.in");
+
+    std::string path = "secret";
+    for (const auto& entry : fs::directory_iterator("C:\\Users\\Matis\\desktop\\po-two\\swedish-olympiad-2014\\onlinekval\\pixelproblem\\data\\secret"))
+    {
+        if (!fs::is_directory(entry.path())) continue;
+
+        auto dir = fs::directory_iterator(entry.path().string());
+
+        fs::path ansfile;
+        fs::path inputfile;
+
+        for (const auto& entry : dir)
+        {
+            if (entry.path().extension() == ".in")
+            {
+                inputfile = entry.path();
+            }
+            if (entry.path().extension() == ".ans")
+            {
+                ansfile = entry.path();
+            }
+        }
+
+        string name = inputfile.filename().string();
+        string nameint = name.substr(0, 3);
+        int n = stoi(nameint);
+        /* if (n == 17)
+         {
+             cout << "haasfd";
+         }*/
+        int res = solve(inputfile.string());
+        cout << "n: " << n << "\n";
+
+        int judge_ans = stoi(slurp(ifstream(ansfile.string())));
+
+        if (judge_ans != res)
+        {
+            cout << "error at " << inputfile.filename() << ": judge ans " << judge_ans << ", sol ans: " << res << ", no heuristic" << solve(inputfile.string()) << "\n";
+        }
+
+        //std::cout << entry.path() << std::endl;
+    }
+
     return 0;
 }
