@@ -61,15 +61,7 @@ inline float coldist(tuple<int, int, int> a, tuple<int, int, int> b)
     int d2 = get<1>(a) - get<1>(b);
     int d3 = get<2>(a) - get<2>(b);
     int index = d1 * d1 + d2 * d2 + d3 * d3;
-    if (sqrtlookup[index] != -1)
-    {
-        return sqrtlookup[index];
-    }
-    else
-    {
-        sqrtlookup[index] = sqrt1(index);
-        return sqrtlookup[index];
-    }
+    return sqrtlookup[index];
 }
 
 
@@ -94,6 +86,7 @@ int main()
         cols[i] = { r,g,b };
     }
 
+    rep(i, 256 * 256 * 3) sqrtlookup[i] = sqrt1(i);
 
     vector<pair<float, int>> scores;
 
@@ -133,10 +126,10 @@ int main()
         }
     }
 
-    vector<pair<double, int>> linescore;
+    vector<pair<float, int>> linescore;
     auto getscore = [&](function<int(int)> getindex, function<int(int)> gettarget)
     {
-        double score = 0;
+        float score = 0;
         int j = 0;
         while (true)
         {
@@ -152,7 +145,7 @@ int main()
     rep(i, candidates.size())
     {
         int guessWidth = candidates[i];
-        double score = 0;
+        float score = 0;
 
         // -j-1 is right side line, +j is left side
         // distance from true=1
@@ -168,7 +161,7 @@ int main()
         linescore.emplace_back(score, guessWidth);
     }
     sort(all(linescore));
-    map<int, double> finalscores;
+    map<int, float> finalscores;
     rep(i, linescore.size())
     {
         finalscores[linescore[i].second] += pow(linescore[i].first / linescore[0].first, 1.7);

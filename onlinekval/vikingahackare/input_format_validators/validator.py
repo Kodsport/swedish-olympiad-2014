@@ -7,10 +7,21 @@ bin_re = "^[01]+$"
 int_re = "^(0|[1-9][0-9]*)$"
 pair_re = "^[a-zA-Z0-9] [01]+$"
 
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
 line = sys.stdin.readline()
 assert re.match(int_re, line)
 T = int(line)
 assert T >= 1 and T <= 16
+if int(cmdlinearg('t_one')):
+    assert T == 1
 used = []
 for i in xrange(T):
 	line = sys.stdin.readline()

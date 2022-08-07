@@ -11,7 +11,16 @@ line = sys.stdin.readline()
 assert re.match(first_re, line)
 N = int(line)
 
-assert 1 <= N <= 1000
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+assert 1 <= N <= int(cmdlinearg('maxn'))
 
 for i in xrange(N):
     line = sys.stdin.readline()

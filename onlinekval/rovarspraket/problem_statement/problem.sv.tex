@@ -1,21 +1,36 @@
 %% plainproblemname: Rövarspråket
 \problemname{Rövarspråket}
-I rövarspråket översätter man text man skrivit genom att ersätta alla konsonanter $x$ med $x$\texttt{o}$x$, medan alla vokaler är oförändrade. T.ex. översätts \texttt{hej} till \texttt{hohejoj}, \texttt{moo} till \texttt{momoo} och \texttt{ojoj} till \texttt{ojojojoj}.
+I rövarspråket översätter man text man skrivit genom att ersätta alla konsonanter $x$ med $x$\texttt{o}$x$, medan alla vokaler är oförändrade.
+T.ex. översätts \texttt{hej} till \texttt{hohejoj}, \texttt{moo} till \texttt{momoo} och \texttt{ojoj} till \texttt{ojojojoj}.
 
-Oskar har precis lärt sig rövarspråket, men glömmer ibland bort att ändra vissa konsonanter. Oskar översätter alltså bara en \emph{delmängd} av konsonanterna på ovanstående vis. Du kommer att få en ursprungstext och en potentiell översättning som Oskar har gjort. Du ska avgöra om det är möjligt att Oskar översatte den första strängen till den andra enligt beskrivningen ovan.
+Oskar har precis lärt sig rövarspråket, men glömmer ibland bort att ändra vissa konsonanter. Oskar översätter alltså bara en \emph{delmängd} av konsonanterna på ovanstående vis.
+Du kommer att få en ursprungstext och en potentiell översättning som Oskar har gjort. Du ska avgöra om det är möjligt att Oskar översatte den första strängen till den andra enligt beskrivningen ovan.
 
-Om Oskar hade skrivit \texttt{hejoj} kan den ursprungliga texten till exempel varit \texttt{hej} eller \texttt{hejoj}. För tydlighets skull så definierar vi följande bokstäver som vokaler: \texttt{a,e,i,o,u,y} och alla andra bokstäver är då konsonanter.
+Om Oskar hade skrivit \texttt{hejoj} kan den ursprungliga texten till exempel varit \texttt{hej} eller \texttt{hejoj}.
+För tydlighets skull så definierar vi följande bokstäver som vokaler: \texttt{a,e,i,o,u,y} och alla andra bokstäver är då konsonanter.
 
 \section*{Indata}
 Den första raden innehåller ordet som vi undrar om det kan ha varit usprungstexten. Den andra raden innehåller ett ord som Oskar har skrivit. Båda orden innehåller minst ett tecken och bara tecken \texttt{a-z} och endast små bokstäver. Ingen sträng är längre än 1000 tecken.
 
 \section*{Utdata}
-Utdata ska bestå av ett enda ord: \texttt{ja} om det är möjligt att det andra ordet är en översättning av det första, annars \texttt{nej}. Svaret ska alltså vara \texttt{ja} om och endast om det går att välja någon delmängd av konsonanterna i det första ordet och applicera rövarspråktransform så att man får det senare ordet.
+Utdata ska bestå av ett enda ord: \texttt{ja} om det är möjligt att det andra ordet är en översättning av det första, annars \texttt{nej}.
+Svaret ska alltså vara \texttt{ja} om och endast om det går att välja någon delmängd av konsonanterna i det första ordet och applicera rövarspråktransform så att man får det senare ordet.
 
-\section*{Exempel}
-I det första fallet spelar det ingen roll vilken av konsonanterna som Oskar väljer att applicera rövarspråkstranform på - så länge han väljer precis ett av de \texttt{j} som finns. Låt säga att Oskar glömde att omvandla alla \texttt{j} utom det första - då förvandlas \texttt{ojojoj} till \texttt{ojojojoj}. Svaret är alltså "\texttt{ja}".
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-I det andra exemplet så är det omöjligt att omvandla den första strängen till den andra. Ett sätt att visa detta på är att observera att det i den första strängen finns två \texttt{j} intill varandra, vilket innebär att det alltid kommer finnas två \texttt{j} intill varandra. Alltså går det inte att omvandla den första strängen till den andra, och svaret är "\texttt{nej}".
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$    & $20$        & Strängarna är max 20 tecken långa \\ \hline 
+  $2$    & $30$        & Strängarna är max 100 tecken långa \\ \hline
+  $3$    & $50$        & Inga ytterligare begränsingar. \\ \hline 
+\end{tabular}
 
-\section*{Delpoäng}
-I det här problemet kan du samla en del av poängen utan att lösa problemet fullständigt. För 20 poäng är strängarna maximalt 20 tecken långa. För ytterligare 30 poäng är stränglängden maximalt 100. För de resterande 50 poängen (och full poäng) måste ditt program klara av strängar av maximal längd 1000.
+\section*{Förklaring av exempelfall}
+Förklaring av exempelfall 1: det spelar ingen roll vilken av konsonanterna som Oskar väljer att applicera rövarspråkstranform på - så länge
+han väljer precis ett av de \texttt{j} som finns. Låt säga att Oskar glömde att omvandla alla \texttt{j} utom det första - då förvandlas \texttt{ojojoj} till \texttt{ojojojoj}. Svaret är alltså "\texttt{ja}".
+
+Förklaring av exempelfall 2: det är omöjligt att omvandla den första strängen till den andra. Ett sätt att visa detta på är att observera att det i den första strängen finns två \texttt{j} intill varandra, vilket innebär att det alltid kommer finnas två \texttt{j} intill varandra. Alltså går det inte att omvandla den första strängen till den andra, och svaret är "\texttt{nej}".
