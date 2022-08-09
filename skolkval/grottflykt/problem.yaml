@@ -5,6 +5,5 @@ license: cc by-sa
 rights_owner: Programmeringsolympiaden
 validation: custom
 grading:
-  on_reject: grade
-  range: 0 100
+  show_test_data_groups: true
 

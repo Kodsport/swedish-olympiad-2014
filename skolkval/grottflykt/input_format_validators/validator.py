@@ -2,6 +2,19 @@
 
 import sys
 
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        exit(1)
+    return default
+
+max_product = int(cmdlinearg('product_max'))
+h_one = int(cmdlinearg('h_one'))
+
+
 split = sys.stdin.readline().split()
 assert len(split) == 2
 w = int(split[0])
@@ -9,6 +22,9 @@ h = int(split[1])
 b = 0
 s = 0
 u = 0
+assert w*h<=max_product
+if h_one:
+    assert h==1
 for i in xrange(h):
     line = sys.stdin.readline().strip()
     assert len(line) == w
