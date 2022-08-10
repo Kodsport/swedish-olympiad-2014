@@ -3,11 +3,12 @@
 #include <set>
 
 using namespace std;
+typedef long long ll;
 
 bool isValidIP(const string& ip) {
-    int sum = 0;
+    ll sum = 0;
     bool ok = true;
-    for (int i = 0; i < ip.size(); ++i) {
+    for (ll i = 0; i < ip.size(); ++i) {
         if (ip[i] == '.') {
             if (sum > 255) ok = false;
             sum = 0;
@@ -26,9 +27,9 @@ int main() {
 
     string numbers;
     cin >> numbers;
-    for (int i = 1; i < numbers.size(); ++i) {
-        for (int j = i+1; j < numbers.size(); ++j) {
-            for (int k = j+1; k < numbers.size(); ++k) {
+    for (ll i = 1; i < numbers.size(); ++i) {
+        for (ll j = i+1; j < numbers.size(); ++j) {
+            for (ll k = j+1; k < numbers.size(); ++k) {
                 string ip;
                 ip += numbers.substr(0,i);
                 ip += ".";

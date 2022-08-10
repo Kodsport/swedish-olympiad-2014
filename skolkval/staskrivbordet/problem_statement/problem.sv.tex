@@ -6,26 +6,29 @@ dag. Nä detta ska Anna minsann ordna. Hon har bestämt sig för att
 
 Men datorskärmen står för högt upp! Anna behöver komma upp exakt
 $x$ centimeter av ergonomiska skäl. Hon har $n$ plattor till sin
-hjälp. Plattorna har höjderna $h_1 \dots h_n$. Genom att lägga
+hjälp. Genom att lägga
 ett antal av dem under vardera foten, så kan hon komma upp exakt $x$ centimeter.
 Plattorna under höger fot måste alltså ha sammanlagd höjd $x$ centimeter, och plattorna under vänster fot måste
 också ha sammanlagd höjd $x$ centimeter. Vad är det minsta totala antalet plattor hon behöver?
 
 \section*{Indata}
 
-Först kommer en rad med talen $10 \leq x \leq 100$ och $2 \leq n \leq
-20$, hur många centimeter Anna måste lägga under varje fot respektive
-antalet plattor. Därefter kommer en rad med $n$ heltal, höjderna $h_1
-\dots h_n$ på plattorna. $1 \leq h_i \leq 100$. Det kommer alltid att
+Först kommer en rad med talen $x$ och $n$ ($10 \leq x \leq 100$, $2 \leq n \leq
+20$), hur många centimeter Anna måste lägga under varje fot respektive
+antalet plattor.
+
+Därefter kommer en rad med $n$ heltal $h_i$ ($1 \leq h_i \leq 100$). Det kommer alltid att
 finnas en lösning.
 
 \section*{Utdata}
+För att göra det svårare att gissa rätt svar, så ska du skriva ut två heltal $n_1$ och $n_2$,
+antalet plattor hon har under vardera fot. Skriv det minsta talet först, d.v.s. se till att $n_1\leq n_2$.
+Om det finns flera lösningar där totala antalet plattor är samma så kan du välja vilken som helst utav dem.
 
-För att göra det svårare att gissa rätt svar, så ska du skriva
-ut två heltal $n_1$ och $n_2$, antalet plattor hon har under vardera fot. Skriv det minsta talet först, d.v.s. se till att $n_1\leq n_2$. Om det finns flera lösningar där
-totala antalet plattor är samma så kan du välja vilken som helst utav dem.
-
-
-\section*{Delpoäng}
-
-I två utav testfallen kommer $n$ ej överstiga $12$.
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$    & $30$        & $n \leq 12$ \\ \hline 
+  $2$    & $70$        & Inga ytterligare begränsingar. \\ \hline 
+\end{tabular}

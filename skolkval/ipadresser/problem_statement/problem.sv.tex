@@ -1,10 +1,38 @@
 \problemname{IP-adresser}
-En IPv4-address består av fyra heltal mellan 0 och 255 (som inte får ha några inledande nollor), separerade av punkter. T.ex. är 1.0.3.255 en giltig address, medan 1.0.03.255, 1.0.3.256 och 1.0.3 inte är giltiga addresser.
+En IPv4-address består av fyra heltal mellan $0$ och $255$ (som vardera inte får ha några inledande nollor), separerade av punkter.
+T.ex. är \texttt{1.0.3.255} en giltig address, medan \texttt{1.0.03.255}, \texttt{1.0.3.256} och \texttt{1.0.3} inte är giltiga addresser.
 Givet en sekvens av siffror, hitta alla giltiga IPv4-adresser som kan skapas genom insättning av tre punkter i sekvensen.
 
 \section*{Indata}
-Indata består av en sekvens av minst 4 och max 12 siffror.
+På första raden står en sträng med minst $4$ och max $12$ siffror.
 
 \section*{Utdata}
-Den första och enda raden ska bestå av ett heltal: antalet giltiga IP-adresser.
+Skriv ut ett heltal: antalet giltiga IP-adresser som kan bildas genom att sätta in 3 punkter.
 
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$    & $30$        & Indata innehåller inga nollor. \\ \hline 
+  $2$    & $70$        & Inga ytterligare begränsingar. \\ \hline 
+\end{tabular}
+
+
+\section*{Förklaring av exempelfall}
+Förklaring av exempelfall 1: Det finns endast en giltig ip-address som kan bildas, \texttt{255.255.255.255}. Alla andra utsättningar av punkter ger tal som är längre 3.
+
+Förklaring av exempelfall 2: Eftersom det finns 4 siffror finns bara en giltig utsättning punkter. Eftersom siffran noll är tillåten blir svaret \texttt{0.0.0.0}.
+
+Förklaring av exempelfall 3: Hur punkterna än placers ut kommer det alltid finnas tal med inledande nollor som inte är siffran noll. Därför blir svaret 0.
+
+Förklaring av exempelfall 4: 7 strängar kan bildas$\colon$
+\begin{enumerate}
+    \item \texttt{2.9.18.41}
+    \item \texttt{2.9.184.1}
+    \item \texttt{2.91.8.41}
+    \item \texttt{2.91.84.1}
+    \item \texttt{29.1.8.41}
+    \item \texttt{29.1.84.1}
+    \item \texttt{29.18.4.1}
+\end{enumerate}
