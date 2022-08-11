@@ -1,5 +1,4 @@
 \problemname{Tågväxeln}
-
 Växelholm är en väldigt liten stad som ligger långt ute på landet. Den består faktiskt endast av
 en enda byggnad - Växelholms tågstation. Staden har också bara en invånare, nämligen tågstationens
 föreståndare, Lokas. 
@@ -24,7 +23,15 @@ I början är växeln inställd på spåret för det tåg som avgår först.
 Skriv ett program som beräknar hur många gånger som Lokas måste ändra växeln under ett helt dygn.
 
 \section*{Indata}
-Ditt program ska ta emot två heltalen $n$ och $m$, där $n \not= m$, som är perioden för tågens avgång, angiven i minuter.
+På första raden står två heltal $n$ och $m$ ($1 \leq n, m \leq 1399, n \not= m$), perioderna för tågens avgång angivna i minuter.
 
 \section*{Utdata}
-Du ska skriva ut det antalet gånger som Lokas måste ändra växeln.
+Skriv ut ett heltal, minsta antalet gånger som Lokas måste ändra växeln.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$    & $30$        & Två tåg kommer aldrig vid samma tidpunkt \\ \hline 
+  $2$    & $70$        & Inga ytterligare begränsingar. \\ \hline 
+\end{tabular}
