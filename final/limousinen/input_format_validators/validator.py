@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#/usr/bin/env python3
 import re
 import sys
 int_re = "^(0|\-?[1-9][0-9]*)$"

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 
 lines=sys.stdin.readlines()
@@ -14,5 +15,4 @@ t=0
 for n,s in enumerate(k):
     t+=s
     if t>T: break
-print n
-
+print(n)
