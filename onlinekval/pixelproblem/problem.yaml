@@ -6,4 +6,4 @@ rights_owner: Programmeringsolympiaden
 grading:
   show_test_data_groups: true
 limits:
-  time_multiplier: 35
+  time_multiplier: 15
