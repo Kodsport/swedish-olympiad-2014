@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#!/usr/bin/python3
 
 import sys
 import re
@@ -26,7 +26,7 @@ judge_feedback_file = '{}/judgemessage.txt'.format(feedback_dir)
 # (N, M, R, [(i, <rel>, j)])
 #  where <rel> = is a binary function
 def parse_input(raw_problem_input):
-    N, M, R = map(int, raw_problem_input[0].split())
+    N, M, R = list(map(int, raw_problem_input[0].split()))
     return (N, M, R, [parse_rel_line(line) for line in raw_problem_input[1:]])
 
 
@@ -55,12 +55,12 @@ with open(input_file) as f:
     raw_problem_input = f.readlines()
 N, M, R, relations = parse_input(raw_problem_input)
 
-# Read answer of team
-line = sys.stdin.readline()
-
-# check answer format
 try:
-    team_answer = map(int, line.split())
+    # Read answer of team
+    line = sys.stdin.readline()
+
+    # check answer format
+    team_answer = list(map(int, line.split()))
 except:
     they_are_wrong("Incorrect input format")
 
@@ -73,8 +73,8 @@ judg_answer = judg_answer_lines[0].strip().split()
 # print judg_answer
 
 # They are list of ints so:
-team_answer = map(int, team_answer)
-judg_answer = map(int, judg_answer)
+team_answer = list(map(int, team_answer))
+judg_answer = list(map(int, judg_answer))
 
 
 def make_sure_both_found_answer(them, us):
