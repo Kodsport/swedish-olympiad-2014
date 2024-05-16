@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 import sys
 
@@ -17,8 +17,8 @@ class Cave:
         self.grid = grid
         self.s = [0, 0]
         self.b = [0, 0]
-        for i in xrange(self.h):
-            for j in xrange(self.w):
+        for i in range(self.h):
+            for j in range(self.w):
                 if self.grid[i][j] == 'B':
                     self.b[0] = i
                     self.b[1] = j
@@ -65,7 +65,7 @@ class Cave:
         w = int(split[0])
         h = int(split[1])
         grid = []
-        for i in xrange(h):
+        for i in range(h):
             grid.append(list(f.readline().strip()))
         return Cave(grid)
 
@@ -74,7 +74,10 @@ f = open(sys.argv[1], 'r')
 cave_instance = Cave.parse(f)
 f.close()
 
-answer = sys.stdin.readline().strip()
+try:
+    answer = sys.stdin.readline().strip()
+except:
+    exit(43)
 for ch in answer:
     if ch == 'U':
         cave_instance.move(Cave.UP)
