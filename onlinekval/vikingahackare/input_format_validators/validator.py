@@ -12,7 +12,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -23,7 +23,7 @@ assert T >= 1 and T <= 16
 if int(cmdlinearg('t_one')):
     assert T == 1
 used = []
-for i in xrange(T):
+for i in range(T):
 	line = sys.stdin.readline()
 	assert re.match(pair_re, line)
 	assert len(line.split()) == 2

@@ -16,13 +16,13 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
 assert 1 <= N <= int(cmdlinearg('maxn'))
 
-for i in xrange(N):
+for i in range(N):
     line = sys.stdin.readline()
     intervals = line.split()
     assert len(intervals) > 0
@@ -32,7 +32,7 @@ for i in xrange(N):
     temp_re = "^" + int_re
     if k > 0:
         temp_re = temp_re + " "
-    for j in xrange(k):
+    for j in range(k):
         if j != 0:
             temp_re = temp_re + " "
         temp_re = temp_re + interval_re
@@ -46,12 +46,12 @@ for i in xrange(N):
 
     times = []
 
-    for j in xrange(1,k+1):
+    for j in range(1,k+1):
         word = intervals[j]
         sword = intervals[j].split('-')
 
-        sh, sm = map(int, sword[0].split(':'))
-        eh, em = map(int, sword[1].split(':'))
+        sh, sm = list(map(int, sword[0].split(':')))
+        eh, em = list(map(int, sword[1].split(':')))
 
         assert 0 <= sh <= 23
         assert 0 <= eh <= 23
@@ -63,7 +63,7 @@ for i in xrange(N):
         e = eh * 60 + em
         times.append((s,e))
 
-    for i in xrange(len(times)):
+    for i in range(len(times)):
         if i > 0:
             assert times[i-1][0] < times[i][1]
 

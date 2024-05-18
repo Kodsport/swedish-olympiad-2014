@@ -7,7 +7,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -25,7 +25,7 @@ u = 0
 assert w*h<=max_product
 if h_one:
     assert h==1
-for i in xrange(h):
+for i in range(h):
     line = sys.stdin.readline().strip()
     assert len(line) == w
     for ch in line:
