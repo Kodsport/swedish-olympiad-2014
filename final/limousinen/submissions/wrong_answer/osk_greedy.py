@@ -22,13 +22,13 @@ while True:
             if dist < best:
                 best = dist
                 chosen = i
-                print("cur best is", chosen, "with dist", best)
+                print(("cur best is", chosen, "with dist", best))
     if chosen == -1:
         break
     if elapsed + best <= T:
         elapsed += best
         marked[chosen] = True
-        print("chose ", chosen)
+        print(("chose ", chosen))
         ans += 1
     else:
         break

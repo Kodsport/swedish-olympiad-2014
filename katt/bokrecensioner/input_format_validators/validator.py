@@ -9,7 +9,7 @@ relation_re = "^[1-9][0-9]* (<|=|<=) [1-9][0-9]*$"
 line = sys.stdin.readline()
 assert re.match(first_re, line)
 
-N, M, R = map(int, line.split())
+N, M, R = list(map(int, line.split()))
 
 assert 1 <= N <= 100000
 assert 1 <= M <= 100000
@@ -20,7 +20,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 

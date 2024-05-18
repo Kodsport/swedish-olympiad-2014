@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
-from __future__ import division
-from __future__ import print_function
+
+
 import math
 import sys
 import random
@@ -21,7 +21,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -114,9 +114,9 @@ def directed_mst(size, away):
                 dfs(to, ind)
 
     for i in range(size-1):
-        [a, b] = random.sample(xrange(size), 2)
+        [a, b] = random.sample(list(range(size)), 2)
         while comps[a] == comps[b]:
-            [a, b] = random.sample(xrange(size), 2)
+            [a, b] = random.sample(list(range(size)), 2)
         comps.union(a, b)
         nodes[a].append(b)
         nodes[b].append(a)
@@ -170,7 +170,7 @@ left_to_take = N - ncomponents
 sizes = [1] * ncomponents
 if left_to_take:
     rat = 1.2
-    exps = map(lambda(x): rat ** math.sqrt(x), range(ncomponents))
+    exps = [rat ** math.sqrt(x) for x in range(ncomponents)]
     s = sum(exps)
     for i in range(ncomponents):
         v = int(round(exps[i] * (N - ncomponents) / s))
@@ -254,7 +254,7 @@ for i in range(ncomponents):
 if yesno == 'no2':
     # inject a cycle
     for _ in range(1000):
-        j = random.choice(xrange(ncomponents))
+        j = random.choice(list(range(ncomponents)))
         if not compedges[j]:
             continue
         q = [e for (e, rel) in compedges[j]]
@@ -287,11 +287,11 @@ if not debug:
     random.shuffle(tr)
     random.shuffle(res_edges)
 
-print(N, M, R)
+print((N, M, R))
 for (i, j, rel) in res_edges:
     if mode == 'a':
         assert rel == '<'
     elif mode == 'b':
         assert rel == '<' or rel == '='
-    print(tr[i], rel, tr[j])
+    print((tr[i], rel, tr[j]))
 

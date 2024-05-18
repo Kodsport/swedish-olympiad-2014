@@ -14,7 +14,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -22,13 +22,13 @@ max_n = int(cmdlinearg('max_n'))
 max_f = int(cmdlinearg('max_f'))
  
 
-N, K = map(int, line.split())
+N, K = list(map(int, line.split()))
 
 assert 2 <= N <= max_n
 assert 2 <= 2 * K <= N
 
 line = sys.stdin.readline()
-colors = map(int, line.split())
+colors = list(map(int, line.split()))
 
 assert len(colors) == N
 

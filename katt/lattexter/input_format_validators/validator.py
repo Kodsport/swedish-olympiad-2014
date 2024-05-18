@@ -14,7 +14,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -22,7 +22,7 @@ max_n = int(cmdlinearg('max_n'))
 max_q = int(cmdlinearg('max_q'))
 small = bool(int(cmdlinearg('small')))
 
-N, Q = map(int, line.split())
+N, Q = list(map(int, line.split()))
 
 assert 1 <= N <= max_n
 assert 1 <= Q <= max_q

@@ -13,7 +13,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -21,7 +21,7 @@ def cmdlinearg(name, default=None):
 max_n = int(cmdlinearg('max_n'))
 max_coord = int(cmdlinearg('max_coord'))
 
-N, T = map(int, words)
+N, T = list(map(int, words))
 
 assert 1 <= N <= max_n
 assert 1 <= T <= 10**9
@@ -29,7 +29,7 @@ assert 1 <= T <= 10**9
 for i in range(N):
     l = sys.stdin.readline()
     assert re.match(two_ints_re, l)
-    x, y = map(int, l.split())
+    x, y = list(map(int, l.split()))
     assert -max_coord <= x <= max_coord
     assert -max_coord <= y <= max_coord
 

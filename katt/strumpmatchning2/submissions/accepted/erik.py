@@ -10,7 +10,7 @@ def match(f, d):
         i += 1
     return res
 
-N,K = map(int, sys.stdin.readline().split())
+N,K = list(map(int, sys.stdin.readline().split()))
 F = sorted([int(s) for s in sys.stdin.readline().split()])
 
 lo = 0
@@ -21,4 +21,4 @@ while lo < hi:
         hi = mid
     else:
         lo = mid + 1
-print lo
+print(lo)

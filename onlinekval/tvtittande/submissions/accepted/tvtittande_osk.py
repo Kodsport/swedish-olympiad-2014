@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 N = int(sys.stdin.readline())
 channels = [[] for _ in range(1440)]
