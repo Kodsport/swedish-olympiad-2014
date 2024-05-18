@@ -26,7 +26,7 @@ N, T = map(int, words)
 assert 1 <= N <= max_n
 assert 1 <= T <= 10**9
 
-for i in xrange(N):
+for i in range(N):
     l = sys.stdin.readline()
     assert re.match(two_ints_re, l)
     x, y = map(int, l.split())

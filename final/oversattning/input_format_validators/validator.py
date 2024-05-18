@@ -14,7 +14,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -29,7 +29,7 @@ assert 1 <= N <= max_n
 
 words = {}
 
-for i in xrange(N):
+for i in range(N):
     line = sys.stdin.readline()
     assert re.match(input_re2, line)
     w1, w2 = line.split()
@@ -48,7 +48,7 @@ wordlist = line.split()
 
 assert len(wordlist) == M
 
-for i in xrange(len(wordlist)):
+for i in range(len(wordlist)):
     w = wordlist[i]
     assert re.match(input_re3, w)
     assert 1 <= len(w) <= 20

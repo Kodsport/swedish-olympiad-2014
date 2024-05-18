@@ -9,14 +9,14 @@ rest_lines_re = "^[\.\^\<\>v]+$"
 line = sys.stdin.readline()
 assert re.match(line1_re, line)
 
-h, b, y_dest, x_dest = map(int, line.strip().split())
+h, b, y_dest, x_dest = list(map(int, line.strip().split()))
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -30,7 +30,7 @@ assert 1 <= b <= max_m
 assert 1 <= y_dest <= h
 assert 1 <= x_dest <= b
 
-for i in xrange(h):
+for i in range(h):
     line = sys.stdin.readline().strip()
     assert re.match(rest_lines_re, line)
     assert len(line) == b
