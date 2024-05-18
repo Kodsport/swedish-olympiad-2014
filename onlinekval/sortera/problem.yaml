@@ -1,7 +1,7 @@
-source: PO-kvalet 2014
-type: scoring
-author: Programmeringsolympiadens onlinekval 2014
+author: Programmeringsolympiaden
+source: Programmeringsolympiadens onlinekval 2014
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
+type: scoring
 grading:
   show_test_data_groups: true

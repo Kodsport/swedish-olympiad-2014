@@ -29,7 +29,7 @@ def main(screen):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print "Usage: python play.py MAP_FILE"
+        print("Usage: python play.py MAP_FILE")
         exit()
     f = open(sys.argv[1], mode='r')
     cave_instance = Cave.parse(f)
