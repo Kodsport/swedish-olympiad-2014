@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+
 input()
 value, key = input().split()
 line = input()

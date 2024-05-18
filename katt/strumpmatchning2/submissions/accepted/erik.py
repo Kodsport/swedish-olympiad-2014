@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 
 def match(f, d):
@@ -10,13 +11,13 @@ def match(f, d):
         i += 1
     return res
 
-N,K = list(map(int, sys.stdin.readline().split()))
-F = sorted([int(s) for s in sys.stdin.readline().split()])
+N,K = [int(i) for i in input().split()]
+F = sorted([int(s) for s in input().split()])
 
 lo = 0
 hi = 1000000000000000
 while lo < hi:
-    mid = lo + (hi - lo)/2
+    mid = lo + (hi - lo)//2
     if match(F, mid) >= K:
         hi = mid
     else:

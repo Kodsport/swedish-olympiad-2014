@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 
 def minswaps(v):
@@ -8,4 +9,5 @@ def minswaps(v):
             if(v[j]<v[i]): s+=1
     return s
 
-print minswaps([int(x) for x in sys.stdin.read().split()[1:]])
+print(minswaps([int(x) for x in input().split()[1:]]))
+

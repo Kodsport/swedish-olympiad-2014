@@ -4,7 +4,7 @@ PPATH=$(realpath ..)
 REQUIRE_SAMPLE_REUSE=0
 . ../../../testdata_tools/gen.sh
 
-use_solution sortera.py python2
+use_solution joshua.cpp
 
 compile gen.py
 

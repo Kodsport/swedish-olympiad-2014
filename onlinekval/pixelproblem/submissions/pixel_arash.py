@@ -1,3 +1,4 @@
+# Can't bother to port to python 3
 # Arash Rouhani
 # Testa alla dimensioner, survival of fittest, O(N*log(N))
 

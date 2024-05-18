@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
+
 import re
 import sys
 
@@ -19,10 +20,10 @@ line = sys.stdin.readline()
 # No leading zeros
 assert(line.split()[0][0]!='0' and line.split()[1][0]!='0')
 
-x, n = map(int, line.split())
+x, n = list(map(int, line.split()))
 assert 5 <= x and x <= 100
 assert n <= n_max
-items = map(int, sys.stdin.readline().split())
+items = list(map(int, sys.stdin.readline().split()))
 assert len(items) == n
 
 for h in items:

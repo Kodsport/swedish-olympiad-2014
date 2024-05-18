@@ -1,5 +1,4 @@
-# coding=UTF-8
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 # Interactive script used to play a level
 #

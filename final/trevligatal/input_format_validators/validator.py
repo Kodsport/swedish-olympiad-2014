@@ -1,5 +1,6 @@
-# -*- coding: UTF-8 -*-
-#/usr/bin/env python3
+#!/usr/bin/python3
+
+
 import re
 import sys
 input_re = "^[1-9][0-9]*$"

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 
 N, T = list(map(int, sys.stdin.readline().split()))

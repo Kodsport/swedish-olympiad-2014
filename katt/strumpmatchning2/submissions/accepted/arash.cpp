@@ -149,4 +149,3 @@ int main(){
   assert(low == high);
   cout << low << endl;
 }
-
