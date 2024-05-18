@@ -15,7 +15,7 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print(("missing parameter", name))
         exit(1)
     return default
 
@@ -36,7 +36,7 @@ line = sys.stdin.readline()
 words = line.split()
 assert re.match(two_ints_re, line)
 
-N, h = map(int, words)
+N, h = list(map(int, words))
 
 assert 1 <= N <= max_n
 assert 20 <= h and h <= max_h
@@ -49,12 +49,12 @@ fishes = []
 def tail_height(size):
     return [1, 2, 4][size]
 
-for i in xrange(N):
+for i in range(N):
     l = sys.stdin.readline()
     assert re.match(fish_re, l)
     size, x, y = l.split()
     size = {'L': 0, 'M': 1, 'S': 2}[size]
-    x, y = map(int, [x, y])
+    x, y = list(map(int, [x, y]))
     assert 1 <= x <= (10 ** 16)
     if mode == 'lowdist':
         assert x <= 10 ** 4
