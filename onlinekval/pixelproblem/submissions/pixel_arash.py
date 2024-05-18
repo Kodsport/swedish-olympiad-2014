@@ -1,4 +1,4 @@
-# Can't bother to port to python 3
+#!/usr/bin/python3
 # Arash Rouhani
 # Testa alla dimensioner, survival of fittest, O(N*log(N))
 
@@ -47,4 +47,4 @@ while len(widths) > 1:
     widths = [w for (_s, w) in wp[0:(len(wp) / 2)]]
     takes *= 2
 
-print widths[0]
+print(widths[0])
