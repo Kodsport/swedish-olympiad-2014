@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 PPATH=$(realpath ..)
-REQUIRE_SAMPLE_REUSE=0
 . ../../../testdata_tools/gen.sh
 
 use_solution Solver.java
@@ -35,5 +34,6 @@ group group3 50
 limits product_max=64 h_one=0
 include_group group1
 include_group group2
+include_group sample
 tc_manual ../manual_tc/secret04.in
 
