@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
 PPATH=$(realpath ..)
-REQUIRE_SAMPLE_REUSE=0
 . ../../../testdata_tools/gen.sh
-
-
 
 compile create_case.py python3
 
