@@ -51,5 +51,5 @@ last_len = lens[-1]
 sys.stderr.write('length ' + str(last_len) + ', log10 = ' + str(math.log10(last_len)) + '\n')
 
 for i in range(Q):
-    ind = random.randrange(min(last_len, 1e18))
+    ind = random.randrange(min(last_len, int(1e18)))
     print(ind+1)

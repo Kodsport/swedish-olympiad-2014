@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
 
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
@@ -29,6 +28,7 @@ done
 
 group group2 80
 limits max_v=100
+include_group sample
 for ((i=2;i<10;i++)); do
     tc g2-$((($i-2)*6+1)) gen max_v=100 win=0 seed=11$i
     tc g2-$((($i-2)*6+2)) gen max_v=100 win=1 seed=21$i

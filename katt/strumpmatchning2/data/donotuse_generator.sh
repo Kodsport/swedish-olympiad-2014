@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
 
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
@@ -38,6 +37,7 @@ done
 
 group group3 30
 limits max_n=50000 max_f=1000000000000000
+include_group sample
 for ((i=7;i<10;i++)); do
     tc g3-$((($i-7)*4+1)) gen n=50000 max_f=1000000000000000 seed=11$i
     tc g3-$((($i-7)*4+2)) gen n=50000 max_f=1000000000000000 seed=21$i

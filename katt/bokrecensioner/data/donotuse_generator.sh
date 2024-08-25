@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
 
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
 use_solution bokrecensioner_simon.cpp
 
-compile gen.py python2
+compile gen.py
 
 # Sample
 samplegroup
@@ -41,6 +40,7 @@ done
 
 group group3 40
 limits allowed=all
+include_group sample
 for ((i=6;i<10;i++)); do
     tc g3-$((($i-6)*6+1)) gen mode=c yesno=yes n=100000 m=10000 r=500000 components=-1    seed=1$i
     tc g3-$((($i-6)*6+2)) gen mode=c yesno=yes n=100000 m=100   r=500000 components=10000 seed=2$i

@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
 
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
 use_solution lattexter_simon.cpp
 
-compile gen_hard.py python2
-compile gen_large_tree.py python2
+compile gen_hard.py
+compile gen_large_tree.py
 
 # Sample
 samplegroup
@@ -37,6 +36,7 @@ done
 
 group group3 20
 limits max_n=500000 max_q=80000 small=0
+include_group sample
 for ((i=8;i<10;i++)); do
     tc g3-$((($i-8)*6+1)) gen_hard small=0 n=500000 q=80000 d=20 f=0.01  seed=1$i
     tc g3-$((($i-8)*6+2)) gen_hard small=0 n=500000 q=80000 d=4  f=1     seed=2$i

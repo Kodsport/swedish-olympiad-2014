@@ -1,6 +1,4 @@
-#!/usr/bin/env python2
-
-
+#!/usr/bin/env python3
 
 import math
 import sys
@@ -14,7 +12,6 @@ debug = len(sys.argv) > 1 and sys.argv[1] == 'debug'
 if debug:
     sys.stderr.write('running in debug mode\n')
 
-inputs = sys.stdin.readline().strip().split()
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
@@ -287,11 +284,11 @@ if not debug:
     random.shuffle(tr)
     random.shuffle(res_edges)
 
-print((N, M, R))
+print(N, M, R)
 for (i, j, rel) in res_edges:
     if mode == 'a':
         assert rel == '<'
     elif mode == 'b':
         assert rel == '<' or rel == '='
-    print((tr[i], rel, tr[j]))
+    print(tr[i], rel, tr[j])
 
