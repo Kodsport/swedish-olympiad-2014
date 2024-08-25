@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
-
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
@@ -13,12 +11,12 @@ compile trevligatal_overflow.cpp
 # Sample
 samplegroup
 limits max_n=12 small_ans=1 
-sample_manual trevligatal.1
-sample_manual trevligatal.2
-sample_manual trevligatal.3
-sample_manual trevligatal.4
-sample_manual trevligatal.5
-sample_manual trevligatal.6
+sample 1
+sample 2
+sample 3
+sample 4
+sample 5
+sample 6
 
 # n=6
 group group1 20
@@ -59,6 +57,7 @@ tc g3-8 gen n=678  seed=141
 # n=1e5
 group group4 40
 limits max_n=100001 small_ans=0
+include_group sample
 tc g4-1  gen n=16923  seed=310
 tc g4-2  gen n=92952  seed=320
 tc g4-3  gen n=100000 seed=330

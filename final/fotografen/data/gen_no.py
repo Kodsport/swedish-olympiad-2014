@@ -25,7 +25,7 @@ rotations = ['U', 'H', 'N', 'V']
 
 # vary N a bit
 if random.randrange(10) < 5:
-    N -= random.randrange(N / 5)
+    N -= random.randrange(N // 2)
 k = max(1,int(ratio * N))
 
 offsets = [0] * N

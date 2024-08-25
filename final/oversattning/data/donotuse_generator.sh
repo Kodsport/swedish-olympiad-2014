@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
-
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
@@ -13,11 +11,12 @@ compile gen_worst.py
 # Sample
 samplegroup
 limits max_n=10 max_m=10
-sample_manual oversattning.1
+sample 1
 
 # n=100
 group group1 40
 limits max_n=100 max_m=100
+include_group sample
 tc g1-1 gen_random words=30 ent=100 leaf=100000 sentlen=100 seed=20
 tc g1-2 gen_random words=30 ent=100 leaf=100000 sentlen=100 seed=21
 tc g1-3 gen_random words=50 ent=100 leaf=10     sentlen=100 seed=22

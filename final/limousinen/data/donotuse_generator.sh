@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-REQUIRE_SAMPLE_REUSE=0
-
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
@@ -12,9 +10,9 @@ compile gen.py
 # Sample
 samplegroup
 limits max_n=10 max_coord=500
-sample_manual limousinen.1
-sample_manual limousinen.2
-sample_manual limousinen.3
+sample 1
+sample 2
+sample 3
 
 group group1 20
 limits max_n=10 max_coord=1000
@@ -40,6 +38,7 @@ tc g2-8 gen n=777  amplitude=100000  fraction=1   seed=117
 
 group group3 50
 limits max_n=100000 max_coord=100000000
+include_group sample
 tc g3-1 gen n=100000 amplitude=10000000 fraction=0.2  seed=69110
 tc g3-2 gen n=100000 amplitude=10000000 fraction=0.2  seed=69111
 tc g3-3 gen n=100000 amplitude=50000    fraction=0.5  seed=69112

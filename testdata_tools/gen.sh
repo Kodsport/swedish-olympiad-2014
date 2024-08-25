@@ -123,7 +123,7 @@ compile_py () {
   elif [[ $2 == *"python2"* ]]; then
     add_program $(_base $1) "python2 $1"
   else
-    add_program $(_base $1) "pypy3 $1"
+    add_program $(_base $1) "python3 $1"
   fi
 }
 
@@ -178,9 +178,7 @@ CURGROUP_DIR=secret
 # Use a certain solution as the reference solution
 # Arguments: solution name
 use_solution () {
-
   path=$SOLUTION_BASE/$1
-  echo $path
   SOLUTION=$(_base $path)
   compile $path $2
 }
@@ -258,6 +256,14 @@ limits () {
     echo "input_validator_flags: $@" >> "$CURGROUP_DIR/testdata.yaml"
   else
     echo "input_validator_flags: $@" >> testdata.yaml
+  fi
+}
+
+output_validator_flags () {
+  if [[ $USE_SCORING == 1 ]]; then
+    echo "output_validator_flags: $@" >> "$CURGROUP_DIR/testdata.yaml"
+  else
+    echo "output_validator_flags: $@" >> testdata.yaml
   fi
 }
 
@@ -377,6 +383,10 @@ tc () {
 
 # Arguments: ../manual-tests/testcasename.in
 tc_manual () {
+  local name="$2"
+  if [[ $# == 1 ]]; then
+      name=$(_base "$1")
+  fi
   tc $(_base "$1") cat "$1"
 }
 

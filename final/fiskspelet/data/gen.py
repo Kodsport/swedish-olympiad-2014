@@ -10,8 +10,6 @@ import random
 
 MODES = ["lowdist", "noeat", "nomideat", "hardest"]
 
-inputs = sys.stdin.readline().strip().split()
-
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
@@ -23,7 +21,7 @@ def cmdlinearg(name, default=None):
     return default
 
 
-random.seed(int(cmdlinearg('seed')))
+random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 N = int(cmdlinearg('n'))
 h = int(cmdlinearg('h'))
 mode = cmdlinearg('mode')
