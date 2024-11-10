@@ -17,7 +17,7 @@ def cmdlinearg(name, default=None):
     return default
 
 
-random.seed(int(cmdlinearg('seed')))
+seed = int(cmdlinearg('seed', sys.argv[-1]))
 N = int(cmdlinearg('n'))
 ratio = float(cmdlinearg('ratio'))
 
