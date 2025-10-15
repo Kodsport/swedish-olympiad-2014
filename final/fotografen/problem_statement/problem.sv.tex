@@ -1,4 +1,3 @@
-%% plainproblemname: Fotografen
 \problemname{Fotografen}
 En fotograf har tagit många fina foton med sin digitalkamera och kopplar in den
 i sin dator för att överföra bilderna. Bilderna har tagits med olika vridningar
@@ -18,7 +17,8 @@ som roterar en bild $90^\circ$ medurs. Rotationen sker alltså enligt följande 
 
 Fotografen tycker det verkar tråkigt att rotera foton och bestämmer sig för att
 göra det till ett roligt spel. Fotografen väljer ett positivt heltal $k$ och
-bestämmer att det enda sättet att rotera foton är att markera exakt $k$ intill varandra liggande foton ur listan och rotera alla dessa samtidigt. Formellt har fotografen $N$ foton, kalla dem $a_1, a_2, \dots
+bestämmer att det enda sättet att rotera foton är att markera exakt $k$ intill varandra liggande foton
+ur listan och rotera alla dessa samtidigt. Formellt har fotografen $N$ foton, kalla dem $a_1, a_2, \dots
 a_N$. Fotografen kan nu välja ett index $i$ ($1 \leq i \leq N-k+1$)
 och bilderna $a_i, a_{i+1}, ... , a_{i+k-1}$ roteras då $90^\circ$ medurs. Detta kallar vi en
 operation.
@@ -45,11 +45,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \noindent
 \begin{tabular}{| l | l | l |}
   \hline
-  Grupp & Poängvärde & Gränser \\ \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$   & $10$       & $N \leq 10$ \\ \hline
   $2$   & $40$       & $N \leq 5000$ \\ \hline
-  $3$   & $50$       & Inga ytterligare begränsningar \\ \hline
+  $3$   & $50$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
 \section*{Förklaring av exempelfall 1}
-En möjlig optimal lösning är denna: Rotera tre gånger på position 3-4 för att få \texttt{UVVU}, rotera sedan en gång på position 2-3 för att slutligen få \texttt{UUUU}, och vi är klara med fyra operationer utförda.
+En möjlig optimal lösning är denna: Rotera tre gånger på position 3-4 för att få \texttt{UVVU}, rotera sedan
+en gång på position 2-3 för att slutligen få \texttt{UUUU}, och vi är klara med fyra operationer utförda.
