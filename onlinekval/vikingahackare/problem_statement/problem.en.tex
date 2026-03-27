@@ -1,0 +1,35 @@
+\problemname{Viking Hackers}
+That the Vikings were skilled warriors is probably known to most, but that they also had good programmers is less well known.
+Programming a rune stone required a lot of time and left little room for mistakes.
+This unfortunately also made the rune stones extra vulnerable to Viking hackers, who roamed freely.
+
+You have been tasked with translating a rune stone from this era using a reference guide of characters and their binary representations
+(the Vikings lacked high-level languages and coded directly in ones and zeros). Since most rune stones eventually got hacked,
+there is a risk that certain parts of the code are incorrect.
+
+\section*{Input}
+The first line contains an integer $T$ ($1 \le T \le 16$), the number of characters in the alphabet.
+
+Then follow $T$ lines consisting of a character (lowercase and uppercase letters between \texttt{a-z} and digits may appear) followed by the character's binary representation
+(a sequence of ones and zeros that is always of length 4).
+Finally follows a string of $N$ ($1 \leq N \leq 4\,000$) ones and zeros, the rune stone to be translated. It is guaranteed that $N$ is divisible by $4$ and that there are no two different characters with the same binary representation in the input.
+
+\section*{Output}
+Output a line with $N$ characters, the translation of the rune stone. For characters that could not be correctly translated, a \texttt{"?"} should be output instead.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $30$        & $T = 1$ \\ \hline 
+  $2$    & $70$        & No additional constraints. \\ \hline 
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+We learn that \texttt{0100} should be translated to \texttt{a}, and that \texttt{1000} should be translated to \texttt{b}.
+The string to be translated is \texttt{0100100000101000}, which can be split into the characters \texttt{0100}, \texttt{1000}, \texttt{0010}, and \texttt{1000}.
+The third character is the only one that cannot be translated, giving the output \texttt{ab?b}.

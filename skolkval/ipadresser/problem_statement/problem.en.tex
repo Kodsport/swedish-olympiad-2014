@@ -1,0 +1,38 @@
+\problemname{IP Addresses}
+An IPv4 address consists of four integers between $0$ and $255$ (each without leading zeros), separated by periods.
+For example, \texttt{1.0.3.255} is a valid address, while \texttt{1.0.03.255}, \texttt{1.0.3.256}, and \texttt{1.0.3} are not valid addresses.
+Given a sequence of digits, find all valid IPv4 addresses that can be created by inserting three periods into the sequence.
+
+\section*{Input}
+The first line contains a string with at least $4$ and at most $12$ digits.
+
+\section*{Output}
+Output an integer: the number of valid IP addresses that can be formed by inserting 3 periods.
+
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $30$        & The input contains no zeros. \\ \hline 
+  $2$    & $70$        & No additional constraints. \\ \hline 
+\end{tabular}
+
+
+\section*{Explanation of Samples}
+Explanation of sample 1: There is only one valid IP address that can be formed, \texttt{255.255.255.255}. All other placements of periods give numbers that are longer than 3 digits.
+
+Explanation of sample 2: Since there are 4 digits, there is only one valid placement of periods. Since the digit zero is allowed, the answer is \texttt{0.0.0.0}.
+
+Explanation of sample 3: No matter how the periods are placed, there will always be numbers with leading zeros that are not the digit zero itself. Therefore the answer is 0.
+
+Explanation of sample 4: 7 strings can be formed$\colon$
+\begin{enumerate}
+    \item \texttt{2.9.18.41}
+    \item \texttt{2.9.184.1}
+    \item \texttt{2.91.8.41}
+    \item \texttt{2.91.84.1}
+    \item \texttt{29.1.8.41}
+    \item \texttt{29.1.84.1}
+    \item \texttt{29.18.4.1}
+\end{enumerate}

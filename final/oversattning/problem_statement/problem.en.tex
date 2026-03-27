@@ -1,0 +1,44 @@
+\problemname{Translation}
+You have a dictionary between two languages, $A$ and $B$. The dictionary
+contains a list of words in language $A$ and for each word in $A$
+a translation to a word in language $B$. Note that the mapping is
+not necessarily one-to-one; several words in language $A$ can be
+translated to the same word in $B$. Furthermore, it might be the case that a word in
+language $A$ is translated to a word in language $B$ that
+also happens to be a word in language $A$ (possibly a different one).
+
+When you translate from $A$ to $B$, you simply replace each word with
+its translation. When you translate from $B$ to $A$, you replace
+each word in $B$ with the first word in $A$ (in the dictionary's order)
+that has it as its translation.
+
+Now you perform the following process with a text in language $A$:
+you translate it to $B$, then back to $A$, and repeat until the text stops
+changing. Output the resulting text.
+
+\section*{Input}
+The first line contains two integers $N$ ($1 \leq N \leq 100\,000$) and $M$ ($1 \leq M \leq 100\,000$), the number of entries in the dictionary and the number of words in the text. Then follow $N$ lines with two words each: a word in $A$ followed by its translation in $B$. Each word in language $A$ appears exactly once. Finally follows a line with $M$ words in language $A$.
+
+All words in the text will appear in the dictionary. All words consist of lowercase letters \texttt{a}--\texttt{z} and are at most $15$ characters long. Words are separated by spaces.
+
+\section*{Output}
+Output the resulting text, after the process above terminates.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$   & $20$       & $N, M \leq 100$ \\ \hline
+  $2$   & $30$       & $N, M \leq 1000$ \\ \hline
+  $3$   & $50$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+\texttt{kansen} translates to \texttt{le} and then back to \texttt{kaninen}. Both words in $A$ translate to \texttt{le}, but \texttt{kaninen} comes first in the dictionary. After one more roundtrip, the text no longer changes.
+
+\section*{Explanation of Sample 2}
+\texttt{hansen} is translated to \texttt{tansen}, which also happens to be a word in $A$, which in turn is translated to \texttt{dansen}. \texttt{dansen} back to $A$ becomes \texttt{hansen} again (since both \texttt{hansen} and \texttt{jansen} translate to \texttt{dansen}, but \texttt{hansen} comes first). Thus after one roundtrip the text is the same and the process stops.

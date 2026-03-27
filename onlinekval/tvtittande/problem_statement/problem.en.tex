@@ -1,0 +1,40 @@
+\problemname{TV Watching}
+Johan loves watching TV all day, but cannot stand commercial breaks. When there is a commercial break on the channel
+he is watching, he switches to the next channel, and repeats this until he finds a channel without commercials. If he is watching
+the last channel when this happens, he starts over from the first channel. Then he watches that channel until there is a commercial, and so on.
+
+Johan wonders in hindsight how much he actually watched each channel during a day. Given the times when there were commercial breaks on each channel,
+compute this for him. He watched between the times \texttt{00:00} and one full day ahead, and started watching the first channel.
+You can assume that a channel switch takes 1 minute, and that during the switch no TV watching occurs (for each channel switch, one minute of TV watching is thus lost).
+
+\section*{Input}
+Input starts with an integer $N$ ($1 \leq N \leq 1000$), the number of channels.
+
+Then follows one line per channel: each line starts with an integer $r_i$, the number of commercial breaks on the channel.
+Then follow in chronological order $r_i$ ($0 \leq r_i \leq 1440$) commercial breaks on the same line, separated by spaces.
+Each commercial break is given with a start time and end time in the format \texttt{HH:MM-HH:MM}, e.g. \texttt{05:24-22:23} means the channel had
+a commercial break from \texttt{05:24} up to and including \texttt{22:23}, and it was exactly 17 hours long. Note that during minute \texttt{22:23} the commercial continues,
+and it ends at \texttt{22:24}. A commercial break starts at the earliest at midnight and ends at the latest at midnight (\texttt{00:00} and \texttt{23:59}, respectively).
+No commercial breaks overlap on the same channel.
+
+\section*{Output}
+Output $N$ lines. For each line $1 \leq k_i \leq N$, output a single integer: the number of minutes Johan watched channel $k_i$.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $70$        & $N \leq 100 $ \\ \hline 
+  $2$    & $30$        & No additional constraints. \\ \hline 
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+There are three channels that Johan watches. He starts immediately watching the first channel at 00:00, and immediately runs into a commercial break.
+He then switches channel (which takes one minute), and unfortunately runs into a commercial break again.
+He therefore switches channel again, and the same thing happens on the third channel.
+After three minutes, Johan switches to the first channel again, and can finally start counting minutes of quality TV.
+He now watches the first channel for the rest of the time, i.e. 1437 minutes.

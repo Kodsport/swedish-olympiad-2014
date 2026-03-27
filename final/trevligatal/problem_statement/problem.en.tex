@@ -1,0 +1,49 @@
+\problemname{Nice Numbers}
+The Swedish junior programming team loves having a nice time when they
+are out traveling. One who appreciated niceness more than anyone else was Mårten.
+However, he did not share the same view of niceness as everyone else. For Mårten,
+niceness had a purely mathematical definition: a number is nice if and
+only if it is divisible by 3.
+
+Since not all numbers are nice, one must of course find ways to make them
+nice. You will be given an integer, and your task is to help Mårten
+figure out in how many ways he can make the number nice by deleting certain
+of its digits. He may not delete all the digits, and the resulting
+number may not have leading zeros (however, the number $0$ is considered nice,
+so a single zero is fine). Remember that a number is divisible by three if
+and only if its digit sum is divisible by three.
+
+\section*{Input}
+The first and only line of input contains an integer (with up to $100\,000$
+digits). The number contains only digits $0$--$9$. The number does not start with a zero.
+
+\section*{Output}
+Your program should output a single number on a line: the number of different ways
+Mårten can remove digits from the number so that it becomes divisible by $3$. Two ways
+are considered different if the sets of positions where digits are removed differ. Since
+the answer can be very large, output the remainder when the answer is divided by one billion ($10^9$).
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$   & $20$       & $N \leq 6$ and the answer is less than one billion \\ \hline
+  $2$   & $20$       & $N \leq 20$ and the answer is less than one billion \\ \hline
+  $3$   & $20$       & $N \leq 1000$ \\ \hline
+  $4$   & $40$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+Explanation of sample 1: Mårten can achieve divisibility in one way, by deleting the one. What remains is just the number 3, which of course is divisible by three.
+
+Explanation of sample 2: Mårten achieves divisibility by not deleting any digit at all.
+
+Explanation of sample 3: it is not possible to create a nice number regardless of what Mårten does.
+
+Explanation of sample 4: one can create the nice numbers 9, 192, 912, and 12, but the last one can be achieved in two ways: by deleting the first two digits or by deleting the middle two digits.
+
+Explanation of sample 5: one can create the nice numbers 0, 3, 12, 102, 123, and 1023.

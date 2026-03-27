@@ -1,0 +1,56 @@
+\problemname{The Limousine}
+In Taipei, the IOI has kicked off with an intensive schedule of lectures, games,
+preparations, meal breaks, nap breaks, and competitions. But the organizers have left
+one hour free for everyone to do whatever they want. This is a problem that the team leaders
+did not prepare the contestants for at all. Confusion and chaos arise in the contestants'
+minds, and when the free hour is over, the $N$ contestants are spread out at
+different intersections in the big city with no idea how to find their way
+back. Fortunately, the competition management had installed a chip in each
+contestant's bag so they can see exactly which intersection each
+lost contestant is at.
+
+Limousine driver Simon has been tasked with picking up the contestants and driving
+them, one at a time, to the competition arena. He naturally wants to rescue them in an
+order that lets him ferry back as many as possible before
+the next lecture begins (which is in $T$ minutes). Taipei can be modeled
+as an infinite regular grid where integer coordinates are intersections and
+there are vertical and horizontal roads. It takes exactly 1 minute to drive from
+one intersection to an adjacent intersection.
+
+Simon starts at the competition arena at address $(0, 0)$, drives to the first
+person and picks them up and then drives the person back to the arena. Then
+he drives to the next person, and so on. He continues until time runs out, and
+can only ferry one person at a time. If he chooses the order to pick up
+the contestants optimally, how many can he pick up and ferry back
+within $T$ minutes?
+
+\section*{Input}
+The first line of input contains two integers $N$ ($1 \leq N \leq 100\,000$), the number of contestants to be picked up, and $T$ ($1 \leq T \leq 10^9$), how much time Simon has in minutes.
+
+Then follow $N$ lines (one per contestant). Each line consists of
+two integers $-10^8 \leq x, y \leq 10^8$, the $x$- and $y$-coordinates of the person's
+current position.
+
+\section*{Output}
+Output how many contestants Simon can drive back before time runs out,
+given that he chooses the order optimally.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Group & Points & Constraints \\ \hline
+  $1$   & $20$       & $N \leq 10$, $-1000 \leq x,y \leq 1000$ \\ \hline
+  $2$   & $30$       & $N \leq 1000$, $-10^6 \leq x,y \leq 10^6$ \\ \hline
+  $3$   & $50$       & No additional constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+Explanation of sample 1: Simon has 5 minutes, and there are three contestants to pick up. Picking up the first contestant takes 4 minutes, picking up the second takes 6 minutes, and picking up the third takes 4 minutes (if he drives optimally). Since he only has 5 minutes, he can only pick up one person.
+
+Explanation of sample 2: Simon cannot pick up anyone at all.
+
+Explanation of sample 3: Simon just barely has time to pick up one person, the person at $(-100, 0)$.
