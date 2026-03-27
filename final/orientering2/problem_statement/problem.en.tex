@@ -1,0 +1,50 @@
+\problemname{Orienteering}
+Springoalla has taken up orienteering, but is honestly not
+particularly good at it. In fact, despite the guiding arrows
+that have been set up, she gets lost almost every time. The forest she runs
+in can be seen as a rectangular grid with $N$ rows and $M$ columns,
+with arrows of four different types placed: \verb+^+, \texttt{>},
+\texttt{v}, and \texttt{<}.
+
+A period character (\texttt{.}) is used to indicate that a cell has no
+arrow. Springoalla
+enters at the top-left cell, running to the right. When she
+reaches an arrow she automatically changes direction and starts running
+in the direction the arrow points. However, it sometimes happens that she misses an
+arrow, and instead continues straight past it.
+
+Given a position in the forest, how many arrows must Springoalla have
+missed at minimum to end up there? Note that she can never have run outside
+the forest and whether she misses an arrow is not affected by whether she has been
+to that location before (if she e.g. misses the arrow twice it counts
+as two misses). There is always at least one way she can have ended up at the given position.
+
+\section*{Input}
+
+The first line contains four numbers $N$, $M$, $R$, and $C$ ($1 \leq R \leq N \leq 800$, $1 \leq C \leq M \leq 800$), the height and width of the forest, and the position (row and column) where Springoalla ends
+up (rows are numbered from $1$ to $N$ and columns from $1$ to
+$M$). Then follow $N$ lines with $M$ characters each, describing the forest.
+Each character will be either \texttt{.}, \texttt{v} (down),
+\verb+^+ (up), \texttt{<} (left), or \texttt{>} (right).
+
+\section*{Output}
+Output a single number: the minimum number of arrows Springoalla must have missed.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Group & Points & Constraints \\ \hline
+  $1$   & $50$       & $N \leq 200$, $M \leq 200$ \\ \hline
+  $2$   & $50$       & No additional constraints \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+Explanation of sample 1: she has missed all downward arrows except one.
+
+Explanation of sample 2: she has missed the middle arrow twice.
+
+Explanation of sample 3: she misses no arrows.

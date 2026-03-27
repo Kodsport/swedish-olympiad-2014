@@ -1,0 +1,32 @@
+\problemname{The Standing Desk}
+Anna's mom complains that she \emph{sits} too much at the computer every
+day. Well, Anna will fix this. She has decided to
+\emph{stand} up at the computer instead!
+
+But the computer screen is too high up! Anna needs to come up exactly
+$x$ centimeters for ergonomic reasons. She has $n$ plates to help her. By placing
+a number of them under each foot, she can come up exactly $x$ centimeters.
+The plates under the right foot must thus have a total height of $x$ centimeters, and the plates under the left foot must
+also have a total height of $x$ centimeters. What is the minimum total number of plates she needs?
+
+\section*{Input}
+
+First comes a line with the numbers $x$ and $n$ ($10 \leq x \leq 100$, $2 \leq n \leq
+20$), how many centimeters Anna must place under each foot and
+the number of plates, respectively.
+
+Then comes a line with $n$ integers $h_i$ ($1 \leq h_i \leq 100$). There will always be
+a solution.
+
+\section*{Output}
+To make it harder to guess the correct answer, you should output two integers $n_1$ and $n_2$,
+the number of plates under each foot. Output the smaller number first, i.e. ensure that $n_1\leq n_2$.
+If there are multiple solutions where the total number of plates is the same, you may choose any of them.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $30$        & $n \leq 12$ \\ \hline 
+  $2$    & $70$        & No additional constraints. \\ \hline 
+\end{tabular}

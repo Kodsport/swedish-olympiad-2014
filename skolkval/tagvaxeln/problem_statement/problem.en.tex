@@ -1,0 +1,37 @@
+\problemname{The Train Switch}
+Växelholm is a very small town located far out in the countryside. It actually consists of only
+a single building --- Växelholm's train station. The town also has only one resident, namely the train station's
+manager, Lokas. 
+
+Lokas's job primarily involves operating the station's manual train switch, so that the two commuter trains
+that pass through the town go in the right direction. The trains run periodically with $n$ and $m$ minutes
+between departures respectively, with the first departure $n$ and $m$ minutes \textbf{after midnight}. The trains thus depart from the station
+in the same direction but then go onto two different tracks, which are split by a switch.
+
+Now Lokas's employer JS, Järnvägarnas Stat, has decided that Lokas will be paid based on how many
+times he has to change the switch in a day. They now wonder how many times Lokas has to change the switch
+during a full day (i.e. 1440 minutes). Trains depart only during the minutes 00:00 to 23:59. 
+
+Lokas must change the switch according to the rules:
+\begin{enumerate}
+\item If a train is about to depart, and the switch is set incorrectly, Lokas must change the switch to the correct track.
+\item If both trains are departing at the same minute, the train whose track the switch is currently set to departs first, and then Lokas must change the switch to the other train's track.
+\end{enumerate}
+
+Initially, the switch is set to the track of the train that departs first. 
+
+Write a program that computes how many times Lokas must change the switch during a full day.
+
+\section*{Input}
+The first line contains two integers $n$ and $m$ ($1 \leq n, m \leq 1399, n \not= m$), the periods of the trains' departures given in minutes.
+
+\section*{Output}
+Output an integer, the minimum number of times Lokas must change the switch.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $30$        & Two trains never arrive at the same time \\ \hline 
+  $2$    & $70$        & No additional constraints. \\ \hline 
+\end{tabular}

@@ -1,0 +1,35 @@
+\problemname{Robber's Language}
+In the Robber's language, text is translated by replacing every consonant $x$ with $x$\texttt{o}$x$, while all vowels are left unchanged.
+For example, \texttt{hej} is translated to \texttt{hohejoj}, \texttt{moo} to \texttt{momoo}, and \texttt{ojoj} to \texttt{ojojojoj}.
+
+Oskar has just learned the Robber's language, but sometimes forgets to transform certain consonants. Oskar thus only transforms a \emph{subset} of the consonants in the manner described above.
+You will be given an original text and a potential translation that Oskar has made. You should determine whether it is possible that Oskar translated the first string into the second according to the description above.
+
+If Oskar had written \texttt{hejoj}, the original text could for example have been \texttt{hej} or \texttt{hejoj}.
+For clarity, we define the following letters as vowels: \texttt{a,e,i,o,u,y}, and all other letters are consonants.
+
+\section*{Input}
+The first line contains the word that we wonder if it could have been the original text. The second line contains a word that Oskar has written. Both words contain at least one character and only characters \texttt{a-z} in lowercase. No string is longer than 1000 characters.
+
+\section*{Output}
+The output should consist of a single word: \texttt{ja} if it is possible that the second word is a translation of the first, otherwise \texttt{nej}.
+The answer should thus be \texttt{ja} if and only if it is possible to choose some subset of the consonants in the first word and apply the Robber's language transform to get the second word.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$        & The strings are at most 20 characters long \\ \hline 
+  $2$    & $30$        & The strings are at most 100 characters long \\ \hline
+  $3$    & $50$        & No additional constraints. \\ \hline 
+\end{tabular}
+
+\section*{Explanation of Samples}
+Explanation of sample 1: it does not matter which consonant Oskar chooses to apply the Robber's language transform to --- as long as
+he chooses exactly one of the \texttt{j}'s. Say Oskar forgot to transform all \texttt{j}'s except the first --- then \texttt{ojojoj} becomes \texttt{ojojojoj}. The answer is thus ``\texttt{ja}''.
+
+Explanation of sample 2: it is impossible to transform the first string into the second. One way to show this is to observe that in the first string there are two \texttt{j}'s next to each other, which means there will always be two \texttt{j}'s next to each other. Thus it is not possible to transform the first string into the second, and the answer is ``\texttt{nej}''.
